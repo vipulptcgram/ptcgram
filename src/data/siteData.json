@@ -1,0 +1,616 @@
+{
+  "company": {
+    "name": "PTCGRAM PVT LTD",
+    "tagline": "IDEA. PROFIT. FUTURE.",
+    "motto": "Big or Small, We Trade All",
+    "years": "15+",
+    "founded": "2009",
+    "about": "PTC Gram Pvt Ltd is a free enterprise, leading distributor of specialty chemicals. Our diversified distribution channels, industry expertise and comprehensive product portfolio enables us to develop strong, long term relationships with all our esteemed clients.",
+    "mission": "Our core belief is to value relationships, earning customers for life, treating suppliers as long term partners and dealing with each other with candor and respect.",
+    "contact": {
+      "address": "Office no. 322, Padmi Bai Tower, besides Raut Arcade, opposite Virar railway Subway, Virar(E)-401303, Palghar, Mumbai, India.",
+      "email": "sales.ptcgram@gmail.com",
+      "phone": "+91 97-10-879-879"
+    }
+  },
+  "stats": [
+    { "value": "15+", "label": "Years in Industry" },
+    { "value": "500+", "label": "Products Handled" },
+    { "value": "1000+", "label": "Clients Served" },
+    { "value": "50+", "label": "Industry Partners" }
+  ],
+  "categories": [
+    {
+      "id": "solvents",
+      "slug": "/solvents",
+      "name": "Solvents",
+      "headline": "Industrial-Grade Solvents",
+      "description": "Industrial chemicals capable of dissolving, suspending or extracting other materials. Used across textiles, pharma, paint and manufacturing industries.",
+      "color": "#1a3a6b",
+      "products": [
+        {
+          "id": 1, "name": "Acetic Acid", "cas": "64-19-7", "purity": "99.5%",
+          "description": "Colorless liquid with a pungent smell, widely used as a solvent and chemical reagent in textiles and pharmaceuticals.",
+          "longDescription": "Acetic acid (CH₃COOH) is a colourless organic compound that gives vinegar its characteristic odour and flavour. In industry, glacial acetic acid (99%+) is used as a solvent, reagent and feedstock in the production of vinyl acetate, acetic anhydride, and acetate esters. It is a critical raw material in the textile and pharmaceutical industries.",
+          "applications": ["Textile", "Food", "Pharma"],
+          "industries": ["Textile Manufacturing", "Pharmaceutical", "Food Processing", "Chemical Synthesis", "Plastics"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "CH₃COOH" },
+            { "label": "Molecular Weight", "value": "60.05 g/mol" },
+            { "label": "Boiling Point", "value": "118.1°C" },
+            { "label": "Melting Point", "value": "16.6°C" },
+            { "label": "Density", "value": "1.049 g/cm³" },
+            { "label": "Purity", "value": "99.5% min" },
+            { "label": "Appearance", "value": "Colourless liquid" },
+            { "label": "Odour", "value": "Pungent, vinegar-like" }
+          ],
+          "packaging": ["30 kg HDPE Drum", "50 kg HDPE Drum", "200 L MS Drum", "Bulk Tanker"],
+          "storage": "Store in a cool, dry, well-ventilated area. Keep away from oxidising agents and direct sunlight. Use corrosion-resistant containers.",
+          "safety": "Corrosive. Wear PPE including acid-resistant gloves, safety goggles and lab coat. Keep away from flames.",
+          "grade": "Industrial / Technical Grade"
+        },
+        {
+          "id": 2, "name": "Acetone", "cas": "67-64-1", "purity": "99.5%",
+          "description": "A versatile solvent used in cleaning, thinning, and as a key chemical building block in manufacturing.",
+          "longDescription": "Acetone (CH₃COCH₃) is the simplest and most important ketone. It is a colourless, volatile, flammable liquid with a characteristic sweet odour. Acetone is miscible with water and most organic solvents. It is primarily used as a solvent in pharmaceuticals, cosmetics, paints and coatings, and as a feedstock for the production of methyl methacrylate and bisphenol A.",
+          "applications": ["Cosmetics", "Pharma", "Plastics"],
+          "industries": ["Cosmetics & Personal Care", "Pharmaceutical", "Paint & Coatings", "Plastic Manufacturing", "Electronics Cleaning"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "CH₃COCH₃" },
+            { "label": "Molecular Weight", "value": "58.08 g/mol" },
+            { "label": "Boiling Point", "value": "56.05°C" },
+            { "label": "Melting Point", "value": "-94.7°C" },
+            { "label": "Density", "value": "0.791 g/cm³" },
+            { "label": "Purity", "value": "99.5% min" },
+            { "label": "Appearance", "value": "Colourless liquid" },
+            { "label": "Flash Point", "value": "-20°C" }
+          ],
+          "packaging": ["25 L HDPE Jerry Can", "200 L MS Drum", "1000 L IBC", "Bulk Tanker"],
+          "storage": "Store in a cool, well-ventilated area away from heat, sparks and open flames. Keep container tightly closed.",
+          "safety": "Highly flammable. Keep away from ignition sources. Use in well-ventilated areas. Wear appropriate PPE.",
+          "grade": "Industrial / LR Grade"
+        },
+        {
+          "id": 3, "name": "Benzene", "cas": "71-43-2", "purity": "99%",
+          "description": "Aromatic hydrocarbon widely used in chemical synthesis, rubber, lubricants and as an industrial solvent.",
+          "longDescription": "Benzene (C₆H₆) is a naturally occurring aromatic hydrocarbon component of crude oil. It is a colourless, highly flammable liquid with a sweet odour. Benzene is a key industrial solvent and a precursor in the production of polystyrene, nylon, synthetic fibres, rubber, lubricants, dyes, and pharmaceuticals. It is also used as an additive in petrol.",
+          "applications": ["Rubber", "Lubricants", "Dyes"],
+          "industries": ["Rubber & Tyres", "Lubricant Manufacturing", "Dye & Pigment", "Pharmaceutical", "Petrochemical"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "C₆H₆" },
+            { "label": "Molecular Weight", "value": "78.11 g/mol" },
+            { "label": "Boiling Point", "value": "80.1°C" },
+            { "label": "Melting Point", "value": "5.5°C" },
+            { "label": "Density", "value": "0.879 g/cm³" },
+            { "label": "Purity", "value": "99% min" },
+            { "label": "Appearance", "value": "Colourless liquid" },
+            { "label": "Flash Point", "value": "-11°C" }
+          ],
+          "packaging": ["200 L MS Drum", "Bulk Tanker"],
+          "storage": "Store in a cool, well-ventilated area away from heat and ignition sources. Handle with extreme care.",
+          "safety": "Highly flammable and carcinogenic. Wear full PPE. Avoid prolonged inhalation. Use in fume hood.",
+          "grade": "Industrial Grade"
+        },
+        {
+          "id": 4, "name": "Cyclohexane", "cas": "110-82-7", "purity": "99%",
+          "description": "Cycloalkane primarily used as a nonpolar solvent and key feedstock in nylon manufacturing.",
+          "longDescription": "Cyclohexane (C₆H₁₂) is a cycloalkane with the molecular formula C₆H₁₂. It is a colourless, flammable liquid with a distinctive detergent-like odour. Cyclohexane is mainly used as a nonpolar solvent in chemical and resin industries, and as a raw material for the production of cyclohexanol and cyclohexanone, which are precursors to nylon-6 and nylon-6,6.",
+          "applications": ["Paint", "Varnish", "Nylon"],
+          "industries": ["Nylon Manufacturing", "Paint & Varnish", "Resin Production", "Solvent Applications", "Chemical Synthesis"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "C₆H₁₂" },
+            { "label": "Molecular Weight", "value": "84.16 g/mol" },
+            { "label": "Boiling Point", "value": "80.7°C" },
+            { "label": "Melting Point", "value": "6.6°C" },
+            { "label": "Density", "value": "0.779 g/cm³" },
+            { "label": "Purity", "value": "99% min" },
+            { "label": "Appearance", "value": "Colourless liquid" },
+            { "label": "Flash Point", "value": "-20°C" }
+          ],
+          "packaging": ["200 L MS Drum", "1000 L IBC", "Bulk Tanker"],
+          "storage": "Store away from heat, sparks and open flames. Keep container tightly sealed.",
+          "safety": "Highly flammable. May cause drowsiness or dizziness. Wear appropriate PPE.",
+          "grade": "Industrial Grade"
+        },
+        {
+          "id": 5, "name": "Ethanol", "cas": "64-17-5", "purity": "99.9%",
+          "description": "A simple alcohol widely used as a solvent, antiseptic, and in pharmaceutical and beverage production.",
+          "longDescription": "Ethanol (C₂H₅OH), also called ethyl alcohol, is a colourless, volatile, flammable liquid. It is the principal type of alcohol found in alcoholic beverages and is produced by fermentation of sugars or by petrochemical processes. Industrial ethanol is widely used as a solvent, antiseptic, disinfectant, and as a chemical intermediate in pharmaceuticals, cosmetics and food processing.",
+          "applications": ["Pharma", "Beverages", "Cosmetics"],
+          "industries": ["Pharmaceutical", "Cosmetics & Personal Care", "Food & Beverage", "Sanitizer Manufacturing", "Chemical Industry"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "C₂H₅OH" },
+            { "label": "Molecular Weight", "value": "46.07 g/mol" },
+            { "label": "Boiling Point", "value": "78.4°C" },
+            { "label": "Density", "value": "0.789 g/cm³" },
+            { "label": "Purity", "value": "99.9% min (Absolute)" },
+            { "label": "Appearance", "value": "Colourless liquid" },
+            { "label": "Flash Point", "value": "13°C" },
+            { "label": "Water Content", "value": "≤0.1%" }
+          ],
+          "packaging": ["5 L HDPE Can", "25 L HDPE Jerry Can", "200 L MS Drum", "Bulk Tanker"],
+          "storage": "Store in a cool, well-ventilated area. Keep away from heat, sparks and open flames.",
+          "safety": "Flammable. Keep away from ignition sources. Prolonged exposure may cause health issues.",
+          "grade": "Absolute / Anhydrous Grade"
+        },
+        {
+          "id": 6, "name": "Methanol", "cas": "67-56-1", "purity": "99.8%",
+          "description": "The simplest alcohol, used extensively as a fuel, solvent and antifreeze in industrial processes.",
+          "longDescription": "Methanol (CH₃OH), also known as methyl alcohol or wood alcohol, is the simplest alcohol. It is a light, colourless, volatile and highly flammable liquid. Methanol is used as a precursor to other commodity chemicals, as a fuel additive, as a solvent, and in antifreeze formulations. It is also a key feedstock for the production of formaldehyde, acetic acid, and MTBE.",
+          "applications": ["Fuel", "Chemical", "Antifreeze"],
+          "industries": ["Fuel & Energy", "Chemical Synthesis", "Antifreeze Manufacturing", "Paint & Resin", "Formaldehyde Production"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "CH₃OH" },
+            { "label": "Molecular Weight", "value": "32.04 g/mol" },
+            { "label": "Boiling Point", "value": "64.7°C" },
+            { "label": "Density", "value": "0.792 g/cm³" },
+            { "label": "Purity", "value": "99.8% min" },
+            { "label": "Appearance", "value": "Colourless liquid" },
+            { "label": "Flash Point", "value": "11°C" },
+            { "label": "Water Content", "value": "≤0.1%" }
+          ],
+          "packaging": ["200 L MS Drum", "1000 L IBC", "Bulk Tanker"],
+          "storage": "Store in a cool, well-ventilated area. Keep away from heat and ignition sources.",
+          "safety": "Highly toxic if ingested. Flammable. Wear full PPE. Do not use near open flames.",
+          "grade": "Industrial Grade"
+        },
+        {
+          "id": 7, "name": "Toluene", "cas": "108-88-3", "purity": "99%",
+          "description": "Aromatic hydrocarbon solvent used in paints, coatings, adhesives and fuel blending.",
+          "longDescription": "Toluene (C₇H₈), also known as toluol or methylbenzene, is a colourless, water-insoluble liquid with a smell associated with paint thinners. It is widely used as an industrial feedstock and solvent. In the petrochemical industry, toluene is used as a blending component in petrol, and as a precursor in the synthesis of benzene, benzoic acid, and TNT.",
+          "applications": ["Paints", "Adhesives", "Fuel"],
+          "industries": ["Paint & Coatings", "Adhesive Manufacturing", "Petrochemical", "Pharmaceutical", "Printing Inks"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "C₇H₈" },
+            { "label": "Molecular Weight", "value": "92.14 g/mol" },
+            { "label": "Boiling Point", "value": "110.6°C" },
+            { "label": "Density", "value": "0.867 g/cm³" },
+            { "label": "Purity", "value": "99% min" },
+            { "label": "Appearance", "value": "Colourless liquid" },
+            { "label": "Flash Point", "value": "4°C" },
+            { "label": "Water Content", "value": "≤0.05%" }
+          ],
+          "packaging": ["200 L MS Drum", "1000 L IBC", "Bulk Tanker"],
+          "storage": "Store in a cool, well-ventilated area. Keep away from heat, sparks and oxidising agents.",
+          "safety": "Flammable. May cause drowsiness. Avoid prolonged inhalation. Wear appropriate PPE.",
+          "grade": "Industrial Grade"
+        },
+        {
+          "id": 8, "name": "Xylene", "cas": "1330-20-7", "purity": "98.5%",
+          "description": "Mixed isomers of dimethylbenzene used across printing, rubber and leather industries.",
+          "longDescription": "Xylene (C₈H₁₀) is a name used to refer to any of three isomers of dimethylbenzene, or to a combination of them. All three are colourless, flammable liquids and are produced by the catalytic reforming and by coal carbonisation in the manufacture of coke fuel. Mixed xylene is widely used as a solvent in the printing, rubber and leather industries.",
+          "applications": ["Printing", "Rubber", "Leather"],
+          "industries": ["Printing & Publishing", "Rubber Manufacturing", "Leather Processing", "Paint & Coatings", "Chemical Synthesis"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "C₈H₁₀" },
+            { "label": "Molecular Weight", "value": "106.16 g/mol" },
+            { "label": "Boiling Point", "value": "137–140°C" },
+            { "label": "Density", "value": "0.864 g/cm³" },
+            { "label": "Purity", "value": "98.5% min" },
+            { "label": "Appearance", "value": "Colourless liquid" },
+            { "label": "Flash Point", "value": "27–32°C" },
+            { "label": "Grade", "value": "Mixed Isomers" }
+          ],
+          "packaging": ["200 L MS Drum", "1000 L IBC", "Bulk Tanker"],
+          "storage": "Store in a cool, dry and well-ventilated place. Keep away from heat and ignition sources.",
+          "safety": "Flammable. Irritant to skin and eyes. Wear gloves, safety glasses and work in ventilated area.",
+          "grade": "Industrial Grade"
+        }
+      ]
+    },
+    {
+      "id": "acids",
+      "slug": "/acids",
+      "name": "Acids",
+      "headline": "High-Purity Industrial Acids",
+      "description": "High purity acids for industrial, pharmaceutical, food processing, and research applications. Handled with full safety compliance.",
+      "color": "#1a3a6b",
+      "products": [
+        {
+          "id": 9, "name": "Hydrochloric Acid", "cas": "7647-01-0", "purity": "35%",
+          "description": "A strong acid used in steel pickling, pH control, and a wide range of chemical synthesis applications.",
+          "longDescription": "Hydrochloric acid (HCl) is a colourless, pungent solution of hydrogen chloride in water. It is a highly corrosive, strong acid. HCl is used in the production of chlorine compounds, in steel pickling, in pH control, in the processing of leather, and in the food industry for production of gelatin. It is also used in building cleaning and household products.",
+          "applications": ["Steel", "Food", "Chemical"],
+          "industries": ["Steel & Metal Processing", "Food Industry", "Chemical Manufacturing", "Water Treatment", "Leather Processing"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "HCl (aq)" },
+            { "label": "Molecular Weight", "value": "36.46 g/mol" },
+            { "label": "Concentration", "value": "35% w/w" },
+            { "label": "Density", "value": "1.175 g/cm³" },
+            { "label": "Boiling Point", "value": "50.5°C (azeotrope)" },
+            { "label": "Appearance", "value": "Colourless to pale yellow liquid" },
+            { "label": "Odour", "value": "Pungent, acrid" },
+            { "label": "pH", "value": "<1" }
+          ],
+          "packaging": ["35 kg HDPE Carboy", "50 kg HDPE Drum", "250 kg HDPE Drum", "Bulk Tanker"],
+          "storage": "Store in a cool, ventilated area in acid-resistant containers. Keep away from alkalis and metals.",
+          "safety": "Highly corrosive. Causes severe burns. Wear acid-resistant PPE, face shield and rubber gloves.",
+          "grade": "Industrial / Technical Grade"
+        },
+        {
+          "id": 10, "name": "Sulfuric Acid", "cas": "7664-93-9", "purity": "98%",
+          "description": "The most commonly used industrial acid, vital for fertilizer production and petroleum refining.",
+          "longDescription": "Sulfuric acid (H₂SO₄) is a highly corrosive strong mineral acid with the molecular formula H₂SO₄. It is colourless to slightly yellow viscous liquid. As the king of chemicals, sulfuric acid is the most widely used chemical in industry. It plays a crucial role in the production of fertilizers (especially superphosphate), explosives, dyes, detergents, pharmaceuticals, petroleum refining, and metal processing.",
+          "applications": ["Fertilizer", "Batteries", "Refining"],
+          "industries": ["Fertilizer Production", "Battery Manufacturing", "Petroleum Refining", "Chemical Synthesis", "Metal Processing"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "H₂SO₄" },
+            { "label": "Molecular Weight", "value": "98.08 g/mol" },
+            { "label": "Concentration", "value": "98% w/w" },
+            { "label": "Density", "value": "1.84 g/cm³" },
+            { "label": "Boiling Point", "value": "337°C" },
+            { "label": "Appearance", "value": "Colourless oily liquid" },
+            { "label": "Flash Point", "value": "None" },
+            { "label": "pH", "value": "<1 (dilute)" }
+          ],
+          "packaging": ["50 kg HDPE Drum", "200 kg HDPE Drum", "Bulk Tanker"],
+          "storage": "Store in a cool, dry and well-ventilated area in acid-proof containers. Separate from alkalis and organic materials.",
+          "safety": "Extremely corrosive and exothermic when diluted. Wear full acid-resistant PPE. Add acid to water, never water to acid.",
+          "grade": "Industrial / Commercial Grade"
+        },
+        {
+          "id": 11, "name": "Nitric Acid", "cas": "7697-37-2", "purity": "68%",
+          "description": "A powerful oxidizing acid used in nitration reactions, explosives manufacturing and metal etching.",
+          "longDescription": "Nitric acid (HNO₃) is a highly corrosive mineral acid. The pure compound is colourless, but older samples tend to acquire a yellow cast due to decomposition into oxides of nitrogen and water. Nitric acid is used in the production of ammonium nitrate for fertilisers and explosives, and for the synthesis of dyes, drugs and plastics. It is also used for metal etching and cleaning.",
+          "applications": ["Explosives", "Fertilizer", "Etchants"],
+          "industries": ["Fertilizer & Explosives", "Metal Etching", "Pharmaceutical Synthesis", "Dye Manufacturing", "Electronics"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "HNO₃" },
+            { "label": "Molecular Weight", "value": "63.01 g/mol" },
+            { "label": "Concentration", "value": "68% w/w" },
+            { "label": "Density", "value": "1.40 g/cm³" },
+            { "label": "Boiling Point", "value": "83°C (68% azeotrope)" },
+            { "label": "Appearance", "value": "Colourless to pale yellow liquid" },
+            { "label": "Odour", "value": "Pungent, suffocating" },
+            { "label": "pH", "value": "<1" }
+          ],
+          "packaging": ["35 kg HDPE Carboy", "50 kg HDPE Drum", "250 kg HDPE Drum"],
+          "storage": "Store in a cool, ventilated area. Keep away from organic materials, flammables and reducing agents.",
+          "safety": "Highly corrosive and oxidising. Can cause severe burns and fire. Wear full acid-resistant PPE.",
+          "grade": "Industrial / Technical Grade"
+        },
+        {
+          "id": 12, "name": "Phosphoric Acid", "cas": "7664-38-2", "purity": "85%",
+          "description": "A weak acid used in food processing, rust removal, dental treatments and fertilizer production.",
+          "longDescription": "Phosphoric acid (H₃PO₄), also called orthophosphoric acid, is a weak acid that consists of phosphorus oxoacid. It is a colourless, odourless, and non-volatile syrupy liquid. Food-grade phosphoric acid is used as an acidity regulator in food products. Industrial grade is used in fertilizer production, rust removal, metal treatment, and as a catalyst.",
+          "applications": ["Food", "Dental", "Rust Removal"],
+          "industries": ["Food & Beverage", "Fertilizer Production", "Metal Treatment", "Dental Products", "Water Treatment"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "H₃PO₄" },
+            { "label": "Molecular Weight", "value": "98.00 g/mol" },
+            { "label": "Concentration", "value": "85% w/w" },
+            { "label": "Density", "value": "1.685 g/cm³" },
+            { "label": "Boiling Point", "value": "158°C" },
+            { "label": "Appearance", "value": "Colourless viscous liquid" },
+            { "label": "Odour", "value": "Odourless" },
+            { "label": "pH", "value": "1.5 (1% solution)" }
+          ],
+          "packaging": ["35 kg HDPE Carboy", "250 kg HDPE Drum", "Bulk Tanker"],
+          "storage": "Store in a cool, dry area. Avoid contact with metals. Keep containers tightly closed.",
+          "safety": "Corrosive. Causes skin and eye irritation. Wear rubber gloves and safety glasses.",
+          "grade": "Industrial / Food Grade Available"
+        },
+        {
+          "id": 13, "name": "Formic Acid", "cas": "64-18-6", "purity": "85%",
+          "description": "The simplest carboxylic acid, widely used in textile dyeing, leather tanning and rubber processing.",
+          "longDescription": "Formic acid (HCOOH), also called methanoic acid, is the simplest carboxylic acid. It is an important intermediate in chemical synthesis and occurs naturally, most notably in the venom of ants. In industry, formic acid is used in textile dyeing and finishing, leather tanning, rubber coagulation, and as a preservative and antibacterial agent in livestock feed.",
+          "applications": ["Textile", "Leather", "Rubber"],
+          "industries": ["Textile & Dyeing", "Leather Tanning", "Rubber Coagulation", "Agriculture", "Chemical Synthesis"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "HCOOH" },
+            { "label": "Molecular Weight", "value": "46.03 g/mol" },
+            { "label": "Concentration", "value": "85% w/w" },
+            { "label": "Density", "value": "1.20 g/cm³" },
+            { "label": "Boiling Point", "value": "101°C" },
+            { "label": "Appearance", "value": "Colourless fuming liquid" },
+            { "label": "Odour", "value": "Pungent" },
+            { "label": "Flash Point", "value": "69°C" }
+          ],
+          "packaging": ["35 kg HDPE Carboy", "250 kg HDPE Drum", "Bulk Tanker"],
+          "storage": "Store in a cool, dry, well-ventilated area. Keep away from strong oxidisers and bases.",
+          "safety": "Corrosive and flammable. Causes severe burns. Wear acid-resistant PPE and work in ventilated area.",
+          "grade": "Industrial / Technical Grade"
+        },
+        {
+          "id": 14, "name": "Citric Acid", "cas": "77-92-9", "purity": "99%",
+          "description": "A natural weak acid from citrus fruits, used as a food preservative, flavor enhancer and cleaning agent.",
+          "longDescription": "Citric acid (C₆H₈O₇) is a weak organic acid and a natural preservative and conservative. It is found naturally in citrus fruits. In biochemistry, it is an intermediate in the citric acid cycle. As a food additive, citric acid is used as a flavouring and preservative in food and beverages. In pharmaceutical and personal care products, it is used to adjust pH and as an antioxidant.",
+          "applications": ["Food", "Pharma", "Cleaning"],
+          "industries": ["Food & Beverage", "Pharmaceutical", "Cleaning Products", "Cosmetics", "Water Treatment"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "C₆H₈O₇" },
+            { "label": "Molecular Weight", "value": "192.12 g/mol" },
+            { "label": "Melting Point", "value": "153–159°C" },
+            { "label": "Purity", "value": "99% min (Anhydrous)" },
+            { "label": "Appearance", "value": "White crystalline powder" },
+            { "label": "Odour", "value": "Odourless" },
+            { "label": "Solubility", "value": "Freely soluble in water" },
+            { "label": "pH", "value": "2.2 (1% solution)" }
+          ],
+          "packaging": ["25 kg PP Bag", "50 kg HDPE Drum", "500 kg Jumbo Bag"],
+          "storage": "Store in a cool, dry place away from moisture and incompatible materials. Keep container tightly closed.",
+          "safety": "Mildly irritating to eyes and skin in concentrated form. Wear safety glasses and gloves.",
+          "grade": "Food Grade / Industrial Grade"
+        }
+      ]
+    },
+    {
+      "id": "industrial",
+      "slug": "/industrial",
+      "name": "Industrial Chemicals",
+      "headline": "Commercial Industrial Chemicals",
+      "description": "A wide range of commercial industrial chemicals for large-scale manufacturing, processing and treatment operations.",
+      "color": "#1a3a6b",
+      "products": [
+        {
+          "id": 15, "name": "Caustic Soda", "cas": "1310-73-2", "purity": "99%",
+          "description": "Sodium hydroxide, a fundamental base chemical used in paper making, textile processing and soap manufacturing.",
+          "longDescription": "Caustic soda (NaOH), also known as sodium hydroxide or lye, is a white solid ionic compound. It is highly soluble in water and readily absorbs moisture and carbon dioxide from the air. It is one of the most widely used industrial chemicals and is critical for the production of paper, textiles, drinking water, soaps and detergents, and as a cleaning agent.",
+          "applications": ["Paper", "Textile", "Soap"],
+          "industries": ["Paper & Pulp", "Textile Processing", "Soap & Detergent", "Water Treatment", "Chemical Manufacturing"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "NaOH" },
+            { "label": "Molecular Weight", "value": "40.00 g/mol" },
+            { "label": "Melting Point", "value": "318°C" },
+            { "label": "Purity", "value": "99% min (Flakes)" },
+            { "label": "Appearance", "value": "White flakes / pellets" },
+            { "label": "Solubility", "value": "Highly soluble in water" },
+            { "label": "pH", "value": ">13 (solution)" },
+            { "label": "Form", "value": "Flakes / Pellets / Liquid" }
+          ],
+          "packaging": ["25 kg PP Bag", "50 kg HDPE Drum", "Liquid Bulk Tanker"],
+          "storage": "Store in a dry, cool area. Keep away from moisture, acids, and organic materials. Use airtight containers.",
+          "safety": "Highly corrosive. Causes severe chemical burns. Wear full PPE including face shield and chemical-resistant gloves.",
+          "grade": "Industrial Grade"
+        },
+        {
+          "id": 16, "name": "Sodium Carbonate", "cas": "497-19-8", "purity": "99.5%",
+          "description": "Soda ash used in glass manufacturing, water treatment and the production of detergents and cleaning agents.",
+          "longDescription": "Sodium carbonate (Na₂CO₃), commonly called soda ash or washing soda, is the water-soluble sodium salt of carbonic acid. It is a white, odourless powder or granules that absorbs moisture from the air. Soda ash is one of the most important inorganic chemicals and is used primarily in the manufacture of glass, detergents, paper, and as a water softener.",
+          "applications": ["Glass", "Detergents", "Water"],
+          "industries": ["Glass Manufacturing", "Detergent Production", "Water Softening", "Paper & Pulp", "Chemical Industry"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "Na₂CO₃" },
+            { "label": "Molecular Weight", "value": "105.99 g/mol" },
+            { "label": "Purity", "value": "99.5% min (Anhydrous)" },
+            { "label": "Bulk Density", "value": "1.0–1.1 g/cm³" },
+            { "label": "Appearance", "value": "White granular powder" },
+            { "label": "Odour", "value": "Odourless" },
+            { "label": "pH", "value": "11.6 (1% solution)" },
+            { "label": "Moisture", "value": "≤0.2%" }
+          ],
+          "packaging": ["25 kg PP Bag", "50 kg HDPE Drum", "500 kg Jumbo Bag"],
+          "storage": "Store in a dry, cool place. Keep away from moisture and acids. Store in sealed containers.",
+          "safety": "Mildly irritating to eyes and skin. Wear safety glasses and gloves when handling in large quantities.",
+          "grade": "Dense / Light Soda Ash"
+        },
+        {
+          "id": 17, "name": "Hydrogen Peroxide", "cas": "7722-84-1", "purity": "50%",
+          "description": "A strong oxidizing agent used for bleaching, disinfection and as a chemical synthesis intermediate.",
+          "longDescription": "Hydrogen peroxide (H₂O₂) is a pale blue liquid in its pure form, but appears colourless in dilute solution. It is the simplest peroxide and is used as an oxidiser, bleaching agent and antiseptic. Industrial-grade hydrogen peroxide is used in bleaching textiles, paper and hair, as a disinfectant and steriliser, and in the manufacture of various chemicals.",
+          "applications": ["Bleaching", "Pharma", "Water"],
+          "industries": ["Textile Bleaching", "Paper Bleaching", "Water Treatment", "Pharmaceutical", "Food Processing"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "H₂O₂" },
+            { "label": "Molecular Weight", "value": "34.01 g/mol" },
+            { "label": "Concentration", "value": "50% w/w" },
+            { "label": "Density", "value": "1.20 g/cm³" },
+            { "label": "Boiling Point", "value": "114°C" },
+            { "label": "Appearance", "value": "Colourless liquid" },
+            { "label": "Odour", "value": "Slightly sharp" },
+            { "label": "Stability", "value": "Stabilised grade" }
+          ],
+          "packaging": ["30 kg HDPE Drum", "50 kg HDPE Drum", "250 kg HDPE Drum", "1000 L IBC"],
+          "storage": "Store in a cool, shaded area. Keep away from organic materials, metals and heat. Use vented containers.",
+          "safety": "Strong oxidiser. Corrosive at high concentrations. Wear full PPE. Avoid contamination.",
+          "grade": "Industrial / Stabilised Grade"
+        },
+        {
+          "id": 18, "name": "Ammonia Solution", "cas": "7664-41-7", "purity": "25%",
+          "description": "Aqueous ammonia used in fertilizer production, industrial cleaning and refrigeration systems.",
+          "longDescription": "Ammonia solution (NH₄OH), also known as ammonium hydroxide or aqueous ammonia, is a solution of ammonia gas in water. It is a colourless liquid with a characteristic sharp odour. It is widely used in industrial cleaning, fertilizer manufacture, the production of nitrogen-containing compounds, refrigeration systems, and as a household cleaner in diluted form.",
+          "applications": ["Fertilizer", "Cleaning", "Refrigeration"],
+          "industries": ["Fertilizer Production", "Industrial Cleaning", "Refrigeration", "Chemical Manufacturing", "Textile Processing"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "NH₃ (aq)" },
+            { "label": "Molecular Weight", "value": "17.03 g/mol (NH₃)" },
+            { "label": "Concentration", "value": "25% w/w" },
+            { "label": "Density", "value": "0.91 g/cm³" },
+            { "label": "Boiling Point", "value": "38°C" },
+            { "label": "Appearance", "value": "Colourless liquid" },
+            { "label": "Odour", "value": "Strong, pungent" },
+            { "label": "pH", "value": "11.7" }
+          ],
+          "packaging": ["50 kg HDPE Drum", "200 kg HDPE Drum", "Bulk Tanker"],
+          "storage": "Store in a cool, well-ventilated area. Keep away from acids and strong oxidisers. Use sealed containers.",
+          "safety": "Corrosive and toxic by inhalation. Wear respirator and full PPE. Work in well-ventilated areas.",
+          "grade": "Industrial Grade"
+        },
+        {
+          "id": 19, "name": "Calcium Carbonate", "cas": "471-34-1", "purity": "98%",
+          "description": "A natural mineral used extensively in construction, agriculture, food processing and paper production.",
+          "longDescription": "Calcium carbonate (CaCO₃) is a common substance found in rocks in the form of calcite and aragonite. It is the main component of shells of marine organisms, snails, and eggshells. Commercially, calcium carbonate is used as a filler in plastics, paints, and paper; as a soil conditioner and animal feed supplement; in construction as a building material; and in the food and pharmaceutical industries.",
+          "applications": ["Construction", "Agriculture", "Food"],
+          "industries": ["Construction & Building", "Agriculture & Soil", "Plastics & Rubber", "Paper Manufacturing", "Food & Pharma"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "CaCO₃" },
+            { "label": "Molecular Weight", "value": "100.09 g/mol" },
+            { "label": "Purity", "value": "98% min" },
+            { "label": "Bulk Density", "value": "1.2–1.5 g/cm³" },
+            { "label": "Whiteness", "value": "≥95%" },
+            { "label": "Appearance", "value": "White powder" },
+            { "label": "Moisture", "value": "≤0.3%" },
+            { "label": "Mesh Size", "value": "200–400 mesh" }
+          ],
+          "packaging": ["25 kg PP Bag", "50 kg HDPE Drum", "500 kg / 1 MT Jumbo Bag"],
+          "storage": "Store in a cool, dry place away from moisture and acid fumes. Keep in sealed bags.",
+          "safety": "Low hazard material. May cause irritation in dry powder form. Wear dust mask and safety glasses.",
+          "grade": "Light / Heavy / Precipitated Grade"
+        },
+        {
+          "id": 20, "name": "Sodium Chloride", "cas": "7647-14-5", "purity": "99%",
+          "description": "Industrial salt used in food processing, chemical manufacturing, water softening and de-icing.",
+          "longDescription": "Sodium chloride (NaCl), commonly known as salt, is an ionic compound. In its edible form it is commonly known as table salt. Sodium chloride is the salt most responsible for the salinity of seawater and is the main constituent of sea salt. Industrially, it is used in the production of chlorine and sodium hydroxide by electrolysis, for water softening, as a de-icing agent, and in food preservation.",
+          "applications": ["Food", "Chemical", "De-icing"],
+          "industries": ["Food Processing", "Chemical Manufacturing", "Water Softening", "De-icing", "Chlor-Alkali Industry"],
+          "specifications": [
+            { "label": "Chemical Formula", "value": "NaCl" },
+            { "label": "Molecular Weight", "value": "58.44 g/mol" },
+            { "label": "Purity", "value": "99% min" },
+            { "label": "Moisture", "value": "≤0.1%" },
+            { "label": "Appearance", "value": "White crystalline granules" },
+            { "label": "Odour", "value": "Odourless" },
+            { "label": "Bulk Density", "value": "1.0–1.2 g/cm³" },
+            { "label": "Mesh", "value": "Fine / Coarse available" }
+          ],
+          "packaging": ["25 kg PP Bag", "50 kg HDPE Bag", "500 kg / 1 MT Jumbo Bag"],
+          "storage": "Store in a cool, dry place. Keep away from moisture to prevent caking.",
+          "safety": "Generally safe. In large quantities may cause irritation. Use standard hygiene practices.",
+          "grade": "Industrial / Food Grade"
+        }
+      ]
+    },
+    {
+      "id": "household",
+      "slug": "/household",
+      "name": "Household Cleaning",
+      "headline": "Cleaning Concentrates & Fragrances",
+      "description": "Professional-grade concentrated cleaning solutions, essential oils and fragrances for household, commercial and hospitality applications.",
+      "color": "#1a3a6b",
+      "products": [
+        {
+          "id": 21, "name": "Floor Cleaner Concentrate", "cas": "N/A", "purity": "Concentrated",
+          "description": "Professional-grade floor cleaning concentrate effective on all surface types including marble, tiles and wood.",
+          "longDescription": "Our Floor Cleaner Concentrate is a professional-grade, high-performance cleaning formulation designed for all types of floor surfaces. A small quantity mixed with water produces a powerful cleaning solution that cuts through grease, grime and stains effectively. Suitable for marble, granite, ceramic tiles, vitrified tiles, wooden floors and more. Leaves a fresh fragrance after cleaning.",
+          "applications": ["Homes", "Offices", "Hotels"],
+          "industries": ["Housekeeping & Facilities", "Hospitality", "Commercial Cleaning", "Institutional Cleaning", "Retail"],
+          "specifications": [
+            { "label": "Form", "value": "Liquid Concentrate" },
+            { "label": "Colour", "value": "Yellow / Green (varies)" },
+            { "label": "pH", "value": "7–9" },
+            { "label": "Fragrance", "value": "Fresh / Floral" },
+            { "label": "Dilution Ratio", "value": "1:20 to 1:50" },
+            { "label": "Appearance", "value": "Clear to translucent liquid" },
+            { "label": "Flash Point", "value": ">60°C" },
+            { "label": "Shelf Life", "value": "24 months" }
+          ],
+          "packaging": ["1 L Bottle", "5 L HDPE Can", "20 L HDPE Drum", "200 L MS Drum"],
+          "storage": "Store in a cool, dry place away from direct sunlight. Keep away from children. Keep container tightly closed.",
+          "safety": "Avoid contact with eyes. In case of contact, rinse with plenty of water. Keep out of reach of children.",
+          "grade": "Commercial / Industrial Concentrate"
+        },
+        {
+          "id": 22, "name": "Glass Cleaner", "cas": "N/A", "purity": "Ready Mix",
+          "description": "Crystal-clear glass cleaning solution that leaves no streaks or residue on windows, mirrors and glass surfaces.",
+          "longDescription": "Our Glass Cleaner is a ready-to-use solution formulated to deliver sparkling, streak-free cleaning on all glass and mirror surfaces. The advanced formula dissolves fingerprints, smudges, grease and water marks quickly without leaving residue. Suitable for windows, glass doors, mirrors, windshields and glass furniture. Safe for use on tinted glass.",
+          "applications": ["Windows", "Mirrors", "Vehicles"],
+          "industries": ["Housekeeping", "Automotive", "Commercial Cleaning", "Hospitality", "Office Maintenance"],
+          "specifications": [
+            { "label": "Form", "value": "Ready-to-use liquid" },
+            { "label": "Colour", "value": "Blue / Clear" },
+            { "label": "pH", "value": "8–10" },
+            { "label": "Fragrance", "value": "Fresh / Mild" },
+            { "label": "Application", "value": "Spray & Wipe" },
+            { "label": "Streak-Free", "value": "Yes" },
+            { "label": "Flash Point", "value": ">50°C" },
+            { "label": "Shelf Life", "value": "24 months" }
+          ],
+          "packaging": ["500 ml Spray Bottle", "1 L Bottle", "5 L HDPE Can", "20 L HDPE Drum"],
+          "storage": "Store in a cool, dry place away from direct sunlight. Do not freeze.",
+          "safety": "Avoid contact with eyes. Keep away from children. Not for internal consumption.",
+          "grade": "Consumer / Commercial Grade"
+        },
+        {
+          "id": 23, "name": "Lavender Essential Oil", "cas": "8000-28-0", "purity": "100% Pure",
+          "description": "Authentic lavender essential oil for aromatherapy, cosmetic formulation and cleaning product blends.",
+          "longDescription": "Our Lavender Essential Oil is 100% pure, steam-distilled from Lavandula angustifolia plants. It is one of the most versatile and widely used essential oils, known for its calming, relaxing and antibacterial properties. Used in aromatherapy, cosmetic formulations, personal care products, household cleaning blends and perfumery. GC-MS tested for purity and authenticity.",
+          "applications": ["Aromatherapy", "Cosmetics", "Cleaning"],
+          "industries": ["Aromatherapy", "Cosmetics & Personal Care", "Household Products", "Perfumery", "Pharmaceutical"],
+          "specifications": [
+            { "label": "Botanical Name", "value": "Lavandula angustifolia" },
+            { "label": "Extraction Method", "value": "Steam Distillation" },
+            { "label": "Plant Part", "value": "Flowering tops" },
+            { "label": "Purity", "value": "100% Pure, Natural" },
+            { "label": "Colour", "value": "Colourless to pale yellow" },
+            { "label": "Odour", "value": "Fresh, floral, herbaceous" },
+            { "label": "Specific Gravity", "value": "0.877–0.889" },
+            { "label": "Refractive Index", "value": "1.456–1.464" }
+          ],
+          "packaging": ["10 ml Glass Bottle", "100 ml Aluminium Bottle", "500 ml Aluminium Can", "1 kg Aluminium Can"],
+          "storage": "Store in a cool, dark place in an airtight container. Avoid heat and sunlight.",
+          "safety": "For external use only. Dilute before applying to skin. Keep away from eyes and children.",
+          "grade": "Therapeutic / Cosmetic Grade"
+        },
+        {
+          "id": 24, "name": "Dish Wash Liquid", "cas": "N/A", "purity": "Concentrated",
+          "description": "High-foam concentrated dish washing liquid that cuts through grease and food residue effectively.",
+          "longDescription": "Our Dish Wash Liquid is a high-foam, concentrated formulation that efficiently removes grease, oil, food residue and stains from dishes, utensils, pots and pans. A small amount produces rich, long-lasting lather that makes dishwashing quick and easy. Gentle on hands while being tough on grease. Available in lemon, rose and fresh fragrance variants.",
+          "applications": ["Kitchen", "Restaurants", "Hotels"],
+          "industries": ["Food Service", "Hospitality", "Institutional Kitchen", "Domestic", "Catering"],
+          "specifications": [
+            { "label": "Form", "value": "Liquid Concentrate" },
+            { "label": "Active Content", "value": "15–20%" },
+            { "label": "pH", "value": "7–8.5" },
+            { "label": "Colour", "value": "Yellow / Green / Blue" },
+            { "label": "Viscosity", "value": "500–2000 cP" },
+            { "label": "Foam Level", "value": "High" },
+            { "label": "Fragrance", "value": "Lemon / Rose / Fresh" },
+            { "label": "Shelf Life", "value": "24 months" }
+          ],
+          "packaging": ["500 ml Bottle", "1 L Bottle", "5 L HDPE Can", "20 L HDPE Drum"],
+          "storage": "Store in a cool, dry place. Keep away from direct sunlight and extreme temperatures.",
+          "safety": "Avoid contact with eyes. In case of contact, rinse thoroughly with water. Keep away from children.",
+          "grade": "Consumer / Institutional Grade"
+        },
+        {
+          "id": 25, "name": "Toilet Bowl Cleaner", "cas": "N/A", "purity": "Concentrated",
+          "description": "Powerful acid-based disinfectant cleaner that eliminates germs, removes stains and limescale deposits.",
+          "longDescription": "Our Toilet Bowl Cleaner is a powerful acid-based cleaning formulation that effectively removes tough stains, limescale, rust marks and mineral deposits from toilet bowls and urinals. It kills 99.9% of bacteria and germs, leaving the bowl hygienically clean and fresh. The thick gel clings to bowl surfaces for maximum contact time and effectiveness.",
+          "applications": ["Homes", "Offices", "Hospitality"],
+          "industries": ["Housekeeping", "Facilities Management", "Hospitality", "Healthcare", "Institutional Cleaning"],
+          "specifications": [
+            { "label": "Form", "value": "Thick gel / Liquid" },
+            { "label": "Active Ingredient", "value": "HCl / Organic Acids" },
+            { "label": "pH", "value": "1–2" },
+            { "label": "Colour", "value": "Blue / Green" },
+            { "label": "Fragrance", "value": "Fresh / Pine" },
+            { "label": "Disinfection", "value": "99.9% kill rate" },
+            { "label": "Limescale Action", "value": "Yes" },
+            { "label": "Shelf Life", "value": "24 months" }
+          ],
+          "packaging": ["500 ml Bottle", "1 L Bottle", "5 L HDPE Can", "20 L HDPE Drum"],
+          "storage": "Store in a cool, dry place. Keep away from other cleaning agents, especially bleach. Keep lid tightly closed.",
+          "safety": "Corrosive. Avoid contact with skin and eyes. Wear gloves. Do not mix with bleach or other chemicals.",
+          "grade": "Consumer / Institutional Grade"
+        },
+        {
+          "id": 26, "name": "Rose Fragrance Concentrate", "cas": "N/A", "purity": "Premium",
+          "description": "Premium rose fragrance concentrate for formulating air fresheners, household cleaners and personal care products.",
+          "longDescription": "Our Rose Fragrance Concentrate is a premium-quality synthetic fragrance oil that replicates the rich, sweet scent of fresh roses. Designed for use in formulating air fresheners, floor cleaners, fabric conditioners, personal care products, candles and potpourri blends. Highly concentrated — a small amount goes a long way. Compliant with IFRA guidelines.",
+          "applications": ["Air Fresheners", "Cleaning", "Cosmetics"],
+          "industries": ["Fragrance & Perfumery", "Household Products", "Cleaning Products", "Personal Care", "Candle Making"],
+          "specifications": [
+            { "label": "Type", "value": "Synthetic Fragrance Oil" },
+            { "label": "Odour Profile", "value": "Fresh Rose, Floral" },
+            { "label": "Colour", "value": "Pale yellow to yellow" },
+            { "label": "Specific Gravity", "value": "0.90–1.05" },
+            { "label": "Flash Point", "value": ">60°C" },
+            { "label": "Solubility", "value": "Soluble in alcohol" },
+            { "label": "Usage Level", "value": "0.5–3%" },
+            { "label": "IFRA Compliant", "value": "Yes" }
+          ],
+          "packaging": ["100 g Glass Bottle", "500 g Aluminium Can", "1 kg HDPE Jar", "5 kg HDPE Drum"],
+          "storage": "Store in a cool, dark place in a tightly sealed container. Away from heat and direct sunlight.",
+          "safety": "For external / industrial use. Avoid direct skin contact in concentrated form. Keep away from eyes.",
+          "grade": "Premium Fragrance Grade"
+        }
+      ]
+    }
+  ],
+  "features": [
+    { "icon": "🏅", "title": "Quality Assurance", "desc": "All products meet IS and international quality standards with full batch certification available." },
+    { "icon": "🚚", "title": "Pan-India Delivery", "desc": "Reliable, on-time delivery across India through our established logistics and distribution network." },
+    { "icon": "🤝", "title": "Long-Term Partnerships", "desc": "We build lasting relationships, treating every client and supplier as a valued long-term partner." },
+    { "icon": "📋", "title": "Regulatory Compliance", "desc": "Fully compliant with all applicable chemical handling, storage and transport regulations." }
+  ]
+}

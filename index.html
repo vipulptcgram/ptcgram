@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Spinning favicon: canvas renders the image rotating and streams to the icon link -->
+    <link rel="icon" id="favicon" type="image/jpeg" href="/Images/favicon.jpeg" />
+    <meta name="description" content="PTCGRAM PVT LTD — Leading distributor of specialty chemicals, solvents, acids and industrial chemicals in India." />
+    <title>PTCGRAM PVT LTD | Chemical Distributors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      (function () {
+        var SIZE = 64;
+        var canvas = document.createElement('canvas');
+        canvas.width = canvas.height = SIZE;
+        var ctx = canvas.getContext('2d');
+        var img = new Image();
+        img.src = '/Images/favicon.jpeg';
+        var angle = 0;
+        function draw() {
+          ctx.clearRect(0, 0, SIZE, SIZE);
+          ctx.save();
+          ctx.translate(SIZE / 2, SIZE / 2);
+          ctx.rotate(angle);
+          ctx.beginPath();
+          ctx.arc(0, 0, SIZE / 2 - 1, 0, Math.PI * 2);
+          ctx.clip();
+          ctx.drawImage(img, -SIZE / 2, -SIZE / 2, SIZE, SIZE);
+          ctx.restore();
+          angle += 0.035;
+          var link = document.getElementById('favicon');
+          if (link) link.href = canvas.toDataURL('image/png');
+          requestAnimationFrame(draw);
+        }
+        img.onload = draw;
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
