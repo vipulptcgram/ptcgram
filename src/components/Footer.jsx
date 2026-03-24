@@ -30,6 +30,7 @@ export default function Footer() {
       <div className="h-0.5 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600 opacity-70" />
 
       <div className="max-w-6xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-b border-white/8">
+
         {/* Brand */}
         <div className="lg:col-span-1 flex flex-col gap-4">
           <div className="flex items-center gap-3">
@@ -43,6 +44,11 @@ export default function Footer() {
           <p className="text-sm text-white/45 leading-relaxed max-w-xs">
             Leading distributors and manufacturers of specialty chemicals, solvents, acids and household cleaning concentrates since 2009.
           </p>
+          {/* Import Export badge */}
+          <Link to="/import-export"
+            className="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-500/10 border border-amber-500/30 rounded text-amber-400 text-[0.65rem] font-bold tracking-widest uppercase hover:bg-amber-500/20 transition-colors w-fit">
+            🌍 Global Import &amp; Export
+          </Link>
         </div>
 
         {/* Products */}
@@ -62,6 +68,7 @@ export default function Footer() {
           <ul className="flex flex-col gap-2.5">
             <FooterLink to="/">Home</FooterLink>
             <FooterLink to="/about">About Us</FooterLink>
+            <FooterLink to="/import-export">Import &amp; Export</FooterLink>
             <FooterLink to="/contact">Contact</FooterLink>
             <FooterLink to="/contact">Get a Quote</FooterLink>
           </ul>
