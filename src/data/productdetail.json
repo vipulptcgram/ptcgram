@@ -1,0 +1,883 @@
+{
+  "Solvents": [
+    {
+      "id": 1910,
+      "name": "Acetic Acid",
+      "in_stock": true,
+      "short_description": "It is a clear, colorless organic acid with a strong, pungent odor. It is the main component of vinegar (aside from water) and has numerous industrial, chemical, and food applications. It is classified as a weak acid but is highly versatile due to its chemical reactivity.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Applications\r\n\r\n \tChemical Synthesis: Precursor for acetic anhydride, acetate esters, and vinyl acetate monomer (VAM).\r\n \tTextile Industry: Used in dyeing and printing processes.\r\n \tPlastics: Essential in manufacturing PET plastics and synthetic fibers.\r\n\r\nFood Industry\r\n\r\n \tVinegar Production: The primary component giving vinegar its tart flavor.\r\n \tPreservative: Controls microbial growth in pickles, sauces, and condiments.\r\n \tpH Regulator: Adjusts acidity in processed foods.\r\n\r\nPharmaceuticals\r\n\r\n \tMedications: Utilized in some antiseptics, ear drops, and as a reagent in drug production.\r\n\r\nCleaning and Household Products\r\n\r\n \tDescaler: Removes limescale and rust from surfaces.\r\n \tGeneral Cleaner: Dissolves grease, grime, and residues.\r\n\r\nAgriculture\r\n\r\n \tHerbicide: Used in concentrated forms to kill weeds.\r\n \tAnimal Feed: Acts as an additive to preserve silage.\r\n\r\n&nbsp;",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/ACETIC-ACID.jpg",
+      "attributes": {
+        "Chemical Name": "Acetic Acid",
+        "CAS Number": "64-19-7",
+        "Molecular Formula": "C₂H₄O₂",
+        "Molecular Weight": "60.05 g/mol",
+        "Appearance": "Clear\\, colorless liquid",
+        "Odor": "Strong\\, vinegar-like smell",
+        "Density": "1.049 g/cm³",
+        "Melting Point": "16.6°C",
+        "Boiling Point": "118°C",
+        "pH": "~2.4",
+        "Solubility": "Completely miscible with water"
+      }
+    },
+    {
+      "id": 1913,
+      "name": "Acetone",
+      "in_stock": true,
+      "short_description": "It is a volatile, flammable, and colorless liquid commonly used as a solvent in industrial, laboratory, and household applications. It is also a key chemical intermediate in the production of many commercial products.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Applications\r\n\r\n \tPaints and Coatings: Solvent for thinning and dissolving paints, lacquers, and varnishes.\r\n \tAdhesives: Used as a solvent in glue and bonding agents.\r\n \tPlastics and Rubber: Essential in manufacturing and cleaning processes.\r\n \tCleaning Agent: Removes oils, greases, and residues from machinery and equipment.\r\n\r\nPharmaceuticals\r\n\r\n \tIntermediate: Utilized in the synthesis of vitamins, hormones, and other compounds.\r\n \tSterilization: Used as a component in disinfectants and cleaning formulations.\r\n\r\nCosmetics and Personal Care\r\n\r\n \tNail Polish Remover: Main ingredient due to its effectiveness in dissolving nail polish.\r\n \tSkincare: Sometimes used in limited concentrations for acne treatments.\r\n\r\nLaboratory Use\r\n\r\n \tChromatography: Used as a solvent in chemical analysis.\r\n \tCleaning Glassware: Effective for removing organic residues.\r\n\r\n&nbsp;",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/ETHYL_ACETATE.png",
+      "attributes": {
+        "IUPAC Name": "Propan-2-one",
+        "CAS Number": "67-64-1",
+        "Molecular Formula": "C₃H₆O",
+        "Molecular Weight": "58.08 g/mol",
+        "Appearance": "Clear\\, colorless liquid",
+        "Odor": "Sweet\\, pungent odor",
+        "Density": "0.791 g/cm³",
+        "Boiling Point": "56°C",
+        "Melting Point": "'-94.7°C",
+        "Flash Point": "'-20°C",
+        "Solubility": "Miscible with water"
+      }
+    },
+    {
+      "id": 1915,
+      "name": "Benzene",
+      "in_stock": true,
+      "short_description": "A clear, colorless, and highly flammable aromatic hydrocarbon used as an industrial solvent and a precursor in the production of numerous chemicals.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Uses\r\n\r\n \tChemical Synthesis:\r\n\r\n \tPrecursor to styrene (for polystyrene plastics).\r\n \tUsed in the production of phenol, aniline, and cyclohexane.\r\n\r\n\r\n \tSolvent Applications:\r\n\r\n \tDissolves waxes, resins, and certain types of polymers.\r\n \tCleaning agent in the electronics and automotive industries.\r\n\r\n\r\n \tFuel Additive: Component of gasoline to enhance octane rating.\r\n\r\nLaboratory Uses\r\n\r\n \tChromatography: Solvent in analytical chemistry and separation processes.\r\n \tReagent: Reactant in various organic synthesis pathways.\r\n\r\nOther Applications\r\n\r\n \tRubber Industry: Solvent for processing natural and synthetic rubber.\r\n \tPaints and Coatings: Used as a thinner and cleaner in specialized applications.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/12/benzene-1000x1000-1.jpg",
+      "attributes": {
+        "CAS Number": "71-43-2",
+        "Molecular Formula": "C₆H₆",
+        "Molecular Weight": "78.11 g/mol",
+        "Appearance": "Clear\\, colorless liquid",
+        "Odor": "Sweet\\, aromatic odor",
+        "Density": "0.8765 g/cm³",
+        "Melting Point": "5.5°C",
+        "Boiling Point": "80.1°C",
+        "Solubility": "Slightly soluble in water (~1.8 g/L)"
+      }
+    },
+    {
+      "id": 1917,
+      "name": "Cyclohexane",
+      "in_stock": true,
+      "short_description": "A clear, colorless, and volatile liquid hydrocarbon with a mild, sweet odor. It is classified as a saturated cyclic alkane and is widely used as an industrial solvent and in chemical synthesis. Cyclohexane is primarily derived from crude oil refining and is a key intermediate in the production of nylon.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Uses\r\n\r\n \tSolvent Applications:\r\n\r\n \tDissolves resins, oils, and waxes.\r\n \tUsed in the formulation of adhesives and coatings.\r\n\r\n\r\n \tChemical Intermediate:\r\n\r\n \tConverted to cyclohexanol and cyclohexanone, precursors for nylon production.\r\n \tUsed in the production of adipic acid and caprolactam.\r\n\r\n\r\n \tPetrochemical Processing:\r\n\r\n \tActs as a test solvent in refining and quality control.\r\n\r\n\r\n\r\nLaboratory Uses\r\n\r\n \tChromatography: Used as a non-polar solvent in various analytical methods.\r\n \tReagent: Reactant or medium in organic synthesis experiments.\r\n\r\nSpecialized Applications\r\n\r\n \tRubber Industry: Solvent for rubber compounding and processing.\r\n \tPaints and Coatings: Used as a thinner and cleaner.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/CYCLOHEXANE.png",
+      "attributes": {
+        "CAS Number": "110-82-7",
+        "Molecular Formula": "C₆H₁₂",
+        "Molecular Weight": "84.16 g/mol",
+        "Appearance": "Clear\\, colorless liquid",
+        "Odor": "Mild\\, sweet hydrocarbon odor",
+        "Density": "0.779 g/cm³",
+        "Melting Point": "6.5°C",
+        "Boiling Point": "80.7°C",
+        "Flash Point": "'-20°C",
+        "Solubility": "Miscible with organic solvents like benzene\\, acetone\\, and ethanol"
+      }
+    },
+    {
+      "id": 1918,
+      "name": "Denatured Ethanol",
+      "in_stock": true,
+      "short_description": "Denatured ethanol retains ethanol's key properties but is exempt from beverage taxes, making it cost-effective for industrial applications.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Applications\r\n\r\n \tCleaning Agent:\r\n\r\n \tUsed as a solvent for cleaning machinery, electronics, and glass surfaces.\r\n \tEffective in degreasing and removing residues.\r\n\r\n\r\n \tFuel Additive:\r\n\r\n \tUsed as a biofuel component and in the production of ethanol-blended gasoline.\r\n\r\n\r\n \tPaints and Coatings: Solvent for resins, varnishes, and dyes.\r\n \tPrinting: Carrier solvent for inks in flexographic and screen printing.\r\n\r\nPharmaceutical and Personal Care\r\n\r\n \tAntiseptics and Disinfectants:\r\n\r\n \tKey ingredient in hand sanitizers and medical-grade disinfectants.\r\n\r\n\r\n \tCosmetics:\r\n\r\n \tUsed as a solvent in perfumes, deodorants, and lotions.\r\n\r\n\r\n \tLab Applications:\r\n\r\n \tCleaning glassware and equipment.\r\n\r\n\r\n\r\nOther Uses\r\n\r\n \tAdhesives: Solvent in adhesive formulations.\r\n \tFood Industry: Cleaning agent for food-contact surfaces",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/DENATURED_ETHANOL.png",
+      "attributes": {
+        "CAS Number": "64-17-5",
+        "Molecular Formula": "C₂H₆O",
+        "Molecular Weight": "46.07 g/mol",
+        "Appearance": "Clear\\, colorless liquid",
+        "Density": "0.789 g/cm³",
+        "Boiling Point": "~78.5°C",
+        "Flash Point": "13°C",
+        "Solubility": "Miscible with water and most organic solvents"
+      }
+    },
+    {
+      "id": 1920,
+      "name": "Ethyl Alcohol | Ethanol 99%",
+      "in_stock": true,
+      "short_description": "Ethyl Alcohol, commonly known as Ethanol, is a clear, colorless liquid with a characteristic alcoholic odor. It is a versatile chemical widely used in industries, pharmaceuticals and as a biofuel. Derived from natural sources such as fermentation of sugars or synthetically produced, ethanol is a critical ingredient in numerous applications due to its solubility, volatility, and miscibility with water.\r\n\r\n\r\n\r\nENQUIRE NOW",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/12/0b5cebf9c7337433e54042b0310ca8d3fbed0c24.jpg",
+      "attributes": {
+        "CAS Number": "64-17-5",
+        "Molecular Formula": "C₂H₆O",
+        "Molecular Weight": "46.07 g/mol",
+        "Appearance": "Clear\\, colorless liquid",
+        "Odor": "Mild alcoholic smell",
+        "Density": "0.789 g/cm³",
+        "Melting Point": "'-114.1°C",
+        "Boiling Point": "78.37°C",
+        "Flash Point": "13°C",
+        "Solubility": "ully miscible with water and organic solvents such as acetone\\, ether\\, and chloroform"
+      }
+    },
+    {
+      "id": 1921,
+      "name": "Ethyl Acetate",
+      "in_stock": true,
+      "short_description": "Widely used in the chemical, pharmaceutical, and food industries for its excellent solvency and fast evaporation properties. Produced via the esterification of ethanol with acetic acid, ethyl acetate is both cost-effective and environmentally friendly due to its biodegradability.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Uses\r\n\r\n \tPaints and Coatings:\r\n\r\n \tSolvent for paints, varnishes, and lacquers.\r\n \tEnhances flow and smoothness in coatings.\r\n\r\n\r\n \tAdhesives:\r\n\r\n \tUsed in the formulation of glues for furniture, packaging, and textiles.\r\n\r\n\r\n \tPrinting Inks:\r\n\r\n \tSolvent for flexographic and rotogravure inks.\r\n\r\n\r\n\r\nPharmaceuticals\r\n\r\n \tExtraction Solvent:\r\n\r\n \tUsed in the production of antibiotics, vitamins, and other active pharmaceutical ingredients (APIs).\r\n\r\n\r\n \tTablet Coating:\r\n\r\n \tProvides a smooth, uniform finish in drug formulations.\r\n\r\n\r\n\r\nFood and Beverages\r\n\r\n \tFlavor and Fragrance Industry:\r\n\r\n \tActs as a carrier solvent for food flavors and fragrances.\r\n \tUsed as an extraction agent for decaffeination of coffee and tea (regulated for food-grade purity).\r\n\r\n\r\n\r\nOther Applications\r\n\r\n \tCleaning Agent:\r\n\r\n \tRemoves grease and oil from machinery and equipment.\r\n\r\n\r\n \tElectronics:\r\n\r\n \tCleaning solvent in electronics and semiconductor manufacturing.\r\n\r\n\r\n \tLaboratory Use:\r\n\r\n \tGeneral-purpose solvent for chromatography and chemical synthesis.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/ETHYL_ACETATE.png",
+      "attributes": {
+        "CAS Number": "141-78-6",
+        "Molecular Formula": "C₄H₈O₂",
+        "Molecular Weight": "88.11 g/mol",
+        "Appearance": "Clear\\, colorless liquid",
+        "Density": "0.902 g/cm³",
+        "Boiling Point": "77°C",
+        "Melting Point": "'-83.6°C",
+        "Flash Point": "'-4°C",
+        "Solubility": "lightly soluble in water"
+      }
+    },
+    {
+      "id": 1922,
+      "name": "Hexane",
+      "in_stock": true,
+      "short_description": "It is widely used in industrial processes due to its excellent solvency properties, low boiling point, and non-polar nature. Hexane is most commonly used for oil extraction, degreasing, and as a reagent in chemical reactions.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Applications\r\n\r\n \tOil Extraction:\r\n\r\n \tPrimary solvent in the extraction of edible oils from seeds (soybean, sunflower, etc.).\r\n \tEnsures high oil yield with minimal impurities.\r\n\r\n\r\n \tAdhesives and Coatings:\r\n\r\n \tUsed as a solvent in rubber cement, adhesives, and industrial coatings.\r\n\r\n\r\n \tPrinting:\r\n\r\n \tActs as a cleaning agent for printing equipment and surfaces.\r\n\r\n\r\n \tDegreasing Agent:\r\n\r\n \tCleans mechanical parts, tools, and machinery by dissolving grease and oil.\r\n\r\n\r\n\r\nChemical Synthesis\r\n\r\n \tReagent:\r\n\r\n \tUsed as a medium for reactions involving organometallic compounds.\r\n \tSolvent in chromatographic separation processes.\r\n\r\n\r\n\r\nLaboratory Use\r\n\r\n \tHPLC and GC Solvent: Commonly used in analytical methods due to its purity.\r\n\r\n&nbsp;",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/HEXANE.jpg",
+      "attributes": {
+        "CAS Number": "110-54-3",
+        "Molecular Formula": "C₆H₁₄",
+        "Molecular Weight": "86.18 g/mol",
+        "Odor": "Mild\\, gasoline-like odor",
+        "Density": "0.654 g/cm³",
+        "Boiling Point": "68.7°C",
+        "Melting Point": "'-95°C",
+        "Flash Point": "'-22°C",
+        "Solubility": "Insoluble in water; soluble in organic solvents like alcohol\\, ether\\, and acetone"
+      }
+    },
+    {
+      "id": 1923,
+      "name": "Isopropyl Alcohol (IPA)",
+      "in_stock": true,
+      "short_description": "Commonly known as IPA or rubbing alcohol, it is a widely used chemical solvent with excellent solvency, quick evaporation, and disinfectant properties. Its applications range across pharmaceuticals, personal care, cleaning, and industrial processes.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nPharmaceutical and Medical\r\n\r\n \tAntiseptic:\r\n\r\n \tUsed in hand sanitizers and medical wipes.\r\n \tEffective against bacteria, viruses, and fungi.\r\n\r\n\r\n \tDisinfectant:\r\n\r\n \tSterilizes medical equipment and surfaces.\r\n\r\n\r\n \tSolvent for Drug Formulations:\r\n\r\n \tDissolves active ingredients in oral, topical, and injectable drugs.\r\n\r\n\r\n\r\nIndustrial Applications\r\n\r\n \tElectronics Cleaning:\r\n\r\n \tCleans circuit boards, connectors, and sensitive electronic components without damaging them.\r\n\r\n\r\n \tPaint and Coating Industry:\r\n\r\n \tSolvent for resins, inks, and varnishes.\r\n\r\n\r\n \tDegreasing:\r\n\r\n \tRemoves grease, oils, and adhesives from machinery and tools.\r\n\r\n\r\n\r\nPersonal Care\r\n\r\n \tCosmetics:\r\n\r\n \tActs as a carrier solvent in perfumes, aftershaves, and deodorants.\r\n\r\n\r\n \tHair and Skin Products:\r\n\r\n \tAdds quick-drying properties to formulations.\r\n\r\n\r\n\r\nHousehold and Commercial Cleaning\r\n\r\n \tGlass Cleaner:\r\n\r\n \tLeaves surfaces streak-free.\r\n\r\n\r\n \tMultipurpose Cleaner:\r\n\r\n \tEffective for removing smudges, stains, and sticky residues.\r\n\r\n\r\n\r\n&nbsp;",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/ISO_PROPYL_ALCOHOL.png",
+      "attributes": {
+        "CAS Number": "67-63-0",
+        "Molecular Formula": "C₃H₈O",
+        "Molecular Weight": "60.10 g/mol",
+        "Appearance": "Clear\\, colorless liquid",
+        "Density": "0.786 g/cm³",
+        "Boiling Point": "82.5°C",
+        "Melting Point": "'-89°C",
+        "Flash Point": "12°C",
+        "Solubility": "Fully miscible with water\\, alcohols\\, ethers\\, and many organic solvents"
+      }
+    },
+    {
+      "id": 1924,
+      "name": "Methyl Alcohol | Methanol",
+      "in_stock": true,
+      "short_description": "Also known as methyl alcohol or wood alcohol, is a simple alcohol commonly used as an industrial solvent, chemical feedstock, and fuel additive. It is characterized by its high purity, versatility, and efficiency in numerous applications.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Applications\r\n\r\n \tSolvent:\r\n\r\n \tUsed in paint strippers, adhesives, inks, and resins.\r\n \tEffective in dissolving oils, fats, and non-polar substances.\r\n\r\n\r\n \tChemical Synthesis:\r\n\r\n \tPrecursor to formaldehyde, acetic acid, and methyl tert-butyl ether (MTBE).\r\n \tUsed in biodiesel production as a transesterification agent.\r\n\r\n\r\n\r\nEnergy Sector\r\n\r\n \tFuel Additive:\r\n\r\n \tBlended with gasoline to improve octane levels and reduce emissions.\r\n\r\n\r\n \tDirect Methanol Fuel Cells (DMFC):\r\n\r\n \tUsed as a fuel in portable and stationary power generation.\r\n\r\n\r\n\r\nPharmaceutical and Laboratory Use\r\n\r\n \tReagent:\r\n\r\n \tUtilized in chromatography, spectroscopy, and other analytical methods.\r\n\r\n\r\n \tDisinfectant:\r\n\r\n \tIncluded in formulations for sterilization and cleaning.\r\n\r\n\r\n\r\nHousehold and Commercial Use\r\n\r\n \tAntifreeze:\r\n\r\n \tComponent of windshield washer fluids and engine coolants.\r\n\r\n\r\n \tCleaning Agent:\r\n\r\n \tFound in industrial cleaning products due to its degreasing ability.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/12/METHANOL.jpg",
+      "attributes": {
+        "CAS Number": "67-56-1",
+        "Molecular Formula": "CH₃OH",
+        "Molecular Weight": "32.04 g/mol",
+        "Appearance": "Clear\\, colorless liquid",
+        "Density": "0.791 g/cm³",
+        "Boiling Point": "64.7°C",
+        "Melting Point": "'-97.6°C",
+        "Flash Point": "11°C",
+        "Solubility": "Completely miscible with water\\, ethanol\\, acetone\\, and most organic solvents"
+      }
+    },
+    {
+      "id": 1926,
+      "name": "Methyl Acetate",
+      "in_stock": true,
+      "short_description": "Widely used in coatings, adhesives, and chemical synthesis. Known for its pleasant odor and high solvency, it plays an essential role in industrial and consumer applications.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Applications\r\n\r\n \tCoatings and Paints:\r\n\r\n \tUsed as a solvent for lacquers, varnishes, and enamels.\r\n \tEnhances the flow and finish of coatings.\r\n\r\n\r\n \tAdhesives:\r\n\r\n \tSolvent for contact cements and pressure-sensitive adhesives.\r\n \tImproves adhesion properties and drying speed.\r\n\r\n\r\n \tChemical Intermediate:\r\n\r\n \tPrecursor in the synthesis of pharmaceuticals and agrochemicals.\r\n\r\n\r\n\r\nAutomotive and Electronics\r\n\r\n \tDegreasing Agent:\r\n\r\n \tRemoves grease and contaminants from metal and electronic components.\r\n\r\n\r\n \tPaint Stripping:\r\n\r\n \tUsed in formulations for removing old coatings.\r\n\r\n\r\n\r\nConsumer Products\r\n\r\n \tPersonal Care:\r\n\r\n \tFound in nail polish removers and fragrance formulations.\r\n\r\n\r\n \tCleaning Products:\r\n\r\n \tIngredient in multipurpose cleaners due to its solvency and quick evaporation.\r\n\r\n\r\n\r\nLaboratory Use\r\n\r\n \tChromatography Solvent:\r\n\r\n \tEmployed in thin-layer chromatography (TLC) for separating compounds.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/METHYL_ACETATE.png",
+      "attributes": {
+        "CAS Number": "79-20-9",
+        "Molecular Formula": "C₃H₆O₂",
+        "Molecular Weight": "74.08 g/mol",
+        "Appearance": "Clear\\, colorless liquid",
+        "Density": "0.932 g/cm³",
+        "Boiling Point": "57.1°C",
+        "Melting Point": "'-98°C",
+        "Flash Point": "'-10°C",
+        "Solubility": "Soluble in water"
+      }
+    },
+    {
+      "id": 1927,
+      "name": "Toluene",
+      "in_stock": true,
+      "short_description": "An aromatic hydrocarbon widely used as a solvent in various industrial and commercial applications. Known for its excellent solvency, low cost, and high chemical stability, toluene is a staple in chemical manufacturing, coatings, and fuels.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications\r\nIndustrial Applications\r\n\r\n \tSolvent:\r\n\r\n \tKey solvent in the production of paints, varnishes, adhesives, and inks.\r\n \tUsed in extraction processes for removing impurities.\r\n\r\n\r\n \tChemical Feedstock:\r\n\r\n \tPrecursor to benzene, xylene, and toluene diisocyanate (TDI), used in polyurethane production.\r\n\r\n\r\n \tRubber and Plastic Industry:\r\n\r\n \tSolvent for synthetic rubber and polystyrene.\r\n\r\n\r\n\r\nFuel Additive\r\n\r\n \tEnhances octane ratings in gasoline formulations.\r\n\r\nLaboratory and Analytical Use\r\n\r\n \tEmployed as a reagent and solvent in chemical research and development.\r\n\r\nConsumer Products\r\n\r\n \tAerosols and Sprays:\r\n\r\n \tFound in cleaning sprays, polish sprays, and air fresheners.\r\n\r\n\r\n \tCleaning Agents:\r\n\r\n \tRemoves grease, oil, and adhesive residues.\r\n\r\n\r\n\r\n&nbsp;\r\n\r\n&nbsp;",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/12/toluene-lab-chemicals.jpg",
+      "attributes": {
+        "CAS Number": "108-88-3",
+        "Molecular Formula": "C₇H₈",
+        "Molecular Weight": "92.14 g/mol",
+        "Appearance": "Clear\\, colorless liquid",
+        "Density": "0.866 g/cm",
+        "Boiling Point": "110.6°C",
+        "Melting Point": "'-95°C",
+        "Flash Point": "4.4°C",
+        "Solubility": "Slightly soluble in water"
+      }
+    }
+  ],
+  "Acids": [
+    {
+      "id": 1788,
+      "name": "Acid Slurry | Linear Alkyl Benzene Sulfonic Acid (LABSA)",
+      "in_stock": true,
+      "short_description": "It is a brown, viscous liquid with excellent surfactant properties, making it an essential ingredient in manufacturing detergents, dishwashing liquids, and industrial cleaning agents.\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications:\r\n\r\n \tDetergents: Acts as the primary surfactant in laundry powders, liquids, and detergent cakes.\r\n \tDishwashing Liquids: Enhances grease removal and foaming.\r\n \tCleaning Agents: Used in industrial and household cleaners for effective dirt and grease removal.\r\n \tTextile Processing: Functions as a wetting and cleaning agent in textile and leather processing.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/ACID-SLURRY-1.jpeg",
+      "attributes": {
+        "CAS Number `": "68584-22-5",
+        "Appearance": "Brown viscous liquid",
+        "Active Matter (%)": "90 ± 2",
+        "Free Sulfuric Acid (%)": "≤ 6",
+        "Water Content (%)": "≤ 2",
+        "pH (1% solution)": "2.5 - 3.5",
+        "Solubility": "Fully soluble in water",
+        "Viscosity (25°C)": "200-500 mPas",
+        "Specific Gravity (20°C)": "1.06 - 1.09",
+        "Biodegradability": ">90%",
+        "Packaging": "200 kg Drum"
+      }
+    },
+    {
+      "id": 1856,
+      "name": "Acid Thickner | IGL Grade",
+      "in_stock": true,
+      "short_description": "Used in manufacturing toilet cleaners, industrial descalers, and household cleaning products. This thickener provide excellent compatibility with hydrochloric acid and other acids, ensuring ease of formulation while maintaining high performance.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications \r\n\r\n \tToilet Cleaners: Used to enhance viscosity and stability in acid-based formulations for effective cleaning and clinging action.\r\n \tIndustrial Descalers: Improves the consistency of acidic solutions used for removing scale and rust in industrial equipment.\r\n \tHousehold Cleaners: Provides thickening in acid-based products for cleaning sinks, tiles, and bathroom surfaces.\r\n \tMetal Cleaners: Enhances the formulation of acidic cleaning agents for polishing and removing corrosion from metal surfaces.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/ACID_THICKNER_1.png",
+      "attributes": {
+        "CAS Number": "26635-92-7",
+        "Appearance": "Light yellow viscous liquid",
+        "Active Content": "≥ 90%",
+        "Free Amine Content": "≤ 5%",
+        "pH (1% solution)": "2.5 - 4.5",
+        "Viscosity (25°C)": "300-500 mPas",
+        "Solubility": "Fully soluble in water",
+        "Specific Gravity (20°C)": "1.01 - 1.04"
+      }
+    },
+    {
+      "id": 1875,
+      "name": "Carbopol 940 | Polyacrylic Acid Polymer",
+      "in_stock": true,
+      "short_description": "Carbopol 940 is a synthetic high-molecular-weight polymer of acrylic acid, used as a gelling, thickening, and stabilizing agent in a wide range of applications. It is highly efficient at creating transparent gels and emulsions with excellent viscosity and rheology control.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications \r\n\r\n \tPersonal Care Products: Used in formulations of gels, creams, lotions, and shampoos for thickening and stabilizing.\r\n \tPharmaceuticals: Widely employed in topical drug delivery systems, such as gels and ointments, for its bioadhesive properties.\r\n \tHousehold Cleaning Products: Found in dishwashing gels, floor cleaners, and surface-cleaning formulations for viscosity control.\r\n \tIndustrial Applications: Used in lubricants, adhesives, and coatings for improving texture and stability.\r\n \tCosmetics: Helps create transparent, elegant formulations in beauty products like serums and facial gels.\r\n \tPaint and Coatings: Provides rheology modification and stability in water-based coatings.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/11/Carbomer.jpg, https://ptcgram.com/wp-content/uploads/2022/09/CARBOPOL-POWDER-940-996-1.jpg, https://ptcgram.com/wp-content/uploads/2024/11/41gFExx1IL._SY445_.jpg",
+      "attributes": {
+        "CAS Number": "9007-20-9",
+        "Appearance": "White\\, fluffy powder",
+        "pH (0.5% solution)": "2.5 to 3.0 (before neutralization)",
+        "Viscosity (0.5% solution)": "40\\,000 to 60\\,000 cPs",
+        "Molecular Weight": "4\\,000\\,000 g/mol",
+        "Solubility": "Dispersible in water\\, requires neutralization to form a gel",
+        "Stability": "Stable across a wide pH range",
+        "Thickening Efficiency": "High; effective at low concentrations",
+        "Moisture Content": "≤ 2%",
+        "Compatibility": "Compatible with a wide range of surfactants and active ingredients"
+      }
+    },
+    {
+      "id": 1938,
+      "name": "Formic Acid",
+      "in_stock": true,
+      "short_description": "It is a highly versatile chemical widely used in industrial, agricultural, and pharmaceutical applications. Known for its strong acidic properties and reducing abilities, formic acid serves as an efficient preservative, descaling agent, and chemical intermediate.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Applications\r\n\r\n \tTextile and Leather:\r\n\r\n \tUsed in dyeing and tanning processes.\r\n \tAdjusts pH in textile processing.\r\n\r\n\r\n \tRubber Industry:\r\n\r\n \tCoagulates latex in natural rubber production.\r\n\r\n\r\n \tDescaling Agent:\r\n\r\n \tRemoves limescale and rust in industrial equipment.\r\n\r\n\r\n\r\nAgriculture\r\n\r\n \tSilage Preservation:\r\n\r\n \tEnhances the fermentation process and prevents spoilage.\r\n\r\n\r\n \tAnimal Feed Additive:\r\n\r\n \tInhibits microbial growth in feed, extending shelf life.\r\n\r\n\r\n\r\nChemical Manufacturing\r\n\r\n \tIntermediate:\r\n\r\n \tPrecursor in the production of esters, formates, and other organic compounds.\r\n\r\n\r\n \tReducing Agent:\r\n\r\n \tUsed in certain catalytic and synthetic reactions.\r\n\r\n\r\n\r\nPharmaceuticals\r\n\r\n \tActs as a reagent and preservative in formulations.\r\n\r\nCleaning Products\r\n\r\n \tHousehold Cleaners:\r\n\r\n \tRemoves tough stains and mineral deposits.\r\n\r\n\r\n \tIndustrial Cleaning:\r\n\r\n \tUsed in metal cleaning and descaling.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/12/formic-acid-chemical.png",
+      "attributes": {
+        "CAS Number": "64-18-6",
+        "Molecular Formula": "CH₂O₂",
+        "Molecular Weight": "46.03 g/mol",
+        "Appearance": "Clear\\, colorless liquid",
+        "Density": "1.22 g/cm³",
+        "Boiling Point": "100.8°C",
+        "Melting Point": "8.4°C",
+        "Flash Point": "69°C",
+        "Solubility": "Miscible with water\\, alcohols\\, and ethers"
+      }
+    },
+    {
+      "id": 1940,
+      "name": "Hydrochloric Acid (HCl)",
+      "in_stock": true,
+      "short_description": "Hydrochloric acid is a strong, highly corrosive inorganic acid widely used in various industrial, laboratory, and commercial applications. It is an aqueous solution of hydrogen chloride gas, known for its strong acidic properties, high reactivity, and versatility.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Applications\r\n\r\n \tMetal Processing:\r\n\r\n \tPickling of steel and other metals to remove oxides and scale.\r\n \tRefining and electroplating processes.\r\n\r\n\r\n \tChemical Manufacturing:\r\n\r\n \tProduction of chlorides, fertilizers, and dyes.\r\n \tCatalyst in organic synthesis, including the production of vinyl chloride (used in PVC).\r\n\r\n\r\n\r\nWater Treatment\r\n\r\n \tpH adjustment in wastewater treatment plants.\r\n \tNeutralization of alkaline solutions.\r\n\r\nFood and Beverage\r\n\r\n \tUsed in the production of food-grade phosphates and as an acidifier.\r\n \tCleaning agent for equipment in food processing facilities (requires food-grade HCl).\r\n\r\nOil and Gas Industry\r\n\r\n \tAcidizing of oil wells to enhance extraction by dissolving carbonate rocks.\r\n\r\nCleaning Products\r\n\r\n \tDescaling:\r\n\r\n \tRemoves lime and rust deposits in boilers, heat exchangers, and plumbing systems.\r\n\r\n\r\n \tHousehold Use:\r\n\r\n \tFound in commercial toilet bowl cleaners and heavy-duty cleaning products.\r\n\r\n\r\n\r\nLaboratory Applications\r\n\r\n \tStandard reagent for titrations in analytical chemistry.\r\n\r\n&nbsp;",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/12/hydrochloric-acid-hcl.jpg",
+      "attributes": {
+        "CAS Number": "7647-01-0",
+        "Molecular Formula": "HCl",
+        "Molecular Weight": "36.46 g/mol",
+        "Appearance": "Clear\\, colorless to slightly yellow liquid",
+        "Odor": "Pungent\\, sharp odor",
+        "Density": "1.18 g/cm³",
+        "Boiling Point": "Approximately 110°C",
+        "Freezing Point": "'-27°C",
+        "pH": "<1 (Strongly Acidic)",
+        "Solubility": "Miscible with water\\, exothermic reaction during dilution"
+      }
+    },
+    {
+      "id": 1942,
+      "name": "Hydrofluoric Acid (HF)",
+      "in_stock": true,
+      "short_description": "It is unique among acids due to its ability to dissolve many materials, including glass, making it an essential chemical in specialized industrial applications. Despite its utility, HF is extremely hazardous and requires stringent safety measures.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Applications\r\n\r\n \tGlass Etching and Frosting:\r\n\r\n \tCreates patterns and designs on glass.\r\n \tUsed in the production of laboratory glassware.\r\n\r\n\r\n \tMetal Cleaning and Treatment:\r\n\r\n \tRemoves oxides and scales from metals.\r\n \tPrepares surfaces for further processing or coating.\r\n\r\n\r\n\r\nChemical Manufacturing\r\n\r\n \tFluoride Compounds:\r\n\r\n \tProduces aluminum fluoride, uranium hexafluoride, and other fluorinated chemicals.\r\n\r\n\r\n \tCatalysis:\r\n\r\n \tActs as a catalyst in alkylation processes in oil refineries.\r\n\r\n\r\n\r\nElectronics\r\n\r\n \tEtches silicon wafers for semiconductors and microchips.\r\n\r\nPetrochemical Industry\r\n\r\n \tFacilitates the production of high-octane fuels through alkylation processes.\r\n\r\nOther Applications\r\n\r\n \tDissolves rock samples in geological studies.\r\n \tCleans and polishes stone and ceramics.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/HYDROFLUORIC-ACID.jpg",
+      "attributes": {
+        "CAS Number": "7664-39-3",
+        "Molecular Weight": "20.01 g/mol",
+        "Appearance": "Clear\\, colorless liquid",
+        "Odor": "Pungent\\, irritating odor",
+        "Density": "~1.15 g/cm³",
+        "Boiling Point": "~108°C",
+        "Freezing Point": "'-83°C",
+        "pH": "<1",
+        "Solubility": "Completely miscible with water and many organic solvents"
+      }
+    },
+    {
+      "id": 1943,
+      "name": "Nitric Acid (HNO₃)",
+      "in_stock": true,
+      "short_description": "Nitric acid is a highly corrosive and strong inorganic acid commonly used in industrial processes, chemical manufacturing, and laboratory applications. Known for its oxidizing properties, it plays a crucial role in the production of fertilizers, explosives, and various chemicals.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Applications\r\n\r\n \tFertilizer Production:\r\n\r\n \tKey component in the manufacture of ammonium nitrate, a widely used fertilizer.\r\n\r\n\r\n \tExplosives Manufacturing:\r\n\r\n \tNitrating agent for producing explosives like nitroglycerin, trinitrotoluene (TNT), and RDX.\r\n\r\n\r\n\r\nChemical Manufacturing\r\n\r\n \tNitration Processes:\r\n\r\n \tSynthesis of nitrobenzene, adipic acid, and other intermediates.\r\n\r\n\r\n \tOxidizing Agent:\r\n\r\n \tUsed in the oxidation of organic compounds and metals.\r\n\r\n\r\n\r\nMetallurgy\r\n\r\n \tUsed in etching and refining metals like gold, silver, and platinum.\r\n \tEssential in passivation and pickling of stainless steel.\r\n\r\nLaboratory Applications\r\n\r\n \tReagent for quantitative analysis, especially in volumetric titrations.\r\n \tUsed in the preparation of aqua regia for dissolving noble metals.\r\n\r\nOther Applications\r\n\r\n \tDye and Pigment Production:\r\n\r\n \tUsed in the synthesis of azo dyes and organic pigments.\r\n\r\n\r\n \tElectronics Industry:\r\n\r\n \tCleaning and etching silicon wafers in semiconductor manufacturing.\r\n\r\n\r\n \tWater Treatment:\r\n\r\n \tpH adjustment and disinfection.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/NITRIC_ACID.png",
+      "attributes": {
+        "CAS Number": "7697-37-2",
+        "Molecular Formula": "HNO₃",
+        "Molecular Weight": "63.01 g/mol",
+        "Appearance": "Clear to pale yellow liquid",
+        "Odor": "Pungent\\, suffocating odor",
+        "Density": "~1.41 g/cm³",
+        "Boiling Point": "~121°C",
+        "Freezing Point": "'-42°C",
+        "Solubility": "Miscible with water in all proportions",
+        "pH": "<1"
+      }
+    },
+    {
+      "id": 1944,
+      "name": "Phosphoric Acid (H₃PO₄)",
+      "in_stock": true,
+      "short_description": "Phosphoric acid is a non-volatile, moderately strong inorganic acid widely used in various industries for its acidity and chemical reactivity. Known for its versatility, it is an essential raw material in fertilizers, food additives, and cleaning agents.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\nApplications\r\nAgriculture\r\n\r\n \tFertilizer Production:\r\n\r\n \tKey raw material for manufacturing phosphate-based fertilizers like monoammonium phosphate (MAP) and diammonium phosphate (DAP).\r\n\r\n\r\n \tSoil Treatment:\r\n\r\n \tUsed to correct pH and supply essential phosphorous.\r\n\r\n\r\n\r\nFood and Beverage Industry\r\n\r\n \tFood Additive :\r\n\r\n \tAcidulant in carbonated beverages, enhancing taste.\r\n\r\n\r\n \tPreservative:\r\n\r\n \tPrevents the growth of mold and bacteria in processed foods.\r\n\r\n\r\n \tNutrient:\r\n\r\n \tSupplies phosphorous in nutritional supplements.\r\n\r\n\r\n\r\nIndustrial Applications\r\n\r\n \tRust Removal:\r\n\r\n \tConverts rust (iron oxide) into a water-soluble compound, facilitating removal.\r\n\r\n\r\n \tMetal Treatment:\r\n\r\n \tUsed in passivation and metal cleaning before coating or painting.\r\n\r\n\r\n\r\nCleaning Products\r\n\r\n \tDescaling Agent:\r\n\r\n \tRemoves mineral deposits in boilers, pipelines, and heat exchangers.\r\n\r\n\r\n \tSanitizers:\r\n\r\n \tUsed in formulations for cleaning equipment in food processing and breweries.\r\n\r\n\r\n\r\nChemical Manufacturing\r\n\r\n \tUsed in the synthesis of phosphate esters, flame retardants, and water treatment chemicals.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/12/Shriram_Associate_Phosphorous_Oxychloride_1_767x1000.jpg",
+      "attributes": {
+        "CAS Number": "7664-38-2",
+        "Molecular Formula": "H₃PO₄",
+        "Molecular Weight": "98.00 g/mol",
+        "Appearance": "Colorless\\, viscous liquid or crystalline solid",
+        "Odor": "Odorless",
+        "Density": "1.685 g/cm³",
+        "Boiling Point": "~158°C",
+        "Freezing Point": "~21°C",
+        "Solubility": "Miscible with water in all proportions",
+        "pH": "~1.5"
+      }
+    },
+    {
+      "id": 1946,
+      "name": "Sulfuric Acid (H₂SO₄)",
+      "in_stock": true,
+      "short_description": "Sulfuric acid is a highly corrosive, dense, and viscous inorganic acid widely used across industries for its strong acidic and dehydrating properties. It is often called the \"king of chemicals\" due to its central role in chemical manufacturing and industrial applications.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Applications\r\n\r\n \tFertilizer Production:\r\n\r\n \tUsed to produce phosphoric acid for phosphate fertilizers like ammonium sulfate and superphosphates.\r\n\r\n\r\n \tPetroleum Refining:\r\n\r\n \tRemoves impurities during oil refining.\r\n\r\n\r\n \tMetal Processing:\r\n\r\n \tUsed for pickling and cleaning metals before electroplating or galvanization.\r\n\r\n\r\n\r\nChemical Manufacturing\r\n\r\n \tProduction of Chemicals:\r\n\r\n \tUsed to manufacture hydrochloric acid, nitric acid, and dyes.\r\n \tA key reactant in producing sulfur trioxide (SO₃) and oleum.\r\n\r\n\r\n \tCatalyst:\r\n\r\n \tCatalyst in esterification and other organic reactions.\r\n\r\n\r\n\r\nBattery Acid\r\n\r\n \tUsed as an electrolyte in lead-acid batteries for vehicles and backup power systems.\r\n\r\nCleaning and Descaling\r\n\r\n \tRemoves rust, scale, and mineral deposits from surfaces and equipment.\r\n\r\nPharmaceuticals\r\n\r\n \tUsed in the synthesis of drugs and intermediates.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/12/sulphuric-acid.jpg",
+      "attributes": {
+        "CAS Number": "7664-93-9",
+        "Molecular Formula": "H₂SO₄",
+        "Molecular Weight": "98.08 g/mol",
+        "Appearance": "Clear to slightly yellow\\, oily liquid",
+        "Odor": "Odorless",
+        "Density": "1.84 g/cm³",
+        "Boiling Point": "~337°C",
+        "Freezing Point": "10°C",
+        "Viscosity": "Highly viscous at low temperatures",
+        "Solubility": "Miscible with water (exothermic reaction when diluted)",
+        "pH": "<1 (strong acid\\, concentrated solution)"
+      }
+    }
+  ],
+  "Industrial Chemicals": [
+    {
+      "id": 1858,
+      "name": "Alphox 200",
+      "in_stock": true,
+      "short_description": "Used as an emulsifier, wetting agent, and dispersant in various industrial applications. It is particularly useful in textile, agricultural, and cleaning formulations due to its ability to lower surface tension and enhance the performance of other ingredients in a solution.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications:\r\n\r\n \tTextile Industry: Used as a dispersing and wetting agent in textile processing, helping with dye fixation and chemical dispersion.\r\n \tCleaning and Detergent Formulations: Acts as an emulsifier and dispersing agent in liquid detergents, laundry products, and household cleaners.\r\n \tAgriculture: Used in pesticide and fertilizer formulations to improve wetting, spreading, and absorption on plant surfaces.\r\n \tLeather Industry: Employed as an emulsifying agent to improve the softness and texture of leather during finishing treatments.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/11/alphox-200-e1732034279376.jpg",
+      "attributes": {
+        "CAS Number": "9016-45-9",
+        "Appearance": "Clear to pale yellow liquid",
+        "Active Content": "100%",
+        "Solubility": "Soluble in water at concentrations ≤0.5%",
+        "pH (1% solution)": "5.0 – 7.0 (mildly acidic to neutral)",
+        "Viscosity (25°C)": "100 – 200 mPas",
+        "Density": "~1.0 g/cm³ at 25°C",
+        "Flashpoint": "> 100°C (Non-flammable)"
+      }
+    },
+    {
+      "id": 1860,
+      "name": "SLES (Sodium Lauryl Ether Sulfate) | Godrej",
+      "in_stock": true,
+      "short_description": "Commonly used in personal care and cleaning products, such as shampoos, body washes, and dish soaps. It is an anionic detergent that helps to create foam and remove oils and dirt from surfaces.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications:\r\n\r\n \tShampoos: Acts as a cleansing agent and helps in forming lather.\r\n \tBody Washes &amp; Soaps: Used for its cleaning and foaming properties.\r\n \tFacial Cleansers: Provides gentle cleansing without excessive harshness.\r\n \tToothpastes: Used for foaming and spreading the paste.\r\n \tDishwashing Liquids: Helps remove grease and stains from dishes.\r\n \tIndustrial Cleaners: Used in various formulations for cleaning machinery or other surfaces.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/11/SLES-Sodium-Lauryl-Ether-Sulfate-1.png",
+      "attributes": {
+        "CAS Number": "68585-34-2",
+        "Appearance": "Clear Thick Paste",
+        "Solubility": "Water-soluble",
+        "Foaming Ability": "Excellent foaming properties",
+        "pH": "Around 7 to 8",
+        "Viscosity": "Low"
+      }
+    },
+    {
+      "id": 1864,
+      "name": "Alum Powder | Potassium Aluminum Sulfate",
+      "in_stock": true,
+      "short_description": "Alum Powder, commonly referring to Potassium Alum (KAl(SO₄)₂·12H₂O), is a white crystalline substance widely used for its astringent, antiseptic, and coagulating properties. It is water-soluble and mildly acidic, making it versatile for applications in various industries.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications \r\n\r\n \tWater Treatment: Acts as a flocculant to purify water by removing impurities.\r\n \tCosmetics: Used in deodorants, aftershave astringents, and facial toners for it's antimicrobial and tightening properties.\r\n \tFood Industry: Employed in pickling, baking powders, and as a firming agent in foods.\r\n \tTextile Industry: Utilized in dyeing and tanning as a mordant to fix dyes onto fabrics.\r\n \tMedicinal Uses: Helps in treating minor cuts and as an oral rinse for mouth ulcers.\r\n \tOther Uses: Found in fireproofing compounds, paper manufacturing, and even as a natural antiperspirant.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/11/alum-powder-1024x768-1-e1732092897141.jpg",
+      "attributes": {
+        "CAS Number": "7784-24-9",
+        "Appearance": "White crystalline powder",
+        "Chemical Formula": "KAl(SO₄)₂·12H₂O",
+        "Solubility": "Soluble in water",
+        "pH": "3.0 ± 0.5",
+        "Melting Point": "Decomposes at ~92 °C",
+        "Density": "~1.75 g/cm³"
+      }
+    },
+    {
+      "id": 1866,
+      "name": "Anthember Tops",
+      "in_stock": true,
+      "short_description": "Chemical compound used in various industries, primarily as a fragrance ingredient. They are known for their distinctive woody aroma and their ability to enhance the overall scent profile of products.\r\n\r\n\t\r\n\t\r\n\tENQUIRE NOW\r\n\t\r\n\t\r\n\r\nApplications:\r\n\r\n \tPerfumery: Anthamber tops are widely used in perfumes to add a warm, woody, and slightly sweet note. They blend well with floral, oriental, and woody fragrances.\r\n \tSoaps and Cosmetics: These compounds are incorporated into soaps and cosmetic products to provide a pleasant fragrance and enhance the overall sensory experience.\r\n \tHousehold Products: Anthamber tops are used in air fresheners, room sprays, and other household products to impart a pleasant aroma.\r\n \tIndustrial Applications: In certain industrial settings, anthamber tops may be used as a solvent or as an ingredient in various chemical formulations.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/11/anthamber-tops-1000x1000-1.png",
+      "attributes": {
+        "CAS Number": "18479-58-8",
+        "Appearance": "Yellow to deep yellow liquid",
+        "Odor": "Woody",
+        "Specific Gravity": "0.980 - 1.020",
+        "Refractive Index": "1.500 - 1.520",
+        "Solubility": "Soluble in Organic solvents",
+        "Density": "0.980 - 1.020 g/cm³"
+      }
+    },
+    {
+      "id": 1869,
+      "name": "Alpha Olefin Sulfonate (AOS)",
+      "in_stock": true,
+      "short_description": "AOS Liquid (Alpha Olefin Sulfonate) is a surfactant widely used in personal care, cleaning products, and industrial applications. It is valued for its excellent foaming properties, high detergency, and mildness on the skin, making it a popular choice in shampoos, liquid detergents, and other cleaning agents.\r\n\r\n\t\r\n\t\r\n\tENQUIRE NOW\r\n\t\r\n\t\r\n\r\nApplications \r\n\r\n \tPersonal Care Products: Used in shampoos, body washes, and face cleansers for its mildness and ability to produce rich foam.\r\n \tHousehold Cleaning Products: Found in liquid detergents, dishwashing liquids, and surface cleaners for its grease-cutting and stain-removal properties.\r\n \tIndustrial Cleaners: Used in formulations for heavy-duty cleaners and degreasers.\r\n \tTextile Industry: Acts as a wetting agent and detergent for fabric treatments.\r\n \tAgriculture: Incorporated into formulations for pesticide sprays and soil wetting agents.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/11/Sodium-Linear-Alpha-Olefin-Sulfonate-AOS-68439-57-6-for-Washing-Powder.jpeg",
+      "attributes": {
+        "CAS Number": "68439-57-6",
+        "Appearance": "Clear to slightly yellow liquid",
+        "Solubility": "Soluble in water",
+        "Foaming Ability": "Excellent"
+      }
+    },
+    {
+      "id": 1871,
+      "name": "AOS Powder | Alpha Olefin Sulfonate",
+      "in_stock": true,
+      "short_description": "AOS Powder (Alpha Olefin Sulfonate) is a high-performing anionic surfactant available in solid form. It offers excellent detergency, foaming, and emulsification properties, making it ideal for use in powder detergents, personal care products, and various industrial applications.\r\n\r\n\t\r\n\t\r\n\tENQUIRE NOW\r\n\t\r\n\t\r\n\r\nApplications\r\n\r\n \tPowder Detergents: Provides high foaming and effective cleaning action for laundry and dishwashing powders.\r\n \tPersonal Care Products: Used in soaps, face powders, and cleansing formulations for mildness and excellent foaming properties.\r\n \tIndustrial Cleaning: Incorporated into formulations for powdered industrial and institutional cleaning agents.\r\n \tTextile Industry: Used as a detergent and wetting agent in textile processing and finishing.\r\n \tAgrochemicals: Acts as a surfactant in pesticide formulations and soil wetting powders.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/AOS-POWDER-1-1.jpg",
+      "attributes": {
+        "CAS Number": "68439-57-6",
+        "Appearance": "White to off-white powder",
+        "Solubility": "Soluble in water",
+        "pH": "7 to 9",
+        "Active Matter": "90% to 95%",
+        "Foaming Ability": "Excellent",
+        "Stability": "Stable in hard water and a wide pH range",
+        "Moisture Content": "<5%"
+      }
+    },
+    {
+      "id": 1872,
+      "name": "Cocamidopropyl Betaine | CAPB",
+      "in_stock": true,
+      "short_description": "CAPB (Cocamidopropyl Betaine) is a mild amphoteric surfactant derived from coconut oil. It is widely used in personal care and cleaning products due to its excellent foaming, cleansing, and thickening properties. CAPB is gentle on the skin and compatible with a wide range of formulations.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications \r\n\r\n \tPersonal Care Products: Used in shampoos, body washes, and facial cleansers for mild cleansing and improved foam quality.\r\n \tHousehold Cleaning Products: Found in dishwashing liquids, hand soaps, and surface cleaners for effective grease cutting and gentle cleaning.\r\n \tIndustrial Cleaners: Included in formulations for car shampoos, heavy-duty degreasers, and multi-purpose cleaners.\r\n \tTextile Industry: Acts as a gentle wetting and cleaning agent in fabric treatments and industrial processes.\r\n \tCosmetic Formulations:  Provides viscosity-building and conditioning effects in skincare and haircare products.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/CAPB-CELESTIAL-2.jpg",
+      "attributes": {
+        "CAS Number": "61789-40-0",
+        "Appearance": "Clear to pale yellow liquid",
+        "Chemical Formula": "C19H38N2O3",
+        "Active Matter": "30% to 35%",
+        "pH": "6.0 to 8.0",
+        "Solubility": "Soluble in water",
+        "Foaming Ability": "High and stable foam",
+        "Compatibility": "Works well with anionic\\, cationic\\, and nonionic surfactants"
+      }
+    },
+    {
+      "id": 1873,
+      "name": "Bleaching Powder | Calcium Hypochlorite",
+      "in_stock": true,
+      "short_description": "Bleaching Powder, also known as Calcium Hypochlorite, is a white to light yellow powder with a strong chlorine smell. It is widely used as a disinfectant, bleaching agent, and water treatment chemical. Its ability to release chlorine makes it highly effective for cleaning, sanitation, and deodorizing.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications \r\n\r\n \tWater Treatment: Used for disinfecting drinking water and swimming pools by killing harmful bacteria and pathogens.\r\n \tTextile Industry: Acts as a bleaching agent for cotton and other fabrics during the manufacturing process.\r\n \tCleaning and Sanitation: Widely used for cleaning floors, walls, and surfaces in hospitals, public areas, and homes.\r\n \tPaper and Pulp Industry: Used in the bleaching process to whiten paper and pulp.\r\n \tAgriculture: Utilized to disinfect irrigation water and prevent the spread of plant diseases.\r\n \tChemical Manufacturing: Serves as a source of chlorine in chemical synthesis processes.\r\n\r\n&nbsp;\r\n\r\n&nbsp;",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/11/white-bleaching-powder-1000x1000-1-e1732173377286.jpg",
+      "attributes": {
+        "CAS Number": "7778-54-3",
+        "Appearance": "White to light yellow powder",
+        "Chemical Formula": "Ca(ClO)₂",
+        "Solubility": "Partially soluble in water\\, releases chlorine gas",
+        "Odor": "Strong chlorine smell",
+        "pH (1% solution)": "10 to 11"
+      }
+    },
+    {
+      "id": 1879,
+      "name": "Castor Oil",
+      "in_stock": true,
+      "short_description": "Known for its unique chemical composition, especially its high ricinoleic acid content, it is widely used in pharmaceuticals, cosmetics, industrial products, and traditional medicine.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications \r\n\r\n \tPharmaceutical Industry: Used as a laxative, carrier oil for drugs, and a component in ointments and creams.\r\n \tCosmetics and Personal Care: Found in hair care products, lip balms, moisturizers, and soaps for its emollient and conditioning properties.\r\n \tIndustrial Applications: Used in the production of biodiesel, lubricants, coatings, and hydraulic fluids.\r\n \tFood Industry: Acts as a food additive, preservative, and mold inhibitor in certain foods.\r\n \tTextile and Leather Industry: Employed as a softening agent and finishing oil for fabrics and leather products.\r\n \tTraditional Medicine: Applied for treating skin conditions, wounds, and joint pain due to its anti-inflammatory properties.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/CASTOR-OIL-1.jpg",
+      "attributes": {
+        "CAS Number": "8001-79-4",
+        "Appearance": "Pale yellow to colorless viscous liquid",
+        "Odor": "Mild characteristic odor",
+        "Density": "~0.96 g/cm³ at 20°C",
+        "Viscosity": "~650 to 800 cP at 25°C",
+        "Boiling Point": "~313°C (594°F)",
+        "Solubility": "Insoluble in water\\, soluble in alcohol and organic solvents",
+        "Acid Value": "≤ 2 mg KOH/g",
+        "Iodine Value": "83–88 g I₂/100g",
+        "Saponification Value": "176–182 mg KOH/g"
+      }
+    },
+    {
+      "id": 1880,
+      "name": "Caustic Soda | Sodium Hydroxide",
+      "in_stock": true,
+      "short_description": "It is widely used in industries for cleaning, chemical production, water treatment, and soap making due to its ability to neutralize acids, dissolve fats, and react with various substances.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications \r\n\r\n \tChemical Manufacturing: Used as a key ingredient in the production of chemicals like detergents, soaps, and dyes.\r\n \tTextile Industry: Employed in fabric processing and dyeing as a scouring and mercerizing agent.\r\n \tWater Treatment: Neutralizes acidic water and adjusts pH in water treatment plants.\r\n \tFood Industry: Used in the peeling of fruits and vegetables, chocolate processing, and the preparation of soft drinks.\r\n \tSoap and Detergent Manufacturing: Reacts with fats and oils to produce soaps and detergents through the saponification process.\r\n \tPetroleum Industry: Helps in refining oil and removing acidic contaminants from petroleum products.\r\n \tCleaning Agents: Found in drain cleaners, oven cleaners, and industrial cleaning formulations for its ability to dissolve grease and grime.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/CAUSTIC-SODA-FLAKES-1.jpg, https://ptcgram.com/wp-content/uploads/2024/11/caustic-soda-prills.jpg",
+      "attributes": {
+        "CAS Number": "1310-73-2",
+        "Chemical Formula": "NaOH",
+        "Appearance": "White solid (Flakes / Prills)",
+        "Molecular Weight": "40 g/mol",
+        "Density": "2.13 g/cm³ at 20°C",
+        "Solubility": "Highly soluble in water\\, exothermic reaction upon dissolving",
+        "pH (1% solution)": "~13 (strongly alkaline)",
+        "Melting Point": "318°C (604°F)",
+        "Boiling Point": "1\\,388°C (2\\,530°F)",
+        "Stability": "Stable under normal conditions but reacts with acids and moisture"
+      }
+    },
+    {
+      "id": 1883,
+      "name": "Dihydromyrcenol | DHM Tops",
+      "in_stock": true,
+      "short_description": "It is widely used in the fragrance and flavor industry due to its pleasant, clean, and zesty scent. This compound is a key ingredient in various perfumes, air fresheners, cleaning products, and personal care formulations, offering long-lasting freshness.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications \r\n\r\n \tPerfume and Fragrance Industry: Widely used as a fresh, citrusy top note in perfumes, colognes, and other fragrance products.\r\n \tPersonal Care Products: Incorporated into shampoos, body washes, deodorants, and lotions to provide a long-lasting, fresh scent.\r\n \tCleaning Products: Used in air fresheners, surface cleaners, and detergents to impart a fresh, clean fragrance.\r\n \tFlavoring Agent:Utilized in the food and beverage industry for its citrus-like aroma in flavoring applications.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/DHM-TOPS-1.jpeg, https://ptcgram.com/wp-content/uploads/2024/11/dhm-tops-4.jpg",
+      "attributes": {
+        "CAS Number": "123-16-4",
+        "Appearance": "Clear\\, slightly yellow\\, Dark Red",
+        "Odor": "Fresh\\, citrus-like\\, clean\\, and slightly floral",
+        "Solubility": "Soluble in alcohol and most organic solvents",
+        "Density": "0.86 g/cm³ at 20°C",
+        "Boiling Point": "234°C (453°F)",
+        "Flash Point": "91°C (196°F)",
+        "Viscosity": "Low viscosity\\, easy to blend with other ingredients"
+      }
+    },
+    {
+      "id": 1886,
+      "name": "Fully Refined Paraffin Wax",
+      "in_stock": true,
+      "short_description": "High-purity wax derived from petroleum, coal, or shale oil. It undergoes a thorough refining process to remove impurities like oil and odor, making it suitable for applications requiring stringent quality standards.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\n\r\n \tCandle Manufacturing: Used for making high-quality candles with a long burn time and smooth finish.\r\n \tCosmetics: Acts as a base in lipsticks, creams, and lotions.\r\n \tPackaging: Provides moisture-proof coatings for food-grade paper and board.\r\n \tRubber Industry: Used as a processing aid in rubber compounds.\r\n \tPharmaceuticals: As a coating for tablets and in medical ointments.\r\n \tPolishes: Used in shoe and furniture polishes for a glossy finish.\r\n \tCrayons and Markers: Adds structure and color retention.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/FULLY-REFINED-PARAFFIN-WAX.jpg",
+      "attributes": {
+        "Color": "White / transparent",
+        "Odor": "Odorless / mild hydrocarbon",
+        "Oil Content": "<0.5%",
+        "Melting Point": "58°C - 68°C",
+        "Solubility": "Insoluble in water; dissolves in organic solvents"
+      }
+    },
+    {
+      "id": 1887,
+      "name": "Emulsifying Wax (Cosmetic Grade)",
+      "in_stock": true,
+      "short_description": "A key ingredient in cosmetic formulations, enabling the blending of water and oil to create stable emulsions. It is derived from plant or petroleum sources and refined to meet the stringent requirements of cosmetic-grade applications.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\n\r\n \tSkin Care: Creams, Lotions, Moisturizers\r\n \tHair Care: Conditioners, Leave-in treatments\r\n \tMakeup: Foundations, Cream-based products\r\n \tPharmaceuticals: Ointments, Medical creams\r\n \tPersonal Hygiene: Body washes, Shaving creams",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/EMULSIFIER-WAX-1-1.jpg, https://ptcgram.com/wp-content/uploads/2022/09/EMULSIFYING-WAX-COSMETIC-GRADE.jpg",
+      "attributes": {
+        "Appearance": "White to off-white flakes / pellets",
+        "Odor": "Mild / odorless",
+        "Solubility": "Dispersible in water and oil",
+        "pH": "6-7",
+        "HLB Value": "9 - 15",
+        "Melting Point": "50°C - 60°C"
+      }
+    },
+    {
+      "id": 1888,
+      "name": "Guar Gum Powder",
+      "in_stock": true,
+      "short_description": "A natural thickening, stabilizing, and emulsifying agent extracted from the seeds of the guar plant (Cyamopsis tetragonoloba). It is widely used in food, pharmaceutical, cosmetic, and industrial applications due to its high viscosity and versatility.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nFood Industry\r\n\r\n \tThickening Agent: Sauces, soups, and gravies.\r\n \tStabilizer: Ice creams and dairy products to prevent crystallization.\r\n \tBaked Goods: Improves texture and shelf life.\r\n \tGluten-Free Products: Acts as a binding agent in gluten-free recipes.\r\n\r\nCosmetics\r\n\r\n \tUsed in lotions, creams, and shampoos for thickening and stabilizing emulsions.\r\n\r\nPharmaceuticals\r\n\r\n \tSuspending Agent: In syrups and ointments.\r\n \tBinder: For tablets and capsules.\r\n\r\nIndustrial Applications\r\n\r\n \tOil &amp; Gas: As a viscosifier in hydraulic fracturing (fracking).\r\n \tTextiles: As a thickening agent in dyeing and printing.\r\n \tPaper Manufacturing: Enhances paper strength and improves quality\r\n\r\n&nbsp;",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/GUAR_GUM_POWDER.png, https://ptcgram.com/wp-content/uploads/2022/09/GUAR-GUM-POWDER.jpg",
+      "attributes": {
+        "Appearance": "Off-white to yellowish powder",
+        "Solubility": "Soluble in cold and hot water",
+        "Viscosity": "High",
+        "pH": "5-7",
+        "Mesh Size": "100-300 mesh"
+      }
+    },
+    {
+      "id": 1889,
+      "name": "Light Liquid Paraffin (LLP)",
+      "in_stock": true,
+      "short_description": "A purified, colorless, and odorless oil derived from petroleum. It is widely used across various industries due to its inert, non-reactive, and non-toxic nature.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications\r\nPharmaceuticals\r\n\r\n \tLaxatives: Used in oral and rectal formulations for constipation relief.\r\n \tBase Ingredient: In ointments, creams, and lotions.\r\n\r\nCosmetics &amp; Personal Care\r\n\r\n \tMoisturizer: Acts as a skin emollient in creams and lotions.\r\n \tHair Care: Used in hair oils and conditioners.\r\n \tBaby Products: An essential ingredient in baby oils.\r\n\r\nFood Industry\r\n\r\n \tCoating Agent: Provides a glossy finish for fruits and vegetables.\r\n \tLubricant: In food-processing machinery where incidental contact with food may occur.\r\n\r\nIndustrial Applications\r\n\r\n \tTextiles: As a lubricant in spinning and weaving.\r\n \tPlastics: Used as a release agent in mold manufacturing.\r\n \tRubber Industry: As a softening agent in rubber production.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/11/liquid-paraffin-light-and-heavy-gels-1000x1000-1.jpg",
+      "attributes": {
+        "Appearance": "Clear",
+        "Specific Gravity": "0.82 - 0.87 (at 25°C)",
+        "Viscosity": "Low to medium",
+        "Solubility": "Insoluble in water; soluble in organic solvents"
+      }
+    },
+    {
+      "id": 1897,
+      "name": "Liquid Emulsifying Thickener",
+      "in_stock": true,
+      "short_description": "It is widely used in industries like cosmetics, personal care, and home cleaning products due to its efficiency and ease of use.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\nApplications\r\nCosmetics &amp; Personal Care\r\n\r\n \tSkin Care: Creams, lotions, and moisturizers.\r\n \tHair Care: Shampoos, conditioners, and hair masks.\r\n \tMakeup: Foundations and liquid makeup products.\r\n\r\nHome Care Products\r\n\r\n \tDetergents: Dishwashing liquids and laundry detergents.\r\n \tCleaning Products: Floor cleaners, glass cleaners, and multipurpose cleaners.\r\n \tFabric Softeners: Enhances texture and consistency.\r\n\r\nIndustrial Applications\r\n\r\n \tLubricants: For thickening oil-based systems.\r\n \tPaints and Coatings: Improves viscosity and spreadability.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/LIQUID-EMULSIFYING-THICKNER.jpg",
+      "attributes": {
+        "Appearance": "Viscous",
+        "Odor": "Odorless",
+        "pH Range": "5.5 - 7.5",
+        "Solubility": "Dispersible in water and oils",
+        "Compatibility": "Works with both water-based and oil-based systems",
+        "Thickening Efficiency": "Increases viscosity with minimal usage",
+        "Stabilizing Properties": "Prevents phase separation in emulsions",
+        "Emulsification": "Helps mix oil and water to form stable emulsions."
+      }
+    },
+    {
+      "id": 1898,
+      "name": "Pearl Powder",
+      "in_stock": true,
+      "short_description": "A finely ground biomaterial derived from natural pearls. Known for its high bioavailability of calcium and amino acids, it offers a range of benefits for cosmetic, pharmaceutical, and nutraceutical applications.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications\r\n\r\n\r\nCosmetics and Skincare\r\n\r\n \tAnti - Aging Creams: Promotes collagen synthesis and improves skin elasticity.\r\n \tBrightening Masks: Reduces pigmentation and provides a radiant glow.\r\n \tExfoliants: Acts as a gentle physical exfoliator.\r\n \tMakeup: Enhances luminosity in finishing powders and foundations.\r\n\r\nPharmaceuticals\r\n\r\n \tCalcium Supplements: High-purity calcium source for bone health.\r\n \tTablet Coatings: Provides a smooth finish and additional nutrients.\r\n \tWound Healing Ointments: Aids tissue regeneration and reduces inflammation.\r\n\r\nTraditional Medicine\r\n\r\n \tWidely used in Ayurvedic and Chinese medicine for calming and cooling the body.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/PEARL-POWDER.jpg",
+      "attributes": {
+        "Appearance": "Ultra-fine shiny powder",
+        "CAS Number": "471-34-1",
+        "Particle Size": "<10 microns",
+        "Solubility": "fully dispersible in formulations",
+        "Density": "2.93 g/cm³"
+      }
+    },
+    {
+      "id": 1899,
+      "name": "Pine Oil 32% | Camphor Grade",
+      "in_stock": true,
+      "short_description": "Essential oil derived from the distillation of pine tree parts, blended with camphor to enhance its properties. This formulation is widely used in cleaning products, disinfectants, pharmaceuticals, and aromatherapy due to its strong antimicrobial and deodorizing properties.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\nApplications\r\n\r\nCleaning and Hygiene\r\n\r\n \tDisinfectants: Used in floor cleaners and multi-surface disinfectants.\r\n \tLaundry Care: Removes odors and freshens fabrics.\r\n\r\nPharmaceuticals\r\n\r\n \tPain Relief Balms: Relieves muscle and joint pain.\r\n \tInhalers and Rubs: Alleviates nasal congestion and cold symptoms.\r\n\r\nPersonal Care\r\n\r\n \tAromatherapy: Promotes relaxation and mental clarity.\r\n \tBath Products: Enhances the sensory experience and provides antimicrobial benefits.\r\n\r\nIndustrial Applications\r\n\r\n \tTextile and Leather: Used as a cleaning and softening agent.\r\n \tPesticides: Acts as a natural pest repellent.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/12/Pine-oil-camphoe.jpg",
+      "attributes": {
+        "CAS Number": "8002-09-3",
+        "Appearance": "Clear to pale yellow liquid",
+        "Odor": "Strong\\, woody & camphoraceous",
+        "Camphor Content": "32% ± 2%",
+        "Specific Gravity": "0.910 - 0.925",
+        "Refractive Index": "1.470 - 1.485",
+        "Solubility": "Partially soluble in water & Fully soluble in organic solvents",
+        "Flash Point": "43°C - 45°C"
+      }
+    },
+    {
+      "id": 1901,
+      "name": "Pine Oil 32% | Regular Grade",
+      "in_stock": true,
+      "short_description": "Derived from the distillation of pine tree parts, containing 32% active ingredients. It is widely used in cleaning, disinfecting, and deodorizing applications due to its cost-effectiveness and versatile properties.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\nApplications\r\nHousehold and Industrial Cleaning\r\n\r\n \tFloor Cleaners: Acts as a key ingredient in phenyl and multi-surface cleaners.\r\n \tAir Fresheners: Imparts a fresh pine fragrance.\r\n \tCarpet and Upholstery Cleaners: Removes dirt and odors effectively.\r\n\r\nDisinfectants\r\n\r\n \tUsed in formulations for hospitals, schools, and public spaces.\r\n \tActs as a cleaning and germ-killing agent.\r\n\r\nPersonal Care Products\r\n\r\n \tLimited use in bath oils and soaps for its aromatic and antimicrobial properties.\r\n\r\nAgriculture and Veterinary\r\n\r\n \tUsed in animal care products and as a natural pesticide.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/PINE-OIL-32-REGULAR.jpg",
+      "attributes": {
+        "Appearance": "Pale Yellow Liquid",
+        "Odor": "Strong Pine Scent",
+        "Active Ingredient": "32% ± 2%",
+        "Specific Gravity": "0.905 - 0.920",
+        "Refractive Index": "1.460 - 1.470",
+        "Solubility": "Partially soluble in water & Fully soluble in organic solvents",
+        "Flash Point": "45°C - 50°C"
+      }
+    },
+    {
+      "id": 1902,
+      "name": "Sodium Hypochlorite",
+      "in_stock": true,
+      "short_description": "It is a versatile chemical compound widely used as a disinfectant, bleaching agent, and oxidizer. It is a pale greenish-yellow liquid with a characteristic chlorine odor. It is commonly found in household bleach and industrial disinfecting formulations.\r\n\r\n\r\n\r\nENQUIRE NOW\r\nApplications\r\nDisinfection\r\n\r\n \tWater Treatment: Disinfects drinking water, swimming pools, and wastewater.\r\n \tSanitizers: Used in hospitals, schools, and public spaces.\r\n \tHousehold Cleaning: Key ingredient in bleach and surface cleaners.\r\n\r\nBleaching\r\n\r\n \tTextile Industry: Removes stains and whitens fabrics.\r\n \tPaper Industry: Used in pulp bleaching processes.\r\n\r\nIndustrial Uses\r\n\r\n \tChemical Manufacturing: Used in the production of hydrazine and other chemicals.\r\n \tAgriculture: Disinfectant for seeds and irrigation systems.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/SODIUM_HYPOCHLORIDE.png",
+      "attributes": {
+        "CAS Number": "7681-52-9",
+        "Molecular Weight": "74.44 g/mol",
+        "Appearance": "Pale yellow liquid",
+        "Odor": "Chlorine like",
+        "pH": "11 - 13 (strongly alkaline)",
+        "Solubility": "Fully soluble in water"
+      }
+    },
+    {
+      "id": 1903,
+      "name": "Soda Ash | Sodium Carbonate",
+      "in_stock": true,
+      "short_description": "A white, odorless powder widely used in industrial, commercial, and domestic applications. It is a strong alkaline substance with excellent cleaning, buffering, and water-softening properties.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial\r\n\r\n \tGlass Manufacturing: A primary raw material in the production of flat glass, bottles, and containers.\r\n \tDetergents: Enhances cleaning performance in laundry and dishwashing products.\r\n \tPulp and Paper: Used in the kraft process for pulping wood.\r\n \tChemical Production: Key ingredient in the synthesis of sodium silicate, sodium bicarbonate, and other compounds.\r\n\r\nWater Treatment\r\n\r\n \tAdjusts pH levels in municipal and industrial water systems.\r\n\r\nFood Industry\r\n\r\n \tActs as a food additive (E500), used as a pH regulator and anticaking agent.\r\n\r\nAgriculture\r\n\r\n \tSoil Treatment: Neutralizes acidic soils.\r\n \tAnimal Feed: Used as a buffering agent in ruminant diets.\r\n\r\nHousehold\r\n\r\n \tCleaning Agent: Removes grease, oil, and stains.\r\n \tSwimming Pools: Maintains pH balance in pool water.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/SODA-ASH-1.jpg",
+      "attributes": {
+        "CAS Number": "497-19-8",
+        "Molecular Weight": "105.99 g/mol",
+        "Appearance": "White Crystalline Powder",
+        "pH": "11.0 - 11.5",
+        "Solubility": "Soluble in water",
+        "Decomposition Temperature": "> 400°C"
+      }
+    },
+    {
+      "id": 1904,
+      "name": "Turkey Red Oil | TRO 50 / 70",
+      "in_stock": true,
+      "short_description": "A versatile and unique oil derived from castor oil that has been treated with sulfuric acid. It is suitable for a variety of industrial, agricultural, and personal care applications.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nTextile Industry\r\n\r\n \tDyeing and Printing: Used as a leveling agent and wetting agent to ensure uniform dye absorption.\r\n \tSoftening Agent: Improves the softness and finish of fabrics.\r\n\r\nDetergents and Cleaning Products\r\n\r\n \tIndustrial Cleaners: Used in formulations for cleaning machinery and surfaces.\r\n \tLaundry Products: Acts as an emulsifier and stain remover.\r\n\r\nCosmetics and Personal Care\r\n\r\n \tSoaps and Shampoos: Enhances lathering and moisturizing properties.\r\n \tSkin Care Products: Acts as a humectant and emollient.\r\n\r\nAgriculture\r\n\r\n \tPesticides and Fertilizers: Used as a wetting agent in foliar sprays to improve adherence and coverage.\r\n \tSoil Conditioner: Helps in water penetration and nutrient absorption.\r\n\r\nLeather and Lubricants\r\n\r\n \tLeather Processing: Used as a fatliquoring agent to soften and enhance leather quality.\r\n \tIndustrial Lubricants: Provides excellent lubricity and water solubility.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/TURKEY_RED_OIL_TRO.png",
+      "attributes": {
+        "Chemical Name": "Sulfonated Castor Oil",
+        "CAS Number": "8002-33-3",
+        "Appearance": "Reddish-brown viscous liquid",
+        "Solubility": "Completely soluble in water",
+        "pH": "6.5 - 8.0",
+        "Sulfonation Content": "50% - 70%",
+        "Specific Gravity": "0.96 - 1.02"
+      }
+    },
+    {
+      "id": 1905,
+      "name": "Turpentine Oil Tops",
+      "in_stock": true,
+      "short_description": "A refined grade of turpentine oil, derived from the distillation of resin from pine trees. This product is characterized by its high purity and a distinct, sharp odor, making it valuable for industrial, pharmaceutical, and cosmetic applications.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Applications\r\n\r\n \tPaints and Varnishes: Acts as a solvent to improve the spreadability and finish of coatings.\r\n \tAdhesives: Used as a thinner and solvent in glue formulations.\r\n \tInks and Dyes: Improves the dispersion and drying of printing inks.\r\n\r\nPharmaceutical Applications\r\n\r\n \tTopical Preparations: Used in ointments and liniments for its anti-inflammatory and analgesic properties.\r\n \tAromatherapy: Provides a refreshing, pine-scented aroma for relaxation therapies.\r\n\r\nCosmetic and Personal Care\r\n\r\n \tPerfumery: Acts as a fixative or base in fragrance formulations.\r\n \tSoaps and Detergents: Adds a natural pine scent and improves cleaning efficiency.\r\n\r\nAgriculture and Pest Control\r\n\r\n \tUsed in the formulation of natural pesticides and insect repellents.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/TURPENTINE_OIL_TOPS.png",
+      "attributes": {
+        "CAS Number": "8006-64-2",
+        "Molecular Formula": "C₁₀H₁₆",
+        "Odor": "Strong pine-like aroma",
+        "Boiling Point": "154°C - 170°C",
+        "Flash Point": "35°C - 45°C",
+        "Specific Gravity": "0.855 - 0.870",
+        "Refractive Index": "1.470 - 1.480",
+        "Solubility": "Soluble in alcohols\\, oils\\, and organic solvents"
+      }
+    },
+    {
+      "id": 1907,
+      "name": "Vicasol",
+      "in_stock": true,
+      "short_description": "A water-soluble derivative of Vitamin K3 (Menadione), commonly used in the tea industry and other food applications as a stabilizer or additive to enhance quality. It plays a role in maintaining the color and stability of tea products during processing and storage.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications \r\n\r\n \tStabilizer: Prevents oxidation, preserving the flavor and aroma of tea.\r\n \tColor Retention: Helps maintain the vibrant color of tea leaves and brewed tea.\r\n \tNutritional Enhancer: Adds a source of Vitamin K when used in health-focused tea formulations.\r\n \tShelf-Life Improvement: Reduces spoilage by inhibiting oxidative reactions.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/VICASOL_TEA.png",
+      "attributes": {
+        "Chemical Name": "Menadione Sodium Bisulfite",
+        "CAS Number": "130-37-0",
+        "Molecular Formula": "C11H9NaO5S",
+        "Molecular Weight": "286.25 g/mol",
+        "Solubility": "Fully Soluble in Water & Partially Soluble in Alcohol"
+      }
+    },
+    {
+      "id": 1909,
+      "name": "Xanthum Gum | Polysaccharide gum",
+      "in_stock": true,
+      "short_description": "It is a versatile polysaccharide commonly used as a food additive, thickener, and stabilizer. Produced by the fermentation of Xanthomonas campestris bacteria, it is known for its excellent water-binding, viscosity-modifying, and stabilizing properties, making it valuable in food, cosmetics, pharmaceuticals, and industrial applications.\r\n\r\n\r\n\r\nENQUIRE NOW\r\nApplications\r\nFood and Beverage Industry\r\n\r\n \tThickener in Sauces and Dressings: Provides smooth texture and prevents separation.\r\n \tStabilizer in Ice Cream: Improves creaminess and prevents ice crystal formation.\r\n \tGluten-Free Baking: Replaces gluten to enhance dough elasticity.\r\n \tBeverage Suspensions: Keeps solids evenly distributed in drinks.\r\n\r\nPharmaceutical and Cosmetic Industry\r\n\r\n \tTopical Formulations: Used in gels, creams, and lotions for consistent texture.\r\n \tOral Syrups: Prevents separation and ensures uniform dosing.\r\n \tToothpaste: Enhances spreadability and prevents phase separation.\r\n\r\nIndustrial Applications\r\n\r\n \tOil Drilling: Improves viscosity and stability in drilling fluids.\r\n \tAdhesives and Coatings: Enhances stability and application properties.",
+      "image": "https://ptcgram.com/wp-content/uploads/2022/09/XANTHUM-GUM-1.jpg",
+      "attributes": {
+        "Chemical Name": "Polysaccharide gum",
+        "CAS Number": "11138-66-2",
+        "Molecular Formula": "C35H49O29",
+        "Appearance": "Off-white to cream-colored powder",
+        "Odor": "Odorless",
+        "Solubility": "Soluble in both hot and cold water",
+        "pH": "6.0 - 8.0",
+        "Viscosity": "High\\, even at low concentrations"
+      }
+    }
+  ],
+  "Household Cleaning Concentrates": [
+    {
+      "id": 1949,
+      "name": "Black Phenyl Concentrate",
+      "in_stock": true,
+      "short_description": "A highly effective disinfectant solution widely used for cleaning and sanitizing purposes. Known for its strong germicidal properties, it is commonly diluted to prepare black phenyl, which is used in households, hospitals, and industrial facilities for surface disinfection and odor control.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nKey Features\r\n\r\n \tBroad-Spectrum Disinfection: Effective against bacteria, fungi, and viruses.\r\n \tOdor Control: Neutralizes unpleasant smells.\r\n \tEmulsifiable Concentrate: Easily mixes with water to form a stable solution.\r\n \tVersatility: Suitable for a wide range of cleaning applications.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/12/black-pheyl-concentrate.jpg",
+      "attributes": {
+        "Appearance": "Dark brown to black viscous liquid",
+        "Odor": "Characteristic phenolic odor",
+        "pH": "8.5–10.5",
+        "Specific Gravity": "~1.01–1.04 g/cm³",
+        "Solubility": "Forms a stable emulsion when diluted in water",
+        "Dilution Ratio": "1 : 20"
+      }
+    },
+    {
+      "id": 1951,
+      "name": "White Phenyl Concentrate (Pine Oil Based)",
+      "in_stock": true,
+      "short_description": "It is widely used to manufacture white phenyl, a popular cleaning and disinfecting agent in households, hospitals, and commercial spaces. The pine oil base provides a natural fragrance and effective germicidal properties.\r\n\r\n\r\n\r\nENQUIRE NOW\r\nKey Features\r\n\r\n \tNatural Germicidal Action: Pine oil provides antimicrobial and deodorizing effects.\r\n \tPleasant Fragrance: Leaves a fresh and long-lasting pine scent.\r\n \tStability: Forms a stable white emulsion in both hard and soft water.\r\n \tNon-Corrosive: Safe for most surfaces, including floors, tiles, and marble.\r\n \tVersatility: Suitable for domestic, commercial, and industrial cleaning.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/12/white-phenyl-concentrate.jpg",
+      "attributes": {
+        "Appearance": "Pale yellow to white viscous liquid",
+        "Odor": "Pleasant pine fragrance",
+        "pH": "7.0–9.0",
+        "Specific Gravity": "~0.98–1.02 g/cm³",
+        "Solubility": "Forms a milky white emulsion when diluted in water",
+        "Dilution Ratio": "1 part concentrate to 20–40 parts water"
+      }
+    },
+    {
+      "id": 1959,
+      "name": "Liquid Dish Wash Concentrate",
+      "in_stock": true,
+      "short_description": "Designed for removing grease, food residues, and stains from dishes, utensils, and cookware. With its excellent foaming and grease-cutting properties, it ensures sparkling clean dishes while being gentle on hands.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\nKey Features\r\n\r\n \tHigh Grease-Cutting Efficiency: Effectively removes oil and tough stains.\r\n \tGentle on Hands: Contains mild surfactants and skin conditioners.\r\n \tEco-Friendly: Biodegradable formula (depending on surfactants used).\r\n \tHigh Foam: Provides excellent foaming action for effective cleaning.\r\n \tSafe on Utensils: Leaves no residue, ensuring safety for food contact surfaces.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/12/CE-BEI0050__61328.jpg",
+      "attributes": {
+        "Appearance": "Viscous Translucent Liquid (Color is customizable)",
+        "Odor": "Lemon or mild floral fragrance (customizable)",
+        "pH": "6.5–8.5",
+        "Specific Gravity": "~1.01–1.03 g/cm³"
+      }
+    },
+    {
+      "id": 1989,
+      "name": "Floor Cleaner Concentrate",
+      "in_stock": true,
+      "short_description": "Designed to clean, disinfect, and deodorize various types of flooring. It ensures a hygienic and streak-free finish while being safe for both domestic and commercial use.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\n\r\n \tHousehold Cleaning: Ideal for daily cleaning and maintenance of floors.\r\n \tCommercial Use: Used in offices, malls, schools, and healthcare facilities.\r\n \tIndustrial Facilities: Ensures hygienic factory floors and workspaces.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/12/green-concentrated-floor-cleaner.jpg",
+      "attributes": {
+        "Appearance": "Transparent or lightly colored liquid",
+        "Odor": "Fresh floral\\, citrus\\, or pine fragrance (customizable)",
+        "pH": "6.5–8.0",
+        "Specific Gravity": "~1.00–1.03 g/cm³"
+      }
+    },
+    {
+      "id": 1991,
+      "name": "Glass Cleaner Concentrate",
+      "in_stock": true,
+      "short_description": "Designed to remove dirt, grease, smudges, and fingerprints from glass and other reflective surfaces. It leaves surfaces streak-free and crystal clear, enhancing their shine and visibility.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\n\r\n \tResidential Use: Cleaning windows, mirrors, glass tabletops, and photo frames.\r\n \tCommercial Use: Maintenance of office partitions, display cases, and doors.\r\n \tAutomotive: Cleaning windshields, car windows, and mirrors.\r\n \tHospitality Industry: Used in hotels for spotless glass and mirrors.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/12/image_0901.webp",
+      "attributes": {
+        "Appearance": "Transparent\\, light blue or colorless liquid",
+        "Odor": "Mild\\, fresh fragrance (customizable)",
+        "pH": "6.5–7.5",
+        "Specific Gravity": "~0.98–1.02 g/cm³"
+      }
+    },
+    {
+      "id": 1993,
+      "name": "Green Phenyl",
+      "in_stock": true,
+      "short_description": "It is widely used for maintaining hygiene and cleanliness in various spaces. It is especially effective for floors, toilets, and other hard surfaces, leaving behind a pleasant fragrance.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\n\r\n \tFloor Cleaning: Ideal for mopping in homes, offices, hospitals, and schools.\r\n \tSurface Cleaning: Effective on countertops, tiles, and hard surfaces.\r\n \tToilet Cleaning: Disinfects and deodorizes bathroom areas.\r\n \tWaste Area Sanitization: Controls odor and bacteria in garbage zones.",
+      "image": "https://ptcgram.com/wp-content/uploads/2024/12/green-phenyl-floor-cleaner-1000x1000-1.png",
+      "attributes": {
+        "Appearance": "Green\\, viscous liquid",
+        "Odor": "Fresh\\, herbal fragrance (pine)",
+        "pH": "7.0–8.0",
+        "Specific Gravity": "~0.95–1.00 g/cm³"
+      }
+    },
+    {
+      "id": 1995,
+      "name": "Hand Wash Concentrate",
+      "in_stock": true,
+      "attributes": {}
+    }
+  ]
+}
