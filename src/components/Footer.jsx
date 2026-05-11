@@ -2,18 +2,6 @@ import { Link } from 'react-router-dom'
 import { FaGlobe, FaLocationDot, FaEnvelope, FaPhone } from 'react-icons/fa6'
 import data from '../data/siteData.json'
 
-const LogoSVG = () => (
-  <svg viewBox="0 0 56 56" fill="none" className="w-9 h-9 flex-shrink-0">
-    <ellipse cx="28" cy="28" rx="24" ry="9" stroke="white" strokeWidth="1.5" fill="none" />
-    <ellipse cx="28" cy="28" rx="24" ry="9" stroke="white" strokeWidth="1.5" fill="none" transform="rotate(60 28 28)" />
-    <ellipse cx="28" cy="28" rx="24" ry="9" stroke="white" strokeWidth="1.5" fill="none" transform="rotate(120 28 28)" />
-    <path d="M28 19 C32 23 32 33 28 37 C24 33 24 23 28 19Z" fill="#c8872a" />
-    <circle cx="28" cy="4" r="2" fill="white" />
-    <circle cx="48" cy="40" r="2" fill="white" />
-    <circle cx="8" cy="40" r="2" fill="white" />
-  </svg>
-)
-
 const FooterLink = ({ to, children }) => (
   <li>
     <Link to={to} className="text-sm text-white/50 hover:text-white hover:pl-2 transition-all duration-200 flex items-center gap-1 group">
@@ -35,11 +23,12 @@ export default function Footer() {
         {/* Brand */}
         <div className="lg:col-span-1 flex flex-col gap-4">
           <div className="flex items-center gap-3">
-            <LogoSVG />
-            <div>
-              <span className="block font-serif text-xl text-white leading-none tracking-wide">PTCGRAM</span>
-              <span className="block text-[0.55rem] font-semibold tracking-widest text-white/30 uppercase mt-0.5">PVT LTD.</span>
-            </div>
+            <img
+              src="/Images/logo.png"
+              alt="PTCGRAM PVT LTD"
+              className="h-12 w-auto object-contain flex-shrink-0"
+            />
+          
           </div>
           <p className="text-[0.65rem] font-bold tracking-[0.22em] uppercase text-amber-500">IDEA · PROFIT · FUTURE</p>
           <p className="text-sm text-white/45 leading-relaxed max-w-xs">
