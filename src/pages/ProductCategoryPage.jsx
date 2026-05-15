@@ -2,7 +2,7 @@
 import PageBanner from '../components/PageBanner'
 import productData from '../data/productdetail.json'
 import siteData from '../data/siteData.json'
-import { getDisplayImageUrl } from '../utils/productImage'
+import { getDisplayImageUrl, getDisplayImageUrls } from '../utils/productImage'
 import { FaArrowRight, FaFlask } from 'react-icons/fa'
 
 const CATEGORY_MAP = {
@@ -59,7 +59,8 @@ export default function ProductCategoryPage({ categoryId }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {products.map((product, i) => {
               const cas = getCAS(product.attributes)
-              const productImage = getDisplayImageUrl(product.image)
+              const imageCandidates = getDisplayImageUrls(product.image)
+              const productImage = imageCandidates[0] || getDisplayImageUrl(product.image)
               const firstLine = product.short_description
                 ?.replace(/\r\n/g, '\n')
                 .split('\n')
@@ -78,8 +79,16 @@ export default function ProductCategoryPage({ categoryId }) {
                       <img
                         src={productImage}
                         alt={product.name}
+                        referrerPolicy="no-referrer"
                         className="w-full h-full object-fill group-hover:scale-105 transition-transform duration-500"
                         onError={e => {
+                          const current = e.currentTarget.getAttribute('src') || ''
+                          const currentIndex = imageCandidates.indexOf(current)
+                          const next = imageCandidates[currentIndex + 1]
+                          if (next) {
+                            e.currentTarget.src = next
+                            return
+                          }
                           e.currentTarget.style.display = 'none'
                           e.currentTarget.nextElementSibling.style.display = 'flex'
                         }}

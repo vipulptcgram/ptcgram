@@ -5,18 +5,18 @@ import PageBanner from '../components/PageBanner'
 import data from '../data/siteData.json'
 
 const Eyebrow = ({ children }) => (
-  <div className="flex items-center gap-2.5 text-[0.7rem] font-bold tracking-[0.2em] uppercase text-amber-500">
+  <div className="flex items-center gap-2.5 text-[0.65rem] sm:text-[0.7rem] font-bold tracking-[0.14em] sm:tracking-[0.2em] uppercase text-amber-500">
     <span className="w-6 h-0.5 bg-amber-500 rounded-full" />{children}
   </div>
 )
 
 const InfoCard = ({ icon, label, children, color = 'border-gray-200' }) => (
-  <div className={`flex items-start gap-4 p-5 bg-white border ${color} rounded-xl hover:border-amber-400 hover:translate-x-1 hover:shadow-industry transition-all duration-200 group`}>
-    <div className="w-10 h-10 rounded-lg bg-navy-900/5 flex items-center justify-center text-base flex-shrink-0 group-hover:bg-amber-50 transition-colors">
+  <div className={`flex items-start gap-3 sm:gap-4 p-4 sm:p-5 bg-white border ${color} rounded-xl hover:border-amber-400 sm:hover:translate-x-1 hover:shadow-industry transition-all duration-200 group`}>
+    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-navy-900/5 flex items-center justify-center text-sm sm:text-base flex-shrink-0 group-hover:bg-amber-50 transition-colors">
       {icon}
     </div>
     <div>
-      <p className="text-[0.62rem] font-bold tracking-widest uppercase text-gray-400 mb-1">{label}</p>
+      <p className="text-[0.58rem] sm:text-[0.62rem] font-bold tracking-[0.12em] sm:tracking-widest uppercase text-gray-400 mb-1">{label}</p>
       {children}
     </div>
   </div>
@@ -24,7 +24,7 @@ const InfoCard = ({ icon, label, children, color = 'border-gray-200' }) => (
 
 const FormInput = ({ label, required, children, ...rest }) => (
   <div className="flex flex-col gap-1.5">
-    <label className="text-[0.65rem] font-bold tracking-widest uppercase text-gray-500">
+    <label className="text-[0.6rem] sm:text-[0.65rem] font-bold tracking-[0.12em] sm:tracking-widest uppercase text-gray-500">
       {label}{required && ' *'}
     </label>
     {children || (
@@ -58,14 +58,14 @@ export default function ContactPage() {
       />
 
       {/* ── Main ── */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-[1fr_1.7fr] gap-12 items-start">
+      <section className="py-14 sm:py-16 lg:py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[1fr_1.7fr] gap-8 sm:gap-10 lg:gap-12 items-start">
 
           {/* Info column */}
           <div className="flex flex-col gap-5">
             <Eyebrow>Contact Information</Eyebrow>
             <div className="w-12 h-[3px] bg-amber-500 rounded-full" />
-            <h2 className="font-serif text-2xl md:text-3xl text-navy-900">We'd Love to Hear From You</h2>
+            <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-navy-900">We'd Love to Hear From You</h2>
             <p className="text-sm text-gray-400 leading-relaxed">
               Whether you're looking for a specific chemical, need bulk pricing, or want to
               explore a business relationship — we're here to help.
@@ -89,13 +89,13 @@ export default function ContactPage() {
             </div>
 
             {/* Hours */}
-            <div className="bg-navy-900 rounded-xl p-5">
+            <div className="bg-navy-900 rounded-xl p-4 sm:p-5">
               <p className="text-[0.6rem] font-bold tracking-widest uppercase text-amber-400 mb-3">Office Hours</p>
               <div className="flex flex-col gap-2">
                 {[['Monday – Saturday', '9:00 AM – 6:00 PM'], ['Sunday', 'Closed']].map(([day, hrs]) => (
-                  <div key={day} className="flex justify-between text-sm py-1.5 border-b border-white/6 last:border-0">
+                  <div key={day} className="flex justify-between items-start gap-3 text-sm py-1.5 border-b border-white/6 last:border-0">
                     <span className="text-white/55">{day}</span>
-                    <span className="text-white/75 font-medium">{hrs}</span>
+                    <span className="text-white/75 font-medium text-right">{hrs}</span>
                   </div>
                 ))}
               </div>
@@ -103,9 +103,9 @@ export default function ContactPage() {
           </div>
 
           {/* Form */}
-          <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-industry">
+          <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-industry w-full">
             {sent ? (
-              <div className="flex flex-col items-center justify-center gap-5 py-20 px-10 text-center">
+              <div className="flex flex-col items-center justify-center gap-5 py-14 sm:py-20 px-5 sm:px-10 text-center">
                 <div className="w-16 h-16 rounded-full bg-amber-50 border-2 border-amber-400 flex items-center justify-center text-2xl text-amber-500 animate-pulse-amber">
                   <FaCheck />
                 </div>
@@ -121,9 +121,9 @@ export default function ContactPage() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={submit} className="p-8 md:p-10 flex flex-col gap-5">
+              <form onSubmit={submit} className="p-4 sm:p-6 md:p-10 flex flex-col gap-5">
                 <div>
-                  <h3 className="font-serif text-2xl text-navy-900">Send Us a Message</h3>
+                  <h3 className="font-serif text-xl sm:text-2xl text-navy-900">Send Us a Message</h3>
                   <p className="text-sm text-gray-400 mt-1">Fill in the details below and we'll get back to you promptly.</p>
                 </div>
 
@@ -168,7 +168,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`flex items-center justify-center gap-2 py-4 bg-navy-900 text-white text-[0.75rem] font-bold tracking-widest uppercase rounded hover:bg-navy-700 transition-colors ${loading ? 'opacity-60 cursor-not-allowed' : 'hover:-translate-y-0.5 hover:shadow-industry'} transition-all`}
+                  className={`flex items-center justify-center gap-2 py-3.5 sm:py-4 bg-navy-900 text-white text-[0.72rem] sm:text-[0.75rem] font-bold tracking-[0.14em] sm:tracking-widest uppercase rounded hover:bg-navy-700 transition-colors ${loading ? 'opacity-60 cursor-not-allowed' : 'hover:-translate-y-0.5 hover:shadow-industry'} transition-all`}
                 >
                   {loading ? 'Sending…' : 'Send Enquiry →'}
                 </button>
@@ -179,14 +179,14 @@ export default function ContactPage() {
       </section>
 
       {/* ── Product quick links ── */}
-      <section className="py-16 bg-white border-t border-gray-200">
-        <div className="max-w-6xl mx-auto px-8">
-          <h3 className="font-serif text-2xl text-navy-900 mb-2">Browse Our Products</h3>
+      <section className="py-12 sm:py-14 lg:py-16 bg-white border-t border-gray-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 className="font-serif text-xl sm:text-2xl text-navy-900 mb-2">Browse Our Products</h3>
           <p className="text-sm text-gray-400 mb-7">Not sure what you need? Explore our categories and then get in touch.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {data.categories.map(cat => (
               <Link key={cat.id} to={cat.slug}
-                className="group flex items-center gap-3 px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl hover:border-navy-900 hover:bg-white hover:-translate-y-0.5 hover:shadow-industry transition-all duration-200">
+                className="group flex items-center gap-3 px-4 sm:px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl hover:border-navy-900 hover:bg-white sm:hover:-translate-y-0.5 hover:shadow-industry transition-all duration-200">
                 <span className="text-xl flex-shrink-0"><FaFlask /></span>
                 <div className="flex-1 min-w-0">
                   <div className="text-sm font-semibold text-navy-900 truncate">{cat.name}</div>
@@ -201,3 +201,4 @@ export default function ContactPage() {
     </div>
   )
 }
+

@@ -1,8 +1,9 @@
-﻿import { Link, useParams } from 'react-router-dom'
+﻿import { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import PageBanner from '../components/PageBanner'
 import productData from '../data/productdetail.json'
 import siteData from '../data/siteData.json'
-import { getDisplayImageUrl } from '../utils/productImage'
+import { getDisplayImageUrl, getDisplayImageUrls } from '../utils/productImage'
 import { FaArrowLeft, FaArrowRight, FaCheckCircle, FaCircle, FaEnvelope, FaFlask, FaPhoneAlt, FaRegCircle, FaTimesCircle } from 'react-icons/fa'
 
 const CATEGORY_MAP = {
@@ -47,13 +48,32 @@ function getCAS(attrs = {}) {
   return attrs['CAS Number'] || attrs['CAS Number `'] || null
 }
 
+function normalizeImageSources(imageValue) {
+  if (Array.isArray(imageValue)) return imageValue.filter(Boolean)
+  if (!imageValue) return []
+  return [imageValue]
+}
+
 // categoryId now comes as a PROP (passed from App.jsx routes), not from useParams
 export default function ProductDetailPage({ categoryId }) {
   const { productId } = useParams()  // only productId from URL
   const jsonKey  = CATEGORY_MAP[categoryId]
   const products = productData[jsonKey] || []
   const product  = products.find(p => p.id === parseInt(productId))
-  const productImage = getDisplayImageUrl(product?.image)
+  const sourceImages = normalizeImageSources(product?.image)
+  const galleryImageCandidates = sourceImages
+    .map(src => getDisplayImageUrls(src))
+    .filter(arr => Array.isArray(arr) && arr.length > 0)
+  const galleryImages = galleryImageCandidates.map(arr => arr[0]).filter(Boolean)
+  const productImageCandidates = getDisplayImageUrls(product?.image)
+  const productImage = galleryImages[0] || productImageCandidates[0] || getDisplayImageUrl(product?.image)
+  const [activeImage, setActiveImage] = useState(productImage || '')
+  const [thumbImages, setThumbImages] = useState(galleryImages)
+
+  useEffect(() => {
+    setActiveImage(productImage || '')
+    setThumbImages(galleryImages)
+  }, [productId, categoryId, productImage, galleryImages.join('|')])
 
   if (!product) {
     return (
@@ -62,7 +82,7 @@ export default function ProductDetailPage({ categoryId }) {
         <h2 className="font-serif text-3xl text-navy-900">Product not found</h2>
         <p className="text-sm text-gray-400">The product ID <code className="bg-gray-100 px-2 py-0.5 rounded font-mono">{productId}</code> was not found in <strong>{jsonKey}</strong>.</p>
         <Link to={`/${categoryId}`} className="px-6 py-3 bg-navy-900 text-white text-xs font-bold tracking-widest uppercase rounded hover:bg-navy-700 transition-colors">
-          ← Back to {jsonKey}
+          ? Back to {jsonKey}
         </Link>
       </div>
     )
@@ -78,15 +98,15 @@ export default function ProductDetailPage({ categoryId }) {
 
   return (
     <div>
-      {/* ── Banner ── */}
-      <div className="relative bg-navy-900 pt-20 pb-14 overflow-hidden">
+      {/* -- Banner -- */}
+      <div className="relative bg-navy-900 pt-16 sm:pt-20 pb-10 sm:pb-14 overflow-hidden">
         <div className="absolute top-0 right-[-100px] bottom-0 w-96 bg-white/[0.02] skew-x-[-12deg]" />
         <div className="absolute inset-0 opacity-[0.03]"
           style={{ backgroundImage: 'repeating-linear-gradient(90deg,white 0,white 1px,transparent 1px,transparent 80px),repeating-linear-gradient(0deg,white 0,white 1px,transparent 1px,transparent 60px)' }} />
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600" />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-8">
-          <nav className="flex items-center gap-2 text-[0.65rem] font-semibold uppercase tracking-widest text-white/35 mb-5 flex-wrap">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="flex items-center gap-2 text-[0.58rem] sm:text-[0.65rem] font-semibold uppercase tracking-[0.12em] sm:tracking-widest text-white/35 mb-4 sm:mb-5 flex-wrap">
             <Link to="/" className="hover:text-amber-400 transition-colors">Home</Link>
             <span>›</span>
             <Link to={`/${categoryId}`} className="hover:text-amber-400 transition-colors">{jsonKey}</Link>
@@ -99,8 +119,8 @@ export default function ProductDetailPage({ categoryId }) {
               <span className="inline-flex text-[0.62rem] font-bold tracking-[0.15em] uppercase text-amber-400 bg-amber-500/15 border border-amber-400/25 px-3 py-1 rounded-sm mb-3">
                 {jsonKey}
               </span>
-              <h1 className="font-serif text-3xl md:text-5xl text-white mb-4 leading-tight">{product.name}</h1>
-              <div className="flex flex-wrap gap-6 items-center">
+              <h1 className="font-serif text-2xl sm:text-3xl md:text-5xl text-white mb-4 leading-tight">{product.name}</h1>
+              <div className="flex flex-wrap gap-4 sm:gap-6 items-center">
                 {cas && (
                   <div className="flex flex-col gap-0.5">
                     <span className="text-[0.55rem] font-bold tracking-widest uppercase text-white/35">CAS No.</span>
@@ -121,11 +141,11 @@ export default function ProductDetailPage({ categoryId }) {
                 </div>
               </div>
             </div>
-            <div className="flex gap-3 flex-wrap flex-shrink-0">
-              <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-amber-500 text-white text-[0.72rem] font-bold tracking-widest uppercase rounded hover:bg-amber-400 transition-colors whitespace-nowrap">
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto flex-shrink-0">
+              <Link to="/contact" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 bg-amber-500 text-white text-[0.7rem] sm:text-[0.72rem] font-bold tracking-[0.12em] sm:tracking-widest uppercase rounded hover:bg-amber-400 transition-colors whitespace-nowrap">
                 Enquire Now <FaArrowRight className="inline" />
               </Link>
-              <Link to={`/${categoryId}`} className="inline-flex items-center gap-2 px-6 py-3 border-2 border-white/30 text-white text-[0.72rem] font-bold tracking-widest uppercase rounded hover:border-white hover:bg-white/10 transition-all whitespace-nowrap">
+              <Link to={`/${categoryId}`} className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 border-2 border-white/30 text-white text-[0.7rem] sm:text-[0.72rem] font-bold tracking-[0.12em] sm:tracking-widest uppercase rounded hover:border-white hover:bg-white/10 transition-all whitespace-nowrap">
                 <FaArrowLeft className="inline" /> Back to {jsonKey}
               </Link>
             </div>
@@ -133,32 +153,81 @@ export default function ProductDetailPage({ categoryId }) {
         </div>
       </div>
 
-      {/* ── Body ── */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 items-start">
+      {/* -- Body -- */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8 sm:gap-10 items-start">
 
             {/* Main */}
             <div className="flex flex-col gap-8">
 
               {/* Image + Overview */}
-              <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-5 sm:gap-6">
                 {/* Full product image */}
-                <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden flex items-center justify-center" style={{ minHeight: 280 }}>
-                  {productImage ? (
-                    <img
-                      src={productImage}
-                      alt={product.name}
-                      className="w-full h-72 object-contain p-4"
-                      onError={e => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling.style.display='flex' }}
-                    />
-                  ) : null}
-                  <div className="w-full h-72 items-center justify-center text-8xl bg-navy-900/5"
-                    style={{ display: productImage ? 'none' : 'flex' }}><FaFlask className="text-navy-900/30" /></div>
+                <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden p-3 sm:p-4">
+                  <div className="rounded-xl overflow-hidden flex items-center justify-center min-h-[220px] sm:min-h-[280px] bg-gray-50">
+                    {activeImage ? (
+                      <img
+                        src={activeImage}
+                        alt={product.name}
+                        referrerPolicy="no-referrer"
+                        className="w-full h-56 sm:h-72 object-contain p-2 sm:p-3"
+                        onError={e => {
+                          const current = e.currentTarget.getAttribute('src') || ''
+                          const currentIndex = productImageCandidates.indexOf(current)
+                          const next = productImageCandidates[currentIndex + 1]
+                          if (next) {
+                            setActiveImage(next)
+                            e.currentTarget.src = next
+                            return
+                          }
+                          e.currentTarget.style.display='none'
+                          e.currentTarget.nextElementSibling.style.display='flex'
+                        }}
+                      />
+                    ) : null}
+                    <div className="w-full h-56 sm:h-72 items-center justify-center text-7xl sm:text-8xl bg-navy-900/5"
+                      style={{ display: activeImage ? 'none' : 'flex' }}><FaFlask className="text-navy-900/30" /></div>
+                  </div>
+
+                  {galleryImages.length > 1 && (
+                    <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
+                      {thumbImages.map((img, i) => (
+                        <button
+                          key={`${img}-${i}`}
+                          type="button"
+                          onClick={() => setActiveImage(img)}
+                          className={`w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 rounded-md border overflow-hidden transition-all ${
+                            activeImage === img ? 'border-amber-500 ring-1 ring-amber-400' : 'border-gray-200 hover:border-amber-300'
+                          }`}
+                        >
+                          <img
+                            src={img}
+                            alt={`${product.name} ${i + 1}`}
+                            referrerPolicy="no-referrer"
+                            className="w-full h-full object-cover"
+                            onError={e => {
+                              const candidates = galleryImageCandidates[i] || []
+                              const current = e.currentTarget.getAttribute('src') || ''
+                              const currentIndex = candidates.indexOf(current)
+                              const next = candidates[currentIndex + 1]
+                              if (next) {
+                                setThumbImages(prev => prev.map((v, idx) => (idx === i ? next : v)))
+                                if (activeImage === current) setActiveImage(next)
+                                e.currentTarget.src = next
+                                return
+                              }
+                              e.currentTarget.style.display = 'none'
+                            }}
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 {/* Overview */}
-                <div className="bg-white border border-gray-200 rounded-2xl p-7">
+                <div className="bg-white border border-gray-200 rounded-2xl p-5 sm:p-7">
                   <h2 className="font-serif text-xl text-navy-900 mb-1">Product Overview</h2>
                   <div className="w-10 h-[3px] bg-amber-500 rounded-full mb-4" />
                   <p className="text-[0.9rem] text-gray-500 leading-[1.85]">
@@ -175,8 +244,8 @@ export default function ProductDetailPage({ categoryId }) {
 
               {/* Applications */}
               {sections.length > 0 && (
-                <div className="bg-white border border-gray-200 rounded-2xl p-8 md:p-10">
-                  <h2 className="font-serif text-2xl text-navy-900 mb-1">Applications &amp; Uses</h2>
+                <div className="bg-white border border-gray-200 rounded-2xl p-5 sm:p-8 md:p-10">
+                  <h2 className="font-serif text-xl sm:text-2xl text-navy-900 mb-1">Applications &amp; Uses</h2>
                   <div className="w-10 h-[3px] bg-amber-500 rounded-full mb-6" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {sections.map((sec, si) => (
@@ -187,7 +256,7 @@ export default function ProductDetailPage({ categoryId }) {
                         <ul className="flex flex-col gap-2">
                           {sec.points.map((pt, pi) => (
                             <li key={pi} className="flex items-start gap-2.5 text-sm text-gray-500 leading-relaxed">
-                              <span className="text-amber-500 mt-1 flex-shrink-0 text-[0.6rem]">▸</span>
+                              <span className="text-amber-500 mt-1 flex-shrink-0 text-[0.6rem]">?</span>
                               <span>{pt}</span>
                             </li>
                           ))}
@@ -200,17 +269,17 @@ export default function ProductDetailPage({ categoryId }) {
 
               {/* Specs Table */}
               {attrEntries.length > 0 && (
-                <div className="bg-white border border-gray-200 rounded-2xl p-8 md:p-10">
-                  <h2 className="font-serif text-2xl text-navy-900 mb-1">Technical Specifications</h2>
+                <div className="bg-white border border-gray-200 rounded-2xl p-5 sm:p-8 md:p-10">
+                  <h2 className="font-serif text-xl sm:text-2xl text-navy-900 mb-1">Technical Specifications</h2>
                   <div className="w-10 h-[3px] bg-amber-500 rounded-full mb-6" />
                   <div className="border border-gray-200 rounded-xl overflow-hidden">
                     {attrEntries.map(([label, value], i) => (
                       <div key={label}
                         className={`flex items-stretch hover:bg-gray-50 transition-colors ${i < attrEntries.length - 1 ? 'border-b border-gray-100' : ''}`}>
-                        <div className="w-48 md:w-60 flex-shrink-0 px-5 py-3.5 text-[0.8rem] font-semibold text-gray-600 bg-navy-900/[0.025] border-r border-gray-100 flex items-center leading-snug">
+                        <div className="w-[44%] sm:w-48 md:w-60 flex-shrink-0 px-3 sm:px-5 py-3 text-[0.72rem] sm:text-[0.8rem] font-semibold text-gray-600 bg-navy-900/[0.025] border-r border-gray-100 flex items-center leading-snug">
                           {label}
                         </div>
-                        <div className="flex-1 px-5 py-3.5 text-sm text-gray-800 font-mono tracking-wide flex items-center leading-snug">
+                        <div className="flex-1 px-3 sm:px-5 py-3 text-[0.78rem] sm:text-sm text-gray-800 font-mono tracking-wide flex items-center leading-snug break-words">
                           {String(value).replace(/\\/g, '')}
                         </div>
                       </div>
@@ -220,17 +289,17 @@ export default function ProductDetailPage({ categoryId }) {
               )}
 
               {/* Prev / Next */}
-              <div className="flex justify-between gap-4 flex-wrap">
+              <div className="hidden sm:flex justify-between gap-3 sm:gap-4 flex-wrap">
                 {prevProduct ? (
                   <Link to={`/${categoryId}/${prevProduct.id}`}
-                    className="flex flex-col gap-1 px-5 py-4 bg-white border border-gray-200 rounded-xl hover:border-amber-400 hover:-translate-y-0.5 hover:shadow-industry transition-all min-w-[160px] max-w-[48%]">
+                    className="flex flex-col gap-1 px-4 sm:px-5 py-4 bg-white border border-gray-200 rounded-xl hover:border-amber-400 hover:-translate-y-0.5 hover:shadow-industry transition-all min-w-[140px] w-full sm:w-auto sm:max-w-[48%]">
                     <span className="text-[0.62rem] font-bold tracking-widest uppercase text-amber-500"><FaArrowLeft className="inline" /> Previous</span>
                     <span className="font-serif text-sm text-navy-900 line-clamp-1">{prevProduct.name}</span>
                   </Link>
                 ) : <div />}
                 {nextProduct && (
                   <Link to={`/${categoryId}/${nextProduct.id}`}
-                    className="flex flex-col items-end gap-1 px-5 py-4 bg-white border border-gray-200 rounded-xl hover:border-amber-400 hover:-translate-y-0.5 hover:shadow-industry transition-all min-w-[160px] max-w-[48%]">
+                    className="flex flex-col items-end gap-1 px-4 sm:px-5 py-4 bg-white border border-gray-200 rounded-xl hover:border-amber-400 hover:-translate-y-0.5 hover:shadow-industry transition-all min-w-[140px] w-full sm:w-auto sm:max-w-[48%]">
                     <span className="text-[0.62rem] font-bold tracking-widest uppercase text-amber-500">Next <FaArrowRight className="inline" /></span>
                     <span className="font-serif text-sm text-navy-900 line-clamp-1 text-right">{nextProduct.name}</span>
                   </Link>
@@ -239,13 +308,14 @@ export default function ProductDetailPage({ categoryId }) {
             </div>
 
             {/* Sidebar */}
-            <aside className="flex flex-col gap-5 lg:sticky lg:top-28">
+            <aside className="flex flex-col gap-4 sm:gap-5 lg:sticky lg:top-28">
               {/* Quick info */}
               <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-industry">
-                <div className="bg-navy-900 px-6 py-5 border-b-[3px] border-amber-500">
+                <div className="bg-navy-900 px-5 sm:px-6 py-5 border-b-[3px] border-amber-500">
                   <div className="flex items-start gap-3">
                     {productImage
-                      ? <img src={productImage} alt="" className="w-12 h-12 rounded-lg object-cover flex-shrink-0" />
+                      ? <img src={productImage} alt="" referrerPolicy="no-referrer" className="w-12 h-12 rounded-lg object-cover flex-shrink-0"
+                        onError={e => { e.currentTarget.style.display = 'none' }} />
                                             : <span className="text-3xl flex-shrink-0"><FaFlask className="inline text-navy-900/30" /></span>}
                     <div className="min-w-0">
                       <div className="font-serif text-base text-white leading-snug line-clamp-2">{product.name}</div>
@@ -304,6 +374,18 @@ export default function ProductDetailPage({ categoryId }) {
                 <a href="mailto:sales.ptcgram@gmail.com" className="flex items-center justify-center gap-2 py-2.5 border-2 border-navy-900 text-navy-900 text-[0.68rem] font-bold tracking-widest uppercase rounded hover:bg-navy-900 hover:text-white transition-all"><FaEnvelope /> Email Us</a>
               </div>
 
+              {/* Mobile Next Button */}
+              {nextProduct && (
+                <Link to={`/${categoryId}/${nextProduct.id}`}
+                  className="lg:hidden flex items-center justify-between gap-3 px-4 py-3.5 bg-white border border-gray-200 rounded-xl hover:border-amber-400 hover:shadow-industry transition-all">
+                  <span className="flex flex-col">
+                    <span className="text-[0.62rem] font-bold tracking-widest uppercase text-amber-500">Next</span>
+                    <span className="font-serif text-sm text-navy-900 line-clamp-1">{nextProduct.name}</span>
+                  </span>
+                  <FaArrowRight className="text-amber-500 flex-shrink-0" />
+                </Link>
+              )}
+
               {/* Category */}
               <div className="bg-white border border-gray-200 rounded-xl p-4">
                 <p className="text-[0.58rem] font-bold tracking-widest uppercase text-gray-400 mb-2">Browse Category</p>
@@ -319,22 +401,32 @@ export default function ProductDetailPage({ categoryId }) {
 
       {/* Related Products */}
       {related.length > 0 && (
-        <section className="py-20 bg-white border-t border-gray-200">
-          <div className="max-w-6xl mx-auto px-8">
-            <div className="flex items-center gap-2.5 text-[0.7rem] font-bold tracking-[0.2em] uppercase text-amber-500 mb-3">
+        <section className="py-12 sm:py-16 lg:py-20 bg-white border-t border-gray-200">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-2.5 text-[0.65rem] sm:text-[0.7rem] font-bold tracking-[0.14em] sm:tracking-[0.2em] uppercase text-amber-500 mb-3">
               <span className="w-6 h-0.5 bg-amber-500 rounded-full" />Same Category
             </div>
             <div className="w-12 h-[3px] bg-amber-500 rounded-full mb-4" />
-            <h2 className="font-serif text-3xl text-navy-900 mb-8">Related Products</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl text-navy-900 mb-6 sm:mb-8">Related Products</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {related.map(rp => (
                 <Link key={rp.id} to={`/${categoryId}/${rp.id}`}
                   className="group flex flex-col bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-amber-400 hover:-translate-y-1 hover:shadow-industry-lg transition-all duration-200">
                   <div className="relative h-44 bg-gray-100 overflow-hidden">
                     {getDisplayImageUrl(rp.image) && (
-                      <img src={getDisplayImageUrl(rp.image)} alt={rp.name}
+                      <img src={getDisplayImageUrl(rp.image)} alt={rp.name} referrerPolicy="no-referrer"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        onError={e => { e.currentTarget.style.display='none' }} />
+                        onError={e => {
+                          const candidates = getDisplayImageUrls(rp.image)
+                          const current = e.currentTarget.getAttribute('src') || ''
+                          const currentIndex = candidates.indexOf(current)
+                          const next = candidates[currentIndex + 1]
+                          if (next) {
+                            e.currentTarget.src = next
+                            return
+                          }
+                          e.currentTarget.style.display='none'
+                        }} />
                     )}
                     {!getDisplayImageUrl(rp.image) && <div className="w-full h-full flex items-center justify-center text-4xl bg-navy-900/5"><FaFlask className="text-navy-900/30" /></div>}
                     <div className="absolute top-0 left-0 right-0 h-0 group-hover:h-[3px] bg-amber-500 transition-all duration-200" />
@@ -352,22 +444,25 @@ export default function ProductDetailPage({ categoryId }) {
       )}
 
       {/* CTA */}
-      <section className="relative bg-navy-900 py-20 overflow-hidden">
+      <section className="relative bg-navy-900 py-12 sm:py-16 lg:py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.025]"
           style={{ backgroundImage: 'repeating-linear-gradient(-45deg,white 0,white 1px,transparent 1px,transparent 16px)' }} />
-        <div className="relative z-10 max-w-6xl mx-auto px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start sm:items-center justify-between gap-8">
           <div>
-            <h2 className="font-serif text-3xl md:text-4xl text-white mb-3">Interested in {product.name}?</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-white mb-3">Interested in {product.name}?</h2>
             <p className="text-sm text-white/60 leading-relaxed max-w-lg">Contact our team for pricing, availability, minimum order quantities and delivery timelines.</p>
           </div>
-          <div className="flex gap-3 flex-wrap flex-shrink-0">
-            <Link to="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 bg-amber-500 text-white text-[0.72rem] font-bold tracking-widest uppercase rounded hover:bg-amber-400 transition-colors">Get a Quote <FaArrowRight className="inline" /></Link>
-            <Link to={`/${categoryId}`} className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white/30 text-white text-[0.72rem] font-bold tracking-widest uppercase rounded hover:border-white hover:bg-white/10 transition-all">View All {jsonKey}</Link>
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto flex-shrink-0">
+            <Link to="/contact" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3.5 bg-amber-500 text-white text-[0.7rem] sm:text-[0.72rem] font-bold tracking-[0.12em] sm:tracking-widest uppercase rounded hover:bg-amber-400 transition-colors">Get a Quote <FaArrowRight className="inline" /></Link>
+            <Link to={`/${categoryId}`} className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3.5 border-2 border-white/30 text-white text-[0.7rem] sm:text-[0.72rem] font-bold tracking-[0.12em] sm:tracking-widest uppercase rounded hover:border-white hover:bg-white/10 transition-all">View All {jsonKey}</Link>
           </div>
         </div>
       </section>
     </div>
   )
 }
+
+
+
 
 

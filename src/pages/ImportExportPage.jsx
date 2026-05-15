@@ -4,7 +4,7 @@ import PageBanner from '../components/PageBanner'
 
 /* ── Reusable helpers ── */
 const SectionLabel = ({ children }) => (
-  <div className="flex items-center gap-2.5 text-[0.7rem] font-bold tracking-[0.2em] uppercase text-amber-500 mb-3">
+  <div className="flex items-center gap-2.5 text-[0.65rem] sm:text-[0.7rem] font-bold tracking-[0.14em] sm:tracking-[0.2em] uppercase text-amber-500 mb-3">
     <span className="w-6 h-0.5 bg-amber-500 rounded-full" />{children}
   </div>
 )
@@ -112,7 +112,7 @@ const SceneBanner = ({ scene, label }) => {
     )
   }
   return (
-    <div className="rounded-xl overflow-hidden shadow-industry-lg border border-gray-200" style={{ height: 260 }}>
+    <div className="rounded-xl overflow-hidden shadow-industry-lg border border-gray-200 h-[200px] sm:h-[240px] lg:h-[260px]">
       {scenes[scene]}
     </div>
   )
@@ -120,22 +120,22 @@ const SceneBanner = ({ scene, label }) => {
 
 /* ── Stat card ── */
 const StatCard = ({ icon, value, label }) => (
-  <div className="flex flex-col items-center text-center gap-2 p-6 bg-white border border-gray-200 rounded-xl hover:border-amber-400 hover:shadow-industry transition-all duration-200">
+  <div className="flex flex-col items-center text-center gap-2 p-4 sm:p-6 bg-white border border-gray-200 rounded-xl hover:border-amber-400 hover:shadow-industry transition-all duration-200">
     <span className="text-3xl">{icon}</span>
-    <span className="font-serif text-2xl text-navy-900 font-bold">{value}</span>
-    <span className="text-xs font-semibold tracking-widest uppercase text-gray-400">{label}</span>
+    <span className="font-serif text-xl sm:text-2xl text-navy-900 font-bold">{value}</span>
+    <span className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.1em] sm:tracking-widest uppercase text-gray-400">{label}</span>
   </div>
 )
 
 /* ── Service card ── */
 const ServiceCard = ({ icon, title, items, accent }) => (
   <div className={`relative rounded-2xl overflow-hidden border-2 ${accent === 'navy' ? 'border-navy-900 bg-navy-900' : 'border-amber-400 bg-white'}`}>
-    <div className={`px-8 py-6 ${accent === 'navy' ? 'bg-navy-900' : 'bg-amber-500'}`}>
-      <span className="text-4xl block mb-3">{icon}</span>
-      <h3 className="font-serif text-2xl text-white">{title}</h3>
+    <div className={`px-5 sm:px-8 py-5 sm:py-6 ${accent === 'navy' ? 'bg-navy-900' : 'bg-amber-500'}`}>
+      <span className="text-3xl sm:text-4xl block mb-3">{icon}</span>
+      <h3 className="font-serif text-xl sm:text-2xl text-white">{title}</h3>
     </div>
-    <div className={`px-8 py-6 ${accent === 'navy' ? 'bg-navy-950/80' : 'bg-white'}`}>
-      <p className={`text-xs font-bold tracking-widest uppercase mb-4 ${accent === 'navy' ? 'text-amber-400' : 'text-navy-900'}`}>
+    <div className={`px-5 sm:px-8 py-5 sm:py-6 ${accent === 'navy' ? 'bg-navy-950/80' : 'bg-white'}`}>
+      <p className={`text-[0.65rem] sm:text-xs font-bold tracking-[0.1em] sm:tracking-widest uppercase mb-4 ${accent === 'navy' ? 'text-amber-400' : 'text-navy-900'}`}>
         Products Include
       </p>
       <ul className="flex flex-col gap-3">
@@ -152,8 +152,8 @@ const ServiceCard = ({ icon, title, items, accent }) => (
 
 /* ── Compliance badge ── */
 const ComplianceBadge = ({ icon, title, desc }) => (
-  <div className="flex items-start gap-4 p-5 bg-white border border-gray-200 rounded-xl hover:border-amber-400 hover:shadow-industry transition-all duration-200 group">
-    <div className="w-12 h-12 rounded-xl bg-navy-900/5 group-hover:bg-amber-50 flex items-center justify-center text-2xl flex-shrink-0 transition-colors">
+  <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 bg-white border border-gray-200 rounded-xl hover:border-amber-400 hover:shadow-industry transition-all duration-200 group">
+    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-navy-900/5 group-hover:bg-amber-50 flex items-center justify-center text-xl sm:text-2xl flex-shrink-0 transition-colors">
       {icon}
     </div>
     <div>
@@ -173,7 +173,7 @@ const DocItem = ({ icon, text }) => (
 
 /* ── Market chip ── */
 const MarketChip = ({ region, countries }) => (
-  <div className="flex flex-col gap-2 p-5 bg-navy-900 rounded-xl border border-navy-700 hover:border-amber-500 transition-colors">
+  <div className="flex flex-col gap-2 p-4 sm:p-5 bg-navy-900 rounded-xl border border-navy-700 hover:border-amber-500 transition-colors">
     <h4 className="font-serif text-lg text-white">{region}</h4>
     <p className="text-xs text-white/50 leading-relaxed">{countries}</p>
   </div>
@@ -193,8 +193,8 @@ export default function ImportExportPage() {
       />
 
       {/* ── Intro Strip ── */}
-      <section className="py-16 bg-white border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-12 sm:py-14 lg:py-16 bg-white border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <StatCard icon={<FaGlobe />} value="4+" label="Global Regions" />
             <StatCard icon={<FaBoxOpen />} value="50+" label="Export Products" />
@@ -205,12 +205,12 @@ export default function ImportExportPage() {
       </section>
 
       {/* ── About our IE ── */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+      <section className="py-14 sm:py-16 lg:py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-14 items-center">
             <div>
               <SectionLabel>Who We Are</SectionLabel>
-              <h2 className="font-serif text-3xl md:text-4xl text-navy-900 mb-4 leading-tight">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-navy-900 mb-4 leading-tight">
                 Global Supply &amp;<br />Distribution Partner
               </h2>
               <Divider />
@@ -222,11 +222,11 @@ export default function ImportExportPage() {
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
                 <Link to="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-amber-500 text-white text-[0.72rem] font-bold tracking-widest uppercase rounded hover:bg-amber-400 transition-colors">
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 bg-amber-500 text-white text-[0.72rem] font-bold tracking-widest uppercase rounded hover:bg-amber-400 transition-colors">
                   Get an Export Quote
                 </Link>
                 <Link to="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-navy-900 text-navy-900 text-[0.72rem] font-bold tracking-widest uppercase rounded hover:bg-navy-900 hover:text-white transition-all">
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 border-2 border-navy-900 text-navy-900 text-[0.72rem] font-bold tracking-widest uppercase rounded hover:bg-navy-900 hover:text-white transition-all">
                   Contact Our Team
                 </Link>
               </div>
@@ -239,18 +239,18 @@ export default function ImportExportPage() {
       </section>
 
       {/* ── Import & Export Services ── */}
-      <section className="py-20 bg-gray-50 border-t border-gray-200">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-14">
+      <section className="py-14 sm:py-16 lg:py-20 bg-gray-50 border-t border-gray-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14">
             <SectionLabel>What We Do</SectionLabel>
-            <h2 className="font-serif text-3xl md:text-4xl text-navy-900 mt-1">Our Import &amp; Export Services</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-navy-900 mt-1">Our Import &amp; Export Services</h2>
             <Divider center />
             <p className="text-sm text-gray-500 max-w-xl mx-auto leading-relaxed">
               Comprehensive import and export services for industrial chemicals, raw materials and specialty products.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <ServiceCard
               icon={<FaShip />}
               title="Our Import Services"
@@ -280,15 +280,15 @@ export default function ImportExportPage() {
       </section>
 
       {/* ── Visual: Drums warehouse ── */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+      <section className="py-14 sm:py-16 lg:py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-14 items-center">
             <div className="order-2 lg:order-1">
               <SceneBanner scene="drums" label="UN Approved Chemical Drums & Packaging" />
             </div>
             <div className="order-1 lg:order-2">
               <SectionLabel>Packaging & Compliance</SectionLabel>
-              <h2 className="font-serif text-3xl md:text-4xl text-navy-900 mb-4 leading-tight">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-navy-900 mb-4 leading-tight">
                 Safe, Certified &amp;<br />Compliant Packaging
               </h2>
               <Divider />
@@ -312,12 +312,12 @@ export default function ImportExportPage() {
       </section>
 
       {/* ── Logistics & Documentation ── */}
-      <section className="py-20 bg-navy-900">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+      <section className="py-14 sm:py-16 lg:py-20 bg-navy-900">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-14 items-start">
             <div>
               <SectionLabel>Logistics</SectionLabel>
-              <h2 className="font-serif text-3xl md:text-4xl text-white mb-4 leading-tight">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-white mb-4 leading-tight">
                 End-to-End Logistics &amp;<br />Documentation
               </h2>
               <Divider />
@@ -326,7 +326,7 @@ export default function ImportExportPage() {
               </p>
 
               {/* Shipping modes */}
-              <div className="grid grid-cols-3 gap-4 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                 {[
                   [<FaShip key="sea" />, 'Sea Freight', 'Full & partial container loads'],
                   [<FaPlane key="air" />, 'Air Freight', 'Urgent & time-sensitive cargo'],
@@ -342,7 +342,7 @@ export default function ImportExportPage() {
             </div>
 
             {/* Documents list */}
-            <div className="bg-white rounded-2xl p-8">
+            <div className="bg-white rounded-2xl p-5 sm:p-8">
               <h3 className="font-serif text-xl text-navy-900 mb-2">Export Documents We Provide</h3>
               <div className="w-10 h-[3px] bg-amber-500 rounded-full mb-5" />
               <div className="flex flex-col">
@@ -369,11 +369,11 @@ export default function ImportExportPage() {
       </section>
 
       {/* ── Markets We Serve ── */}
-      <section className="py-20 bg-gray-50 border-t border-gray-200">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-14">
+      <section className="py-14 sm:py-16 lg:py-20 bg-gray-50 border-t border-gray-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14">
             <SectionLabel>Our Reach</SectionLabel>
-            <h2 className="font-serif text-3xl md:text-4xl text-navy-900 mt-1">Markets We Serve</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-navy-900 mt-1">Markets We Serve</h2>
             <Divider center />
             <p className="text-sm text-gray-500 max-w-xl mx-auto leading-relaxed">
               We aim to supply chemicals to global markets, building long-term partnerships across regions.
@@ -407,11 +407,11 @@ export default function ImportExportPage() {
       </section>
 
       {/* ── Why Choose Us for IE ── */}
-      <section className="py-20 bg-white border-t border-gray-200">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-14">
+      <section className="py-14 sm:py-16 lg:py-20 bg-white border-t border-gray-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14">
             <SectionLabel>Our Advantage</SectionLabel>
-            <h2 className="font-serif text-3xl md:text-4xl text-navy-900 mt-1">Why Choose PTCGRAM for Global Trade</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-navy-900 mt-1">Why Choose PTCGRAM for Global Trade</h2>
             <Divider center />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -423,7 +423,7 @@ export default function ImportExportPage() {
               [<FaVial key="quality" />, 'Quality Verified Products', 'Every batch quality-tested with COA and MSDS provided for each chemical product.'],
               [<FaHandshake key="manager" />, 'Dedicated Export Manager', 'A single point of contact manages your entire import/export order from inquiry to delivery.'],
             ].map(([icon, title, desc]) => (
-              <div key={title} className="group flex flex-col gap-3 p-7 bg-white border border-gray-200 rounded-xl hover:border-amber-400 hover:-translate-y-1 hover:shadow-industry-lg transition-all duration-300">
+              <div key={title} className="group flex flex-col gap-3 p-5 sm:p-7 bg-white border border-gray-200 rounded-xl hover:border-amber-400 hover:-translate-y-1 hover:shadow-industry-lg transition-all duration-300">
                 <span className="text-3xl">{icon}</span>
                 <h3 className="font-serif text-lg text-navy-900">{title}</h3>
                 <p className="text-sm text-gray-400 leading-relaxed">{desc}</p>
@@ -434,23 +434,23 @@ export default function ImportExportPage() {
       </section>
 
       {/* ── CTA Banner ── */}
-      <section className="relative bg-navy-900 py-20 overflow-hidden">
+      <section className="relative bg-navy-900 py-14 sm:py-16 lg:py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.025]"
           style={{ backgroundImage: 'repeating-linear-gradient(-45deg,white 0,white 1px,transparent 1px,transparent 16px)' }} />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-10">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start sm:items-center justify-between gap-8 sm:gap-10">
           <div>
-            <h2 className="font-serif text-3xl md:text-4xl text-white mb-3">Ready to Start Exporting?</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-white mb-3">Ready to Start Exporting?</h2>
             <p className="text-sm text-white/60 leading-relaxed max-w-xl">
               Contact our export team today. We will guide you from product selection and pricing to packaging, documentation and final delivery at your destination port.
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto flex-shrink-0">
             <Link to="/contact"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-amber-500 text-white text-[0.72rem] font-bold tracking-widest uppercase rounded hover:bg-amber-400 transition-colors whitespace-nowrap">
+              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3.5 bg-amber-500 text-white text-[0.72rem] font-bold tracking-widest uppercase rounded hover:bg-amber-400 transition-colors whitespace-nowrap">
               Get Export Quote →
             </Link>
             <a href="tel:+919710879879"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border-2 border-white/30 text-white text-[0.72rem] font-bold tracking-widest uppercase rounded hover:border-white hover:bg-white/10 transition-all whitespace-nowrap">
+              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3.5 border-2 border-white/30 text-white text-[0.72rem] font-bold tracking-widest uppercase rounded hover:border-white hover:bg-white/10 transition-all whitespace-nowrap">
               <FaPhone /> Call Us Now
             </a>
           </div>
@@ -459,3 +459,4 @@ export default function ImportExportPage() {
     </div>
   )
 }
+
