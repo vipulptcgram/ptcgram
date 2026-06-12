@@ -1,0 +1,8 @@
+{
+  "name": "ptcgram-deploy",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npm --prefix ptcgram-main install && npm --prefix ptcgram-main run build"
+  }
+}
