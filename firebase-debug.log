@@ -1,0 +1,121 @@
+[debug] [2026-06-11T10:37:37.468Z] ----------------------------------------------------------------------
+[debug] [2026-06-11T10:37:37.477Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\pawan\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2026-06-11T10:37:37.478Z] CLI Version:   15.20.0
+[debug] [2026-06-11T10:37:37.478Z] Platform:      win32
+[debug] [2026-06-11T10:37:37.479Z] Node Version:  v24.15.0
+[debug] [2026-06-11T10:37:37.479Z] Time:          Thu Jun 11 2026 16:07:37 GMT+0530 (India Standard Time)
+[debug] [2026-06-11T10:37:37.480Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\pawan\Downloads\ptcgram-main
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2026-06-11T10:39:04.426Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-06-11T10:39:04.427Z] > authorizing via signed-in user (vipul.base.ptcgram@gmail.com)
+[debug] [2026-06-11T10:39:04.429Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:39:04.430Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:39:04.432Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2026-06-11T10:39:05.179Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-06-11T10:39:05.179Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] 
+=== Firestore Setup
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[debug] [2026-06-11T10:39:09.520Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:39:09.520Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:39:09.520Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ptcgrammain/services/firestore.googleapis.com [none]
+[debug] [2026-06-11T10:39:09.521Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ptcgrammain/services/firestore.googleapis.com  x-goog-user-project=ptcgrammain
+[debug] [2026-06-11T10:39:11.340Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ptcgrammain/services/firestore.googleapis.com 200
+[debug] [2026-06-11T10:39:11.340Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ptcgrammain/services/firestore.googleapis.com [omitted]
+[info] +  firestore: required API firestore.googleapis.com is enabled 
+[debug] [2026-06-11T10:39:11.357Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:39:11.358Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:39:11.358Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/ptcgrammain/databases [none]
+[debug] [2026-06-11T10:39:12.167Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/ptcgrammain/databases 200
+[debug] [2026-06-11T10:39:12.167Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/ptcgrammain/databases {"databases":[{"name":"projects/ptcgrammain/databases/(default)","uid":"ffda9105-3935-4318-bfe7-e91ad254d92d","createTime":"2026-06-11T10:10:59.668066Z","updateTime":"2026-06-11T10:10:59.668066Z","locationId":"asia-south1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2026-06-11T10:10:59.668066Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"j","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"IO6C+8P//pQDML3GzqH8/pQD"}]}
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2026-06-11T10:39:42.419Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:39:42.419Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:39:42.419Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/ptcgrammain/releases pageSize=10&pageToken=
+[debug] [2026-06-11T10:39:43.893Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/ptcgrammain/releases 200
+[debug] [2026-06-11T10:39:43.894Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/ptcgrammain/releases {"releases":[{"name":"projects/ptcgrammain/releases/cloud.firestore","rulesetName":"projects/ptcgrammain/rulesets/2c2054d3-89a8-4ff3-bb5e-302a783f7b82","createTime":"2026-06-11T10:24:31.532170Z","updateTime":"2026-06-11T10:36:06.938176Z"},{"name":"projects/ptcgrammain/releases/firebase.storage/ptcgrammain.firebasestorage.app","rulesetName":"projects/ptcgrammain/rulesets/b579f6db-e420-4394-9553-b104eb8ed4a3","createTime":"2026-06-11T10:16:07.090391Z","updateTime":"2026-06-11T10:16:07.090391Z"}]}
+[debug] [2026-06-11T10:39:43.895Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:39:43.895Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:39:43.896Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/ptcgrammain/rulesets/2c2054d3-89a8-4ff3-bb5e-302a783f7b82 [none]
+[debug] [2026-06-11T10:39:45.248Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/ptcgrammain/rulesets/2c2054d3-89a8-4ff3-bb5e-302a783f7b82 200
+[debug] [2026-06-11T10:39:45.249Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/ptcgrammain/rulesets/2c2054d3-89a8-4ff3-bb5e-302a783f7b82 [omitted]
+[info] i  Downloaded the existing Firestore Security Rules from the Firebase console 
+[info] 
+[info] Firestore indexes allow you to perform complex queries while
+[info] maintaining performance that scales with the size of the result
+[info] set. You can keep index definitions in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2026-06-11T10:40:07.339Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:40:07.339Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:40:07.340Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:40:07.340Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:40:07.340Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/ptcgrammain/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2026-06-11T10:40:07.343Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/ptcgrammain/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* [none]
+[debug] [2026-06-11T10:40:07.485Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/ptcgrammain/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* 200
+[debug] [2026-06-11T10:40:07.485Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/ptcgrammain/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* {"fields":[{"name":"projects/ptcgrammain/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[debug] [2026-06-11T10:40:07.487Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/ptcgrammain/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2026-06-11T10:40:07.488Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/ptcgrammain/databases/(default)/collectionGroups/-/indexes {}
+[info] i  Downloaded the existing Firestore indexes from the Firebase console 
+[info] +  Wrote firestore:rules 
+[info] +  Wrote firestore.indexes.json 
+[info] 
+=== Functions Setup
+[debug] [2026-06-11T10:40:07.504Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-06-11T10:40:07.505Z] > authorizing via signed-in user (vipul.base.ptcgram@gmail.com)
+[debug] [2026-06-11T10:40:07.505Z] [iam] checking project ptcgrammain for permissions ["firebase.projects.get"]
+[debug] [2026-06-11T10:40:07.506Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:40:07.506Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:40:07.507Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/ptcgrammain:testIamPermissions [none]
+[debug] [2026-06-11T10:40:07.507Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/ptcgrammain:testIamPermissions  x-goog-user-project=ptcgrammain
+[debug] [2026-06-11T10:40:07.507Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ptcgrammain:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2026-06-11T10:40:08.874Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/ptcgrammain:testIamPermissions 200
+[debug] [2026-06-11T10:40:08.875Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ptcgrammain:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2026-06-11T10:40:08.877Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:40:08.878Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:40:08.880Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:40:08.881Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:40:08.881Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ptcgrammain/services/cloudfunctions.googleapis.com [none]
+[debug] [2026-06-11T10:40:08.881Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ptcgrammain/services/cloudfunctions.googleapis.com  x-goog-user-project=ptcgrammain
+[debug] [2026-06-11T10:40:08.887Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ptcgrammain/services/runtimeconfig.googleapis.com [none]
+[debug] [2026-06-11T10:40:08.887Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ptcgrammain/services/runtimeconfig.googleapis.com  x-goog-user-project=ptcgrammain
+[debug] [2026-06-11T10:40:10.635Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ptcgrammain/services/runtimeconfig.googleapis.com 200
+[debug] [2026-06-11T10:40:10.636Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ptcgrammain/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2026-06-11T10:40:10.685Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ptcgrammain/services/cloudfunctions.googleapis.com 200
+[debug] [2026-06-11T10:40:10.686Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ptcgrammain/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2026-06-11T10:40:10.687Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:40:10.687Z] Checked if tokens are valid: true, expires at: 1781177643005
+[debug] [2026-06-11T10:40:10.687Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/ptcgrammain/services/cloudfunctions.googleapis.com:enable [none]
+[debug] [2026-06-11T10:40:10.688Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/ptcgrammain/services/cloudfunctions.googleapis.com:enable  x-goog-user-project=ptcgrammain
+[debug] [2026-06-11T10:40:12.630Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/ptcgrammain/services/cloudfunctions.googleapis.com:enable 200
+[debug] [2026-06-11T10:40:12.630Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/ptcgrammain/services/cloudfunctions.googleapis.com:enable [omitted]
+[info] Let's create a new codebase for your functions.
+[info] A directory corresponding to the codebase will be created in your project
+[info] with sample code pre-configured.
+
+[info] See https://firebase.google.com/docs/functions/organize-functions for
+[info] more information on organizing your functions using codebases.
+
+[info] Functions can be deployed with firebase deploy.
+

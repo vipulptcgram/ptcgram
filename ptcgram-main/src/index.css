@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --navy: #0B0F14;
+    --navy-light: #293038;
+    --amber: #C7743D;
+    --amber-light: #D68A58;
+    --steel: #59636D;
+    --cream: #F4EFEA;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+  }
+  body {
+    background: #F8F7F5;
+    color: #0B0F14;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  img { max-width: 100%; }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #F4EFEA; }
+  ::-webkit-scrollbar-thumb { background: #293038; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #C7743D; }
+}
+
+@layer utilities {
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-fill-both { animation-fill-mode: both; }
+}
+
+@keyframes moleculeDrift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(8px, -6px, 0) rotate(0.4deg); }
+}
+
+@keyframes moleculeDriftReverse {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-7px, 5px, 0); }
+}
+
+@keyframes moleculePulse {
+  0%, 100% { opacity: 0.28; transform: scale(0.8); }
+  50% { opacity: 0.8; transform: scale(1.35); }
+}
+
+.hero-molecule {
+  animation: moleculeDrift 12s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.hero-molecule-chain {
+  animation: moleculeDrift 9s ease-in-out infinite;
+}
+
+.hero-molecule-chain--reverse,
+.hero-molecule-labels {
+  animation: moleculeDriftReverse 11s ease-in-out infinite;
+}
+
+.hero-molecule-atom {
+  opacity: 0.35;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: moleculePulse 3.4s ease-in-out infinite;
+}
+
+.hero-molecule-atom--2 { animation-delay: -0.8s; }
+.hero-molecule-atom--3 { animation-delay: -1.6s; }
+.hero-molecule-atom--4 { animation-delay: -2.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-molecule,
+  .hero-molecule-chain,
+  .hero-molecule-chain--reverse,
+  .hero-molecule-labels,
+  .hero-molecule-atom {
+    animation: none;
+  }
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-page > section {
+  order: 5;
+}
+
+.home-page > .home-hero-section { order: 1; }
+.home-page > .home-about-section { order: 2; }
+.home-page > .home-products-section { order: 3; }
+.home-page > .home-features-section { order: 4; }
+
+.home-page > section:not(.home-hero-section) {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
+}
+
+@media (max-width: 640px) {
+  .hero-molecule {
+    opacity: 0.72;
+  }
+
+  .home-page > section:not(.home-hero-section) {
+    contain-intrinsic-size: 650px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

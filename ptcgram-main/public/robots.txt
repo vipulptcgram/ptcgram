@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Block private/system paths
+Disallow: /admin
+Disallow: /admin/
+Disallow: /private
+Disallow: /private/
+Disallow: /api
+Disallow: /api/
+Disallow: /_next/
+Disallow: /.well-known/
+
+Sitemap: https://ptcgram.com/sitemap.xml
+
