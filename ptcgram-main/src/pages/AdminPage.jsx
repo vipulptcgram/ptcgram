@@ -70,8 +70,29 @@ const EMPTY_CHALLAN = {
   notes: '',
 }
 
+const EMPTY_BLOG_FORM = {
+  id: '',
+  title: '',
+  slug: '',
+  excerpt: '',
+  coverImage: '',
+  content: '',
+  internalLinks: '',
+  seoTitle: '',
+  seoDescription: '',
+  status: 'draft',
+}
+
 function slugifyCategory(value = '') {
   return String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+}
+
+function slugifyBlog(value = '') {
+  return String(value)
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
 }
 
 function parseCsv(text = '') {
@@ -611,12 +632,15 @@ export default function AdminPage() {
   const [manualSales, setManualSales] = useState([])
   const [deliveryChallans, setDeliveryChallans] = useState([])
   const [quoteRequests, setQuoteRequests] = useState([])
+  const [blogs, setBlogs] = useState([])
   const [stockInForm, setStockInForm] = useState(EMPTY_STOCK_IN)
   const [manualSaleForm, setManualSaleForm] = useState(EMPTY_MANUAL_SALE)
   const [challanForm, setChallanForm] = useState(EMPTY_CHALLAN)
+  const [blogForm, setBlogForm] = useState(EMPTY_BLOG_FORM)
   const [inventorySearch, setInventorySearch] = useState('')
   const [saleSearch, setSaleSearch] = useState('')
   const [challanSearch, setChallanSearch] = useState('')
+  const [blogSearch, setBlogSearch] = useState('')
   const [challanStatusFilter, setChallanStatusFilter] = useState('all')
   const [activeSection, setActiveSection] = useState('products')
 
@@ -682,6 +706,15 @@ export default function AdminPage() {
           .sort((a, b) => {
             const aTime = a.createdAt?.toMillis?.() || 0
             const bTime = b.createdAt?.toMillis?.() || 0
+            return bTime - aTime
+          }))
+      }, (error) => setMessage(error.message)),
+      onSnapshot(collection(db, 'blogs'), (snapshot) => {
+        setBlogs(snapshot.docs
+          .map((item) => ({ id: item.id, ...item.data() }))
+          .sort((a, b) => {
+            const aTime = a.updatedAt?.toMillis?.() || a.createdAt?.toMillis?.() || 0
+            const bTime = b.updatedAt?.toMillis?.() || b.createdAt?.toMillis?.() || 0
             return bTime - aTime
           }))
       }, (error) => setMessage(error.message)),
@@ -763,6 +796,15 @@ export default function AdminPage() {
     return matchesQuery && matchesStatus
   })
   const newQuoteCount = quoteRequests.filter((quote) => (quote.status || 'new') === 'new').length
+  const filteredBlogs = blogs.filter((blog) => !blog.deleted).filter((blog) => {
+    const query = blogSearch.trim().toLowerCase()
+    return !query || [
+      blog.title,
+      blog.slug,
+      blog.excerpt,
+      blog.status,
+    ].some((value) => String(value || '').toLowerCase().includes(query))
+  })
 
   const visibleProducts = useMemo(() => allProducts
     .filter((item) => item.categoryId === categoryId)
@@ -783,6 +825,7 @@ export default function AdminPage() {
     { id: 'sales', label: 'Manual Sales', count: manualSales.length },
     { id: 'challans', label: 'Delivery Challan', count: deliveryChallans.length },
     { id: 'quotes', label: 'Quote Requests', count: quoteRequests.length },
+    { id: 'blogs', label: 'Blogs', count: blogs.length },
     { id: 'categories', label: 'Categories', count: categories.length },
   ]
   const sectionClass = (sectionId) => activeSection === sectionId ? '' : 'hidden'
@@ -1277,6 +1320,81 @@ export default function AdminPage() {
       setMessage(`Quote request marked ${status}.`)
     } catch (error) {
       setMessage(`Quote update failed: ${error.message}`)
+    }
+  }
+
+  async function saveBlog(event) {
+    event.preventDefault()
+    const title = blogForm.title.trim()
+    const slug = slugifyBlog(blogForm.slug || title)
+
+    if (!title || !slug) {
+      setMessage('Blog title and slug are required.')
+      return
+    }
+
+    setBusy(true)
+    try {
+      const linkLines = blogForm.internalLinks
+        .split(/\r?\n/)
+        .map((line) => line.trim())
+        .filter(Boolean)
+      const blogId = blogForm.id || slug
+
+      await setDoc(doc(db, 'blogs', blogId), {
+        title,
+        slug,
+        excerpt: blogForm.excerpt.trim(),
+        coverImage: blogForm.coverImage.trim(),
+        content: blogForm.content.trim(),
+        internalLinks: linkLines,
+        seoTitle: blogForm.seoTitle.trim(),
+        seoDescription: blogForm.seoDescription.trim(),
+        status: blogForm.status,
+        createdAt: blogForm.id ? blogs.find((blog) => blog.id === blogForm.id)?.createdAt || serverTimestamp() : serverTimestamp(),
+        updatedAt: serverTimestamp(),
+      }, { merge: true })
+
+      setBlogForm(EMPTY_BLOG_FORM)
+      setMessage(`Blog ${blogForm.status === 'published' ? 'published' : 'saved as draft'}.`)
+    } catch (error) {
+      setMessage(`Blog save failed: ${error.message}`)
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  function editBlog(blog) {
+    setBlogForm({
+      id: blog.id,
+      title: blog.title || '',
+      slug: blog.slug || '',
+      excerpt: blog.excerpt || '',
+      coverImage: blog.coverImage || '',
+      content: blog.content || '',
+      internalLinks: Array.isArray(blog.internalLinks) ? blog.internalLinks.join('\n') : '',
+      seoTitle: blog.seoTitle || '',
+      seoDescription: blog.seoDescription || '',
+      status: blog.status || 'draft',
+    })
+    setActiveSection('blogs')
+  }
+
+  async function deleteBlog(blog) {
+    if (!window.confirm(`Delete blog "${blog.title}"?`)) return
+    setBusy(true)
+    try {
+      await setDoc(doc(db, 'blogs', blog.id), {
+        ...blog,
+        deleted: true,
+        status: 'deleted',
+        updatedAt: serverTimestamp(),
+      }, { merge: true })
+      setMessage(`Blog "${blog.title}" deleted.`)
+    } catch (error) {
+      setMessage(`Blog delete failed: ${error.message}`)
+    } finally {
+      setBusy(false)
     }
   }
 
@@ -1968,6 +2086,188 @@ export default function AdminPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+
+        <div className={`${sectionClass('blogs')} bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 mb-6`}>
+          <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-5 mb-6">
+            <div>
+              <h2 className="font-serif text-2xl text-navy-900">Blogs</h2>
+              <p className="text-sm text-gray-500 mt-1">Paste blog content, add internal links, and save drafts or published posts.</p>
+            </div>
+            <div className="grid grid-cols-3 gap-3 w-full lg:w-auto">
+              {[
+                ['Total Blogs', filteredBlogs.length],
+                ['Published', filteredBlogs.filter((blog) => blog.status === 'published').length],
+                ['Drafts', filteredBlogs.filter((blog) => blog.status !== 'published').length],
+              ].map(([label, value]) => (
+                <div key={label} className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-3">
+                  <p className="font-serif text-2xl text-navy-900">{value}</p>
+                  <p className="text-[0.62rem] font-bold uppercase tracking-widest text-gray-400 mt-1">{label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 xl:grid-cols-[1fr_420px] gap-6">
+            <form onSubmit={saveBlog} className="rounded-2xl border border-gray-200 bg-gray-50 p-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="md:col-span-2">
+                <h3 className="font-serif text-xl text-navy-900">{blogForm.id ? 'Edit Blog' : 'Add Blog'}</h3>
+                <p className="text-xs text-gray-400 mt-1">Copy-paste the blog body and add one internal link per line.</p>
+              </div>
+              <label className="text-xs font-bold uppercase tracking-widest text-gray-500">
+                Blog Title
+                <input
+                  required
+                  value={blogForm.title}
+                  onChange={(event) => {
+                    const title = event.target.value
+                    setBlogForm({
+                      ...blogForm,
+                      title,
+                      slug: blogForm.id ? blogForm.slug : slugifyBlog(title),
+                    })
+                  }}
+                  className="mt-2 w-full rounded-lg border border-gray-200 px-4 py-3 text-sm font-normal normal-case tracking-normal outline-none focus:border-amber-500"
+                />
+              </label>
+              <label className="text-xs font-bold uppercase tracking-widest text-gray-500">
+                Slug
+                <input
+                  required
+                  value={blogForm.slug}
+                  onChange={(event) => setBlogForm({ ...blogForm, slug: slugifyBlog(event.target.value) })}
+                  placeholder="chemical-safety-guide"
+                  className="mt-2 w-full rounded-lg border border-gray-200 px-4 py-3 text-sm font-normal normal-case tracking-normal outline-none focus:border-amber-500"
+                />
+              </label>
+              <label className="md:col-span-2 text-xs font-bold uppercase tracking-widest text-gray-500">
+                Short Excerpt
+                <textarea
+                  rows="3"
+                  value={blogForm.excerpt}
+                  onChange={(event) => setBlogForm({ ...blogForm, excerpt: event.target.value })}
+                  placeholder="Small summary shown in blog cards and SEO snippets..."
+                  className="mt-2 w-full rounded-lg border border-gray-200 px-4 py-3 text-sm font-normal normal-case tracking-normal outline-none focus:border-amber-500"
+                />
+              </label>
+              <label className="md:col-span-2 text-xs font-bold uppercase tracking-widest text-gray-500">
+                Cover Image URL
+                <input
+                  value={blogForm.coverImage}
+                  onChange={(event) => setBlogForm({ ...blogForm, coverImage: event.target.value })}
+                  placeholder="https://..."
+                  className="mt-2 w-full rounded-lg border border-gray-200 px-4 py-3 text-sm font-normal normal-case tracking-normal outline-none focus:border-amber-500"
+                />
+              </label>
+              <label className="md:col-span-2 text-xs font-bold uppercase tracking-widest text-gray-500">
+                Blog Content
+                <textarea
+                  rows="14"
+                  value={blogForm.content}
+                  onChange={(event) => setBlogForm({ ...blogForm, content: event.target.value })}
+                  placeholder="Paste the complete blog here. You can include headings, paragraphs, bullets, and internal links..."
+                  className="mt-2 w-full rounded-lg border border-gray-200 px-4 py-3 text-sm font-normal normal-case tracking-normal outline-none focus:border-amber-500"
+                />
+              </label>
+              <label className="md:col-span-2 text-xs font-bold uppercase tracking-widest text-gray-500">
+                Internal Links
+                <textarea
+                  rows="5"
+                  value={blogForm.internalLinks}
+                  onChange={(event) => setBlogForm({ ...blogForm, internalLinks: event.target.value })}
+                  placeholder="/industrial/caustic-soda-flakes-1112&#10;/contact&#10;/solvents"
+                  className="mt-2 w-full rounded-lg border border-gray-200 px-4 py-3 text-sm font-normal normal-case tracking-normal outline-none focus:border-amber-500"
+                />
+              </label>
+              <label className="text-xs font-bold uppercase tracking-widest text-gray-500">
+                SEO Title
+                <input
+                  value={blogForm.seoTitle}
+                  onChange={(event) => setBlogForm({ ...blogForm, seoTitle: event.target.value })}
+                  className="mt-2 w-full rounded-lg border border-gray-200 px-4 py-3 text-sm font-normal normal-case tracking-normal outline-none focus:border-amber-500"
+                />
+              </label>
+              <label className="text-xs font-bold uppercase tracking-widest text-gray-500">
+                Status
+                <select
+                  value={blogForm.status}
+                  onChange={(event) => setBlogForm({ ...blogForm, status: event.target.value })}
+                  className="mt-2 w-full rounded-lg border border-gray-200 px-4 py-3 text-sm font-normal normal-case tracking-normal outline-none focus:border-amber-500"
+                >
+                  <option value="draft">Draft</option>
+                  <option value="published">Published</option>
+                </select>
+              </label>
+              <label className="md:col-span-2 text-xs font-bold uppercase tracking-widest text-gray-500">
+                SEO Description
+                <textarea
+                  rows="3"
+                  value={blogForm.seoDescription}
+                  onChange={(event) => setBlogForm({ ...blogForm, seoDescription: event.target.value })}
+                  className="mt-2 w-full rounded-lg border border-gray-200 px-4 py-3 text-sm font-normal normal-case tracking-normal outline-none focus:border-amber-500"
+                />
+              </label>
+              <div className="md:col-span-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <p className="text-xs text-gray-400">Blogs are stored in Firestore. Published posts can be connected to a public blog page later.</p>
+                <div className="flex gap-2">
+                  {blogForm.id && (
+                    <button type="button" onClick={() => setBlogForm(EMPTY_BLOG_FORM)} className="rounded-lg border border-gray-200 bg-white px-5 py-3 text-sm font-bold text-gray-600 hover:border-amber-400">
+                      Cancel Edit
+                    </button>
+                  )}
+                  <button disabled={busy} className="inline-flex justify-center items-center gap-2 rounded-lg bg-amber-500 px-5 py-3 text-sm font-bold text-white hover:bg-amber-400 disabled:opacity-60">
+                    <FaFloppyDisk /> Save Blog
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <div className="rounded-2xl border border-gray-200 overflow-hidden">
+              <div className="px-5 py-4 border-b border-gray-200">
+                <h3 className="font-serif text-xl text-navy-900">Saved Blogs</h3>
+                <p className="text-xs text-gray-400 mt-1">Search, edit, or delete pasted blog entries.</p>
+                <input
+                  type="search"
+                  value={blogSearch}
+                  onChange={(event) => setBlogSearch(event.target.value)}
+                  placeholder="Search blogs..."
+                  className="mt-3 w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-amber-500"
+                />
+              </div>
+              <div className="divide-y divide-gray-100 max-h-[860px] overflow-y-auto">
+                {filteredBlogs.length === 0 ? (
+                  <p className="p-5 text-sm text-gray-400">No blogs yet.</p>
+                ) : filteredBlogs.map((blog) => (
+                  <div key={blog.id} className="p-5">
+                    {blog.coverImage && <img src={blog.coverImage} alt={blog.title} className="mb-3 h-32 w-full rounded-xl object-cover bg-gray-100" />}
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="min-w-0">
+                        <h4 className="font-serif text-lg text-navy-900 line-clamp-2">{blog.title}</h4>
+                        <p className="text-xs font-mono text-amber-600 mt-1">/blog/{blog.slug}</p>
+                      </div>
+                      <span className="h-fit rounded-full bg-gray-100 px-3 py-1 text-[0.62rem] font-bold uppercase tracking-widest text-gray-600">{blog.status || 'draft'}</span>
+                    </div>
+                    {blog.excerpt && <p className="mt-3 text-sm text-gray-500 leading-relaxed line-clamp-3">{blog.excerpt}</p>}
+                    {Array.isArray(blog.internalLinks) && blog.internalLinks.length > 0 && (
+                      <div className="mt-3 flex flex-wrap gap-1.5">
+                        {blog.internalLinks.slice(0, 4).map((link) => (
+                          <span key={link} className="rounded-full bg-amber-50 px-2 py-1 text-[0.62rem] font-semibold text-amber-700">{link}</span>
+                        ))}
+                        {blog.internalLinks.length > 4 && <span className="rounded-full bg-gray-100 px-2 py-1 text-[0.62rem] font-semibold text-gray-500">+{blog.internalLinks.length - 4}</span>}
+                      </div>
+                    )}
+                    <p className="text-xs text-gray-400 mt-3">Updated {formatDateTime(blog.updatedAt || blog.createdAt)}</p>
+                    <div className="mt-4 flex gap-2">
+                      <button type="button" onClick={() => editBlog(blog)} className="rounded-lg bg-navy-900 px-4 py-2.5 text-xs font-bold text-white hover:bg-navy-700">Edit</button>
+                      <button type="button" onClick={() => deleteBlog(blog)} className="inline-flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-4 py-2.5 text-xs font-bold text-red-600 hover:bg-red-100">
+                        <FaTrash /> Delete
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
