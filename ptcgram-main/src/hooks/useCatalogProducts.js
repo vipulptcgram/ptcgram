@@ -8,6 +8,7 @@ export const CATEGORY_MAP = {
   solvents: 'Solvents',
   acids: 'Acids',
   industrial: 'Industrial Chemicals',
+  'dietary-supplements': 'Dietary Supplements',
   household: 'Household Cleaning Concentrates',
 }
 

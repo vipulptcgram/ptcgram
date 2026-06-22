@@ -33,6 +33,8 @@ function validateBody(body = {}) {
   const name = sanitizeInput(body.name, { maxLength: 120 })
   const email = sanitizeInput(body.email, { maxLength: 254 }).toLowerCase()
   const rawPhone = sanitizeInput(body.phone, { maxLength: 30 })
+  const productInterest = sanitizeInput(body.productInterest || body.product, { maxLength: 180 })
+  const quantity = sanitizeInput(body.quantity, { maxLength: 120 })
   const message = sanitizeInput(body.message, { maxLength: 3000, multiline: true })
   const pageUrl = sanitizeInput(body.pageUrl, { maxLength: 1000 })
   const phone = normalizePhone(rawPhone)
@@ -57,7 +59,7 @@ function validateBody(body = {}) {
     return { ok: false, error: 'Validation failed.', errors }
   }
 
-  return { ok: true, data: { name, email, phone, message, pageUrl } }
+  return { ok: true, data: { name, email, phone, productInterest, quantity, message, pageUrl } }
 }
 
 function isRateLimited(ip) {
@@ -80,13 +82,15 @@ function isRateLimited(ip) {
   return { limited: false }
 }
 
-function buildMessage({ name, email, phone, message, pageUrl, submittedAt, ip }) {
+function buildMessage({ name, email, phone, productInterest, quantity, message, pageUrl, submittedAt, ip }) {
   const lines = [
     'New Contact Form Submission',
     '',
     `Name: ${name}`,
     `Email: ${email}`,
     `Phone: ${phone || 'N/A'}`,
+    `Product Interest: ${productInterest || 'N/A'}`,
+    `Quantity: ${quantity || 'N/A'}`,
     `Message: ${message}`,
     `Page URL: ${pageUrl || 'N/A'}`,
     `Date/Time: ${submittedAt}`,
@@ -104,11 +108,13 @@ function escapeHtml(value = '') {
     .replace(/'/g, '&#39;')
 }
 
-function buildLeadEmailHtml({ name, email, phone, message, pageUrl, submittedAt, ip }) {
+function buildLeadEmailHtml({ name, email, phone, productInterest, quantity, message, pageUrl, submittedAt, ip }) {
   const rows = [
     ['Name', name],
     ['Email', email],
     ['Phone', phone || 'N/A'],
+    ['Product Interest', productInterest || 'N/A'],
+    ['Quantity', quantity || 'N/A'],
     ['Message', message],
     ['Page URL', pageUrl || 'N/A'],
     ['IP Address', ip || 'Unavailable'],
@@ -197,9 +203,9 @@ export default async function handler(req, res) {
     })
 
     const submittedAt = new Date().toISOString()
-    const { name, email, phone, message, pageUrl } = validated.data
-    const textBody = buildMessage({ name, email, phone, message, pageUrl, submittedAt, ip })
-    const htmlBody = buildLeadEmailHtml({ name, email, phone, message, pageUrl, submittedAt, ip })
+    const { name, email, phone, productInterest, quantity, message, pageUrl } = validated.data
+    const textBody = buildMessage({ name, email, phone, productInterest, quantity, message, pageUrl, submittedAt, ip })
+    const htmlBody = buildLeadEmailHtml({ name, email, phone, productInterest, quantity, message, pageUrl, submittedAt, ip })
     const subject = `New Website Contact Lead - ${name}`
 
     await transporter.sendMail({

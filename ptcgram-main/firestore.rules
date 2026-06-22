@@ -22,6 +22,27 @@ service cloud.firestore {
       allow create, update, delete: if isAdmin();
     }
 
+    match /inventory/{inventoryId} {
+      allow read, create, update, delete: if isAdmin();
+    }
+
+    match /inventoryTransactions/{transactionId} {
+      allow read, create, update, delete: if isAdmin();
+    }
+
+    match /manualSales/{saleId} {
+      allow read, create, update, delete: if isAdmin();
+    }
+
+    match /deliveryChallans/{challanId} {
+      allow read, create, update, delete: if isAdmin();
+    }
+
+    match /quoteRequests/{requestId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
     match /users/{userId} {
       allow read: if signedIn() && request.auth.uid == userId;
       allow write: if false;

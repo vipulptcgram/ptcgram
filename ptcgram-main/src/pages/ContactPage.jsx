@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { FaCheck, FaLocationDot, FaEnvelope, FaPhone, FaFlask, FaArrowRightLong } from 'react-icons/fa6'
 import PageBanner from '../components/PageBanner'
 import data from '../data/siteData.json'
 import SeoMeta from '../components/SeoMeta'
+import { db } from '../firebase'
 
 const Eyebrow = ({ children }) => (
   <div className="flex items-center gap-2.5 text-[0.65rem] sm:text-[0.7rem] font-bold tracking-[0.14em] sm:tracking-[0.2em] uppercase text-amber-500">
@@ -39,7 +41,7 @@ const FormInput = ({ label, required, children, ...rest }) => (
 
 export default function ContactPage() {
   const { contact } = data.company
-  const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', product: '', message: '' })
+  const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', product: '', quantity: '', message: '' })
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -58,6 +60,8 @@ export default function ContactPage() {
           name: form.name,
           email: form.email,
           phone: form.phone,
+          productInterest: form.product,
+          quantity: form.quantity,
           message: form.message,
           pageUrl: window.location.href,
         }),
@@ -68,8 +72,22 @@ export default function ContactPage() {
         throw new Error(json?.message || 'Unable to submit form.')
       }
 
+      const selectedCategory = data.categories.find((category) => category.id === form.product)
+      await addDoc(collection(db, 'quoteRequests'), {
+        name: form.name.trim(),
+        company: form.company.trim(),
+        email: form.email.trim().toLowerCase(),
+        phone: form.phone.trim(),
+        productInterest: selectedCategory?.name || form.product || 'Other / General Enquiry',
+        quantity: form.quantity.trim(),
+        message: form.message.trim(),
+        pageUrl: window.location.href,
+        status: 'new',
+        createdAt: serverTimestamp(),
+      })
+
       setSent(true)
-      setForm({ name: '', company: '', email: '', phone: '', product: '', message: '' })
+      setForm({ name: '', company: '', email: '', phone: '', product: '', quantity: '', message: '' })
     } catch (err) {
       setError(err?.message || 'Unable to submit form right now. Please try again.')
     } finally {
@@ -188,6 +206,11 @@ export default function ContactPage() {
                     {data.categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
                     <option value="other">Other / General Enquiry</option>
                   </select>
+                </FormInput>
+
+                <FormInput label="Quantity">
+                  <input name="quantity" value={form.quantity} onChange={handle} placeholder="e.g. 50kg / Size"
+                    className="bg-gray-100 border border-gray-200 rounded px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:bg-white focus:border-navy-900 focus:ring-2 focus:ring-navy-900/8 transition-all w-full" />
                 </FormInput>
 
                 <FormInput label="Your Message" required>

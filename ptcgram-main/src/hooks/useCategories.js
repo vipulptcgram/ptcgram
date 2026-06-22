@@ -5,6 +5,7 @@ const defaultCategoryCovers = {
   solvents: 'https://drive.usercontent.google.com/download?id=1370tdEK0xAWwMmlJ32h3CjeRr8-rQC6P&export=view&authuser=0',
   acids: 'https://drive.usercontent.google.com/download?id=1Si2NHBAqYuoC8TKRRfS5C7vXIvQruXtq&export=view&authuser=0',
   industrial: 'https://drive.usercontent.google.com/download?id=1szYcpMnU8J9JI56N8UAZp-tmrvE1DkEi&export=view&authuser=0',
+  'dietary-supplements': '/Images/logo.png',
   household: 'https://drive.usercontent.google.com/download?id=1QBferXZp7sDkNDGQIVqrQgjkl41mNKaW&export=view&authuser=0',
 }
 

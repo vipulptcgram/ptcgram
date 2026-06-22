@@ -98,11 +98,13 @@ export default function App() {
               <Route path="/solvents" element={<ProductCategoryPage categoryId="solvents" />} />
               <Route path="/acids" element={<ProductCategoryPage categoryId="acids" />} />
               <Route path="/industrial" element={<ProductCategoryPage categoryId="industrial" />} />
+              <Route path="/dietary-supplements" element={<ProductCategoryPage categoryId="dietary-supplements" />} />
               <Route path="/household" element={<ProductCategoryPage categoryId="household" />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/solvents/:productSlug" element={<ProductDetailPage categoryId="solvents" />} />
               <Route path="/acids/:productSlug" element={<ProductDetailPage categoryId="acids" />} />
               <Route path="/industrial/:productSlug" element={<ProductDetailPage categoryId="industrial" />} />
+              <Route path="/dietary-supplements/:productSlug" element={<ProductDetailPage categoryId="dietary-supplements" />} />
               <Route path="/household/:productSlug" element={<ProductDetailPage categoryId="household" />} />
               <Route path="/:categoryId/:productSlug" element={<ProductDetailPage />} />
               <Route path="/:categoryId" element={<ProductCategoryPage />} />

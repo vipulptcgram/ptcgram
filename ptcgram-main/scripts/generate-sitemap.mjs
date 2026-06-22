@@ -104,6 +104,7 @@ function collectProductRoutes(productData) {
     Solvents: '/solvents',
     Acids: '/acids',
     'Industrial Chemicals': '/industrial',
+    'Dietary Supplements': '/dietary-supplements',
     'Household Cleaning Concentrates': '/household',
   }
 

@@ -6,7 +6,8 @@
       "in_stock": true,
       "short_description": "Diethyl Phthalate (DEP) is a colorless, transparent liquid widely used as a plasticizer, solvent, and fixative in various industrial applications. It is commonly utilized in fragrances, cosmetics, personal care products, insect repellents, plastics, coatings, and chemical formulations due to its excellent solvency and compatibility with a wide range of materials.\r\n\r\nENQUIRE NOW\r\n\r\nKey Features\r\n\r\n \tExcellent Plasticizing Properties for polymers and resins.\r\n \tEffective Solvent for fragrances, perfumes, and cosmetic formulations.\r\n \tLow Volatility and good thermal stability.\r\n \tHigh Compatibility with cellulose derivatives and synthetic resins.\r\n \tWidely used in industrial, cosmetic, and specialty chemical applications.",
       "image": [
-        "PRODUCT_IMAGE_URL"
+        "/Images/products/carboy-drum/dep-diethyl-phthalate-carboy.jpg",
+        "/Images/products/carboy-drum/dep-drum.jpg"
       ],
       "attributes": {
         "Chemical Name": "Diethyl Phthalate",
@@ -204,8 +205,7 @@
       "in_stock": true,
       "short_description": "Commonly known as IPA or rubbing alcohol, it is a widely used chemical solvent with excellent solvency, quick evaporation, and disinfectant properties. Its applications range across pharmaceuticals, personal care, cleaning, and industrial processes.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nPharmaceutical and Medical\r\n\r\n \tAntiseptic:\r\n\r\n \tUsed in hand sanitizers and medical wipes.\r\n \tEffective against bacteria, viruses, and fungi.\r\n\r\n\r\n \tDisinfectant:\r\n\r\n \tSterilizes medical equipment and surfaces.\r\n\r\n\r\n \tSolvent for Drug Formulations:\r\n\r\n \tDissolves active ingredients in oral, topical, and injectable drugs.\r\n\r\n\r\n\r\nIndustrial Applications\r\n\r\n \tElectronics Cleaning:\r\n\r\n \tCleans circuit boards, connectors, and sensitive electronic components without damaging them.\r\n\r\n\r\n \tPaint and Coating Industry:\r\n\r\n \tSolvent for resins, inks, and varnishes.\r\n\r\n\r\n \tDegreasing:\r\n\r\n \tRemoves grease, oils, and adhesives from machinery and tools.\r\n\r\n\r\n\r\nPersonal Care\r\n\r\n \tCosmetics:\r\n\r\n \tActs as a carrier solvent in perfumes, aftershaves, and deodorants.\r\n\r\n\r\n \tHair and Skin Products:\r\n\r\n \tAdds quick-drying properties to formulations.\r\n\r\n\r\n\r\nHousehold and Commercial Cleaning\r\n\r\n \tGlass Cleaner:\r\n\r\n \tLeaves surfaces streak-free.\r\n\r\n\r\n \tMultipurpose Cleaner:\r\n\r\n \tEffective for removing smudges, stains, and sticky residues.\r\n\r\n\r\n\r\n&nbsp;",
       "image": [
-        "https://drive.google.com/file/d/1B4y0BIeEil7g0tPX8Bkl2jhECCo_Ju4T/view?usp=drive_link",
-        "https://drive.google.com/file/d/1BrtuOXOYOQLqERNEilC5_QdgVt3NCIry/view?usp=drive_link"
+        "/Images/products/carboy-drum/isopropyl-alcohol-ipa-drum.jpg"
       ],
       "attributes": {
         "CAS Number": "67-63-0",
@@ -442,6 +442,24 @@
         "Packaging": "Contact PTCGRAM for available pack sizes",
         "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."
       }
+    },
+    {
+      "id": 3068,
+      "name": "Extra Neutral Alcohol",
+      "in_stock": true,
+      "short_description": "Extra Neutral Alcohol (ENA) is a high-purity ethyl alcohol supplied for commercial and industrial requirements. It is commonly selected for solvents, fragrances, cosmetics, pharmaceuticals, and cleaning applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Solvents\n- Fragrances\n- Cosmetics\n- Pharmaceuticals\n- Cleaning",
+      "image": [
+        "PRODUCT_IMAGE_URL"
+      ],
+      "attributes": {
+        "Chemical Name": "Extra Neutral Alcohol",
+        "Scientific Name": "Neutral Ethyl Alcohol",
+        "Chemical Formula": "C2H6O",
+        "Applications / Usage": "Solvents, Fragrances, Cosmetics, Pharmaceuticals, Cleaning",
+        "Grade": "Commercial / Industrial Grade",
+        "Packaging": "Contact PTCGRAM for available pack sizes",
+        "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area away from ignition sources."
+      }
     }
   ],
   "Acids": [
@@ -451,7 +469,10 @@
       "in_stock": true,
       "short_description": "It is a brown, viscous liquid with excellent surfactant properties, making it an essential ingredient in manufacturing detergents, dishwashing liquids, and industrial cleaning agents.\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications:\r\n\r\n \tDetergents: Acts as the primary surfactant in laundry powders, liquids, and detergent cakes.\r\n \tDishwashing Liquids: Enhances grease removal and foaming.\r\n \tCleaning Agents: Used in industrial and household cleaners for effective dirt and grease removal.\r\n \tTextile Processing: Functions as a wetting and cleaning agent in textile and leather processing.",
       "image": [
-        "https://drive.google.com/file/d/1Si2NHBAqYuoC8TKRRfS5C7vXIvQruXtq/view?usp=drive_link"
+        "/Images/products/carboy-drum/acid-slurry-90-grade-a-carboy.jpg",
+        "/Images/products/carboy-drum/acid-slurry-90-grade-a-drum.jpg",
+        "/Images/products/carboy-drum/acid-slurry-96-grade-a-carboy.jpg",
+        "/Images/products/carboy-drum/acid-slurry-96-grade-a-drum.jpg"
       ],
       "attributes": {
         "CAS Number `": "68584-22-5",
@@ -468,13 +489,54 @@
       }
     },
     {
+      "id": 3069,
+      "name": "Acid Slurry 90% (Grade A)",
+      "in_stock": true,
+      "short_description": "Acid Slurry 90% (Grade A) is a LABSA-based surfactant grade used in detergent, dishwash, cleaning, and textile processing formulations. It is supplied in carboy and drum packing options for commercial and industrial requirements.\n\nApplications\n- Detergent Manufacturing\n- Dishwashing Liquids\n- Cleaning Agents\n- Textile Processing",
+      "image": [
+        "/Images/products/carboy-drum/acid-slurry-90-grade-a-carboy.jpg",
+        "/Images/products/carboy-drum/acid-slurry-90-grade-a-drum.jpg"
+      ],
+      "attributes": {
+        "Chemical Name": "Acid Slurry 90% (Grade A)",
+        "Scientific Name": "Linear Alkyl Benzene Sulfonic Acid (LABSA)",
+        "CAS Number": "68584-22-5",
+        "Appearance": "Brown viscous liquid",
+        "Active Matter (%)": "90",
+        "Applications / Usage": "Detergent Manufacturing, Dishwashing Liquids, Cleaning Agents, Textile Processing",
+        "Grade": "Grade A",
+        "Packaging": "50 kg Carboy / 235 kg Drum",
+        "Storage": "Store in a cool, dry, well-ventilated area. Keep container tightly closed."
+      }
+    },
+    {
+      "id": 3070,
+      "name": "Acid Slurry 96% (Grade A)",
+      "in_stock": true,
+      "short_description": "Acid Slurry 96% (Grade A) is a higher active LABSA-based surfactant grade used in detergent, dishwash, cleaning, and textile processing formulations. It is supplied in carboy and drum packing options for commercial and industrial requirements.\n\nApplications\n- Detergent Manufacturing\n- Dishwashing Liquids\n- Cleaning Agents\n- Textile Processing",
+      "image": [
+        "/Images/products/carboy-drum/acid-slurry-96-grade-a-carboy.jpg",
+        "/Images/products/carboy-drum/acid-slurry-96-grade-a-drum.jpg"
+      ],
+      "attributes": {
+        "Chemical Name": "Acid Slurry 96% (Grade A)",
+        "Scientific Name": "Linear Alkyl Benzene Sulfonic Acid (LABSA)",
+        "CAS Number": "68584-22-5",
+        "Appearance": "Brown viscous liquid",
+        "Active Matter (%)": "96",
+        "Applications / Usage": "Detergent Manufacturing, Dishwashing Liquids, Cleaning Agents, Textile Processing",
+        "Grade": "Grade A",
+        "Packaging": "50 kg Carboy / 235 kg Drum",
+        "Storage": "Store in a cool, dry, well-ventilated area. Keep container tightly closed."
+      }
+    },
+    {
       "id": 1856,
       "name": "Acid Thickner | IGL Grade",
       "in_stock": true,
       "short_description": "Used in manufacturing toilet cleaners, industrial descalers, and household cleaning products. This thickener provide excellent compatibility with hydrochloric acid and other acids, ensuring ease of formulation while maintaining high performance.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications \r\n\r\n \tToilet Cleaners: Used to enhance viscosity and stability in acid-based formulations for effective cleaning and clinging action.\r\n \tIndustrial Descalers: Improves the consistency of acidic solutions used for removing scale and rust in industrial equipment.\r\n \tHousehold Cleaners: Provides thickening in acid-based products for cleaning sinks, tiles, and bathroom surfaces.\r\n \tMetal Cleaners: Enhances the formulation of acidic cleaning agents for polishing and removing corrosion from metal surfaces.",
       "image": [
-        "https://drive.google.com/file/d/13xGwHDRon5tbjGiNw5vNR8OjW_DZj9xE/view?usp=drive_link",
-        "https://drive.google.com/file/d/1KkUpf_9QtEYuGiDyI1yRSDBb2529Na2O/view?usp=drive_link"
+        "/Images/products/carboy-drum/acid-thickner-igl-carboy.jpg"
       ],
       "attributes": {
         "CAS Number": "26635-92-7",
@@ -537,9 +599,7 @@
       "in_stock": true,
       "short_description": "Hydrochloric acid is a strong, highly corrosive inorganic acid widely used in various industrial, laboratory, and commercial applications. It is an aqueous solution of hydrogen chloride gas, known for its strong acidic properties, high reactivity, and versatility.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Applications\r\n\r\n \tMetal Processing:\r\n\r\n \tPickling of steel and other metals to remove oxides and scale.\r\n \tRefining and electroplating processes.\r\n\r\n\r\n \tChemical Manufacturing:\r\n\r\n \tProduction of chlorides, fertilizers, and dyes.\r\n \tCatalyst in organic synthesis, including the production of vinyl chloride (used in PVC).\r\n\r\n\r\n\r\nWater Treatment\r\n\r\n \tpH adjustment in wastewater treatment plants.\r\n \tNeutralization of alkaline solutions.\r\n\r\nFood and Beverage\r\n\r\n \tUsed in the production of food-grade phosphates and as an acidifier.\r\n \tCleaning agent for equipment in food processing facilities (requires food-grade HCl).\r\n\r\nOil and Gas Industry\r\n\r\n \tAcidizing of oil wells to enhance extraction by dissolving carbonate rocks.\r\n\r\nCleaning Products\r\n\r\n \tDescaling:\r\n\r\n \tRemoves lime and rust deposits in boilers, heat exchangers, and plumbing systems.\r\n\r\n\r\n \tHousehold Use:\r\n\r\n \tFound in commercial toilet bowl cleaners and heavy-duty cleaning products.\r\n\r\n\r\n\r\nLaboratory Applications\r\n\r\n \tStandard reagent for titrations in analytical chemistry.\r\n\r\n&nbsp;",
       "image": [
-        "https://drive.google.com/file/d/1PCsrmAotwI-ej7aha1iQZiLNKzXuNMWX/view?usp=drive_link",
-        "https://drive.google.com/file/d/1PXwIKGNUqvRiAmjb5OgvSTaIWqhgq5CM/view?usp=drive_link",
-        "https://drive.google.com/file/d/1OE1fygywQHgA9JC8KWC-3nCXXHqpJxQ7/view?usp=drive_link"
+        "/Images/products/carboy-drum/hydrochloric-acid-hcl-carboy.jpg"
       ],
       "attributes": {
         "CAS Number": "7647-01-0",
@@ -626,8 +686,7 @@
       "in_stock": true,
       "short_description": "Sulfuric acid is a highly corrosive, dense, and viscous inorganic acid widely used across industries for its strong acidic and dehydrating properties. It is often called the \"king of chemicals\" due to its central role in chemical manufacturing and industrial applications.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Applications\r\n\r\n \tFertilizer Production:\r\n\r\n \tUsed to produce phosphoric acid for phosphate fertilizers like ammonium sulfate and superphosphates.\r\n\r\n\r\n \tPetroleum Refining:\r\n\r\n \tRemoves impurities during oil refining.\r\n\r\n\r\n \tMetal Processing:\r\n\r\n \tUsed for pickling and cleaning metals before electroplating or galvanization.\r\n\r\n\r\n\r\nChemical Manufacturing\r\n\r\n \tProduction of Chemicals:\r\n\r\n \tUsed to manufacture hydrochloric acid, nitric acid, and dyes.\r\n \tA key reactant in producing sulfur trioxide (SO₃) and oleum.\r\n\r\n\r\n \tCatalyst:\r\n\r\n \tCatalyst in esterification and other organic reactions.\r\n\r\n\r\n\r\nBattery Acid\r\n\r\n \tUsed as an electrolyte in lead-acid batteries for vehicles and backup power systems.\r\n\r\nCleaning and Descaling\r\n\r\n \tRemoves rust, scale, and mineral deposits from surfaces and equipment.\r\n\r\nPharmaceuticals\r\n\r\n \tUsed in the synthesis of drugs and intermediates.",
       "image": [
-        "https://drive.google.com/file/d/1BKNXDPme79fyXCwuaNQBH4sQqRP2x0Ol/view?usp=drive_link",
-        "https://drive.google.com/file/d/1cSDhYHc_U_rp5ONwLCwefCliZ6qipTjj/view?usp=drive_link"
+        "/Images/products/carboy-drum/sulphuric-acid-carboy.jpg"
       ],
       "attributes": {
         "CAS Number": "7664-93-9",
@@ -912,7 +971,8 @@
       "in_stock": true,
       "short_description": "Used as an emulsifier, wetting agent, and dispersant in various industrial applications. It is particularly useful in textile, agricultural, and cleaning formulations due to its ability to lower surface tension and enhance the performance of other ingredients in a solution.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\n\r\nApplications:\r\n\r\n \tTextile Industry: Used as a dispersing and wetting agent in textile processing, helping with dye fixation and chemical dispersion.\r\n \tCleaning and Detergent Formulations: Acts as an emulsifier and dispersing agent in liquid detergents, laundry products, and household cleaners.\r\n \tAgriculture: Used in pesticide and fertilizer formulations to improve wetting, spreading, and absorption on plant surfaces.\r\n \tLeather Industry: Employed as an emulsifying agent to improve the softness and texture of leather during finishing treatments.",
       "image": [
-        "https://drive.google.com/file/d/1szYcpMnU8J9JI56N8UAZp-tmrvE1DkEi/view?usp=drive_link"
+        "/Images/products/carboy-drum/alphox-200-carboy.jpg",
+        "/Images/products/carboy-drum/alphox-200-drum.jpg"
       ],
       "attributes": {
         "CAS Number": "9016-45-9",
@@ -1189,8 +1249,9 @@
       "in_stock": true,
       "short_description": "Essential oil derived from the distillation of pine tree parts, blended with camphor to enhance its properties. This formulation is widely used in cleaning products, disinfectants, pharmaceuticals, and aromatherapy due to its strong antimicrobial and deodorizing properties.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\nApplications\r\n\r\nCleaning and Hygiene\r\n\r\n \tDisinfectants: Used in floor cleaners and multi-surface disinfectants.\r\n \tLaundry Care: Removes odors and freshens fabrics.\r\n\r\nPharmaceuticals\r\n\r\n \tPain Relief Balms: Relieves muscle and joint pain.\r\n \tInhalers and Rubs: Alleviates nasal congestion and cold symptoms.\r\n\r\nPersonal Care\r\n\r\n \tAromatherapy: Promotes relaxation and mental clarity.\r\n \tBath Products: Enhances the sensory experience and provides antimicrobial benefits.\r\n\r\nIndustrial Applications\r\n\r\n \tTextile and Leather: Used as a cleaning and softening agent.\r\n \tPesticides: Acts as a natural pest repellent.",
       "image": [
-        "https://drive.google.com/file/d/1bBvL-IWAqF5rnShU0WScDnyIhKOdIo16/view?usp=drive_link",
-        "https://drive.google.com/file/d/1qi2Eod7siJ3_nD0ys78h4esz-53GuRam/view?usp=drive_link"
+        "/Images/products/carboy-drum/pine-oil-32-carboy.jpg",
+        "/Images/products/carboy-drum/pine-oil-32-drum-200kg.jpg",
+        "/Images/products/carboy-drum/pine-oil-32-drum-210kg.jpg"
       ],
       "attributes": {
         "CAS Number": "8002-09-3",
@@ -1209,8 +1270,9 @@
       "in_stock": true,
       "short_description": "Derived from the distillation of pine tree parts, containing 32% active ingredients. It is widely used in cleaning, disinfecting, and deodorizing applications due to its cost-effectiveness and versatile properties.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\nApplications\r\nHousehold and Industrial Cleaning\r\n\r\n \tFloor Cleaners: Acts as a key ingredient in phenyl and multi-surface cleaners.\r\n \tAir Fresheners: Imparts a fresh pine fragrance.\r\n \tCarpet and Upholstery Cleaners: Removes dirt and odors effectively.\r\n\r\nDisinfectants\r\n\r\n \tUsed in formulations for hospitals, schools, and public spaces.\r\n \tActs as a cleaning and germ-killing agent.\r\n\r\nPersonal Care Products\r\n\r\n \tLimited use in bath oils and soaps for its aromatic and antimicrobial properties.\r\n\r\nAgriculture and Veterinary\r\n\r\n \tUsed in animal care products and as a natural pesticide.",
       "image": [
-        "https://drive.google.com/file/d/1bBvL-IWAqF5rnShU0WScDnyIhKOdIo16/view?usp=drive_link",
-        "https://drive.google.com/file/d/1qi2Eod7siJ3_nD0ys78h4esz-53GuRam/view?usp=drive_link"
+        "/Images/products/carboy-drum/pine-oil-32-carboy.jpg",
+        "/Images/products/carboy-drum/pine-oil-32-drum-200kg.jpg",
+        "/Images/products/carboy-drum/pine-oil-32-drum-210kg.jpg"
       ],
       "attributes": {
         "Appearance": "Pale Yellow Liquid",
@@ -1246,8 +1308,7 @@
       "in_stock": true,
       "short_description": "A white, odorless powder widely used in industrial, commercial, and domestic applications. It is a strong alkaline substance with excellent cleaning, buffering, and water-softening properties.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial\r\n\r\n \tGlass Manufacturing: A primary raw material in the production of flat glass, bottles, and containers.\r\n \tDetergents: Enhances cleaning performance in laundry and dishwashing products.\r\n \tPulp and Paper: Used in the kraft process for pulping wood.\r\n \tChemical Production: Key ingredient in the synthesis of sodium silicate, sodium bicarbonate, and other compounds.\r\n\r\nWater Treatment\r\n\r\n \tAdjusts pH levels in municipal and industrial water systems.\r\n\r\nFood Industry\r\n\r\n \tActs as a food additive (E500), used as a pH regulator and anticaking agent.\r\n\r\nAgriculture\r\n\r\n \tSoil Treatment: Neutralizes acidic soils.\r\n \tAnimal Feed: Used as a buffering agent in ruminant diets.\r\n\r\nHousehold\r\n\r\n \tCleaning Agent: Removes grease, oil, and stains.\r\n \tSwimming Pools: Maintains pH balance in pool water.",
       "image": [
-        "https://drive.google.com/file/d/1C2_hYfGEOTafDxC-sgpNZ7NFCdLqdVgR/view?usp=drive_link",
-        "https://drive.google.com/file/d/1KQtxcGrsyTy6eZhQ0OY3cGrcSZ7yZB7e/view?usp=drive_link"
+        "/Images/products/carboy-drum/soda-ash-carboy.jpg"
       ],
       "attributes": {
         "CAS Number": "497-19-8",
@@ -1283,7 +1344,7 @@
       "in_stock": true,
       "short_description": "A refined grade of turpentine oil, derived from the distillation of resin from pine trees. This product is characterized by its high purity and a distinct, sharp odor, making it valuable for industrial, pharmaceutical, and cosmetic applications.\r\n\r\n\r\n\r\nENQUIRE NOW\r\n\r\n\r\nApplications\r\nIndustrial Applications\r\n\r\n \tPaints and Varnishes: Acts as a solvent to improve the spreadability and finish of coatings.\r\n \tAdhesives: Used as a thinner and solvent in glue formulations.\r\n \tInks and Dyes: Improves the dispersion and drying of printing inks.\r\n\r\nPharmaceutical Applications\r\n\r\n \tTopical Preparations: Used in ointments and liniments for its anti-inflammatory and analgesic properties.\r\n \tAromatherapy: Provides a refreshing, pine-scented aroma for relaxation therapies.\r\n\r\nCosmetic and Personal Care\r\n\r\n \tPerfumery: Acts as a fixative or base in fragrance formulations.\r\n \tSoaps and Detergents: Adds a natural pine scent and improves cleaning efficiency.\r\n\r\nAgriculture and Pest Control\r\n\r\n \tUsed in the formulation of natural pesticides and insect repellents.",
       "image": [
-        "https://drive.google.com/file/d/1wBu9MJ_s76mabjvL4RxOjxGunvAnbQSN/view?usp=drive_link"
+        "/Images/products/carboy-drum/turpentine-oil-drum.jpg"
       ],
       "attributes": {
         "CAS Number": "8006-64-2",
@@ -1338,7 +1399,8 @@
       "in_stock": true,
       "short_description": "SLES 28% (Godrej Made) is supplied as Sodium Lauryl Ether Sulfate for commercial and industrial requirements. It is commonly selected for detergents, shampoos, cleansers applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Detergents\n- Shampoos\n- Cleansers",
       "image": [
-        "PRODUCT_IMAGE_URL"
+        "/Images/products/carboy-drum/sles-28-carboy.jpg",
+        "/Images/products/carboy-drum/sles-28-drum.jpg"
       ],
       "attributes": {
         "Chemical Name": "SLES 28% (Godrej Made)",
@@ -1356,7 +1418,7 @@
       "in_stock": true,
       "short_description": "SLES 70% (Godrej Made) is supplied as Sodium Lauryl Ether Sulfate for commercial and industrial requirements. It is commonly selected for detergents, shampoos, cleansers applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Detergents\n- Shampoos\n- Cleansers",
       "image": [
-        "PRODUCT_IMAGE_URL"
+        "/Images/products/carboy-drum/sles-70-drum.jpg"
       ],
       "attributes": {
         "Chemical Name": "SLES 70% (Godrej Made)",
@@ -1410,7 +1472,7 @@
       "in_stock": true,
       "short_description": "Hydrogen Peroxide is supplied as Hydrogen Peroxide for commercial and industrial requirements. It is commonly selected for bleaching, disinfection, cleaning applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Bleaching\n- Disinfection\n- Cleaning",
       "image": [
-        "PRODUCT_IMAGE_URL"
+        "/Images/products/carboy-drum/hydrogen-peroxide-drum.jpg"
       ],
       "attributes": {
         "Chemical Name": "Hydrogen Peroxide",
@@ -1446,7 +1508,9 @@
       "in_stock": true,
       "short_description": "Pine Oil 22% is supplied as Pine Oil for commercial and industrial requirements. It is commonly selected for disinfectants, cleaners applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Disinfectants\n- Cleaners",
       "image": [
-        "PRODUCT_IMAGE_URL"
+        "/Images/products/carboy-drum/pine-oil-22-carboy.jpg",
+        "/Images/products/carboy-drum/pine-oil-22-drum-200kg.jpg",
+        "/Images/products/carboy-drum/pine-oil-22-drum-210kg.jpg"
       ],
       "attributes": {
         "Chemical Name": "Pine Oil 22%",
@@ -1482,7 +1546,7 @@
       "in_stock": true,
       "short_description": "Citronella Tops is supplied as Citronella Tops for commercial and industrial requirements. It is commonly selected for cleaners applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Cleaners",
       "image": [
-        "PRODUCT_IMAGE_URL"
+        "/Images/products/carboy-drum/citronella-tops-carboy.jpg"
       ],
       "attributes": {
         "Chemical Name": "Citronella Tops",
@@ -1698,7 +1762,7 @@
       "in_stock": true,
       "short_description": "STPP is supplied as Sodium Tripolyphosphate for commercial and industrial requirements. It is commonly selected for cleaning, water softening applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Cleaning\n- Water Softening",
       "image": [
-        "PRODUCT_IMAGE_URL"
+        "/Images/products/carboy-drum/stpp-carboy.jpg"
       ],
       "attributes": {
         "Chemical Name": "STPP",
@@ -1806,7 +1870,7 @@
       "in_stock": true,
       "short_description": "EDTA Disodium is supplied as Ethylenediaminetetraacetic Acid Disodium Salt for commercial and industrial requirements. It is commonly selected for metal treatment, pharmaceuticals applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Metal Treatment\n- Pharmaceuticals",
       "image": [
-        "PRODUCT_IMAGE_URL"
+        "/Images/products/carboy-drum/edta-disodium-carboy.jpg"
       ],
       "attributes": {
         "Chemical Name": "EDTA Disodium",
@@ -1824,7 +1888,7 @@
       "in_stock": true,
       "short_description": "EDTA Tetrasodium is supplied as Ethylenediaminetetraacetic Acid Tetrasodium Salt for commercial and industrial requirements. It is commonly selected for metal treatment, pharmaceuticals applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Metal Treatment\n- Pharmaceuticals",
       "image": [
-        "PRODUCT_IMAGE_URL"
+        "/Images/products/carboy-drum/edta-tetrasodium-carboy.jpg"
       ],
       "attributes": {
         "Chemical Name": "EDTA Tetrasodium",
@@ -1890,6 +1954,134 @@
         "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."
       }
     },
+    {
+      "id": 3051,
+      "name": "Colistin Sulphate",
+      "in_stock": true,
+      "short_description": "Colistin Sulphate is supplied as Colistin Sulfate for commercial and industrial requirements. It is commonly selected for pharmaceuticals applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Pharmaceuticals",
+      "image": [
+        "PRODUCT_IMAGE_URL"
+      ],
+      "attributes": {
+        "Chemical Name": "Colistin Sulphate",
+        "Scientific Name": "Colistin Sulfate",
+        "Chemical Formula": "Varies by sulfate salt composition",
+        "Applications / Usage": "Pharmaceuticals",
+        "Grade": "Commercial / Industrial Grade",
+        "Packaging": "Contact PTCGRAM for available pack sizes",
+        "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."
+      }
+    },
+    {
+      "id": 3052,
+      "name": "Enrofloxacin",
+      "in_stock": true,
+      "short_description": "Enrofloxacin is supplied as Enrofloxacin for commercial and industrial requirements. It is commonly selected for veterinary medicine applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Veterinary Medicine",
+      "image": [
+        "PRODUCT_IMAGE_URL"
+      ],
+      "attributes": {
+        "Chemical Name": "Enrofloxacin",
+        "Scientific Name": "Enrofloxacin",
+        "Chemical Formula": "C19H22FN3O3",
+        "Applications / Usage": "Veterinary Medicine",
+        "Grade": "Commercial / Industrial Grade",
+        "Packaging": "Contact PTCGRAM for available pack sizes",
+        "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."
+      }
+    },
+    {
+      "id": 3055,
+      "name": "Soya Fatty Acid",
+      "in_stock": true,
+      "short_description": "Soya Fatty Acid is supplied as Soybean Oil Fatty Acids for commercial and industrial requirements. It is commonly selected for industrial applications applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Industrial Applications",
+      "image": [
+        "PRODUCT_IMAGE_URL"
+      ],
+      "attributes": {
+        "Chemical Name": "Soya Fatty Acid",
+        "Scientific Name": "Soybean Oil Fatty Acids",
+        "Chemical Formula": "Mixture",
+        "Applications / Usage": "Industrial Applications",
+        "Grade": "Commercial / Industrial Grade",
+        "Packaging": "Contact PTCGRAM for available pack sizes",
+        "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."
+      }
+    },
+    {
+      "id": 3058,
+      "name": "Phenol 90 and 100",
+      "in_stock": true,
+      "short_description": "Phenol 90 and 100 is supplied as Phenol for commercial and industrial requirements. It is commonly selected for chemical manufacturing, disinfectants applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Chemical Manufacturing\n- Disinfectants",
+      "image": [
+        "PRODUCT_IMAGE_URL"
+      ],
+      "attributes": {
+        "Chemical Name": "Phenol 90 and 100",
+        "Scientific Name": "Phenol",
+        "Chemical Formula": "C6H6O",
+        "Applications / Usage": "Chemical Manufacturing, Disinfectants",
+        "Grade": "Commercial / Industrial Grade",
+        "Packaging": "Contact PTCGRAM for available pack sizes",
+        "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."
+      }
+    },
+    {
+      "id": 3059,
+      "name": "Fatty Acid",
+      "in_stock": true,
+      "short_description": "Fatty Acid is supplied as Fatty Acid Blend for commercial and industrial requirements. It is commonly selected for industrial applications applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Industrial Applications",
+      "image": [
+        "PRODUCT_IMAGE_URL"
+      ],
+      "attributes": {
+        "Chemical Name": "Fatty Acid",
+        "Scientific Name": "Fatty Acid Blend",
+        "Chemical Formula": "Mixture",
+        "Applications / Usage": "Industrial Applications",
+        "Grade": "Commercial / Industrial Grade",
+        "Packaging": "Contact PTCGRAM for available pack sizes",
+        "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."
+      }
+    },
+    {
+      "id": 3063,
+      "name": "P.E.G.",
+      "in_stock": true,
+      "short_description": "P.E.G. is supplied as Polyethylene Glycol for commercial and industrial requirements. It is commonly selected for cosmetics, pharmaceuticals applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Cosmetics\n- Pharmaceuticals",
+      "image": [
+        "PRODUCT_IMAGE_URL"
+      ],
+      "attributes": {
+        "Chemical Name": "P.E.G.",
+        "Scientific Name": "Polyethylene Glycol",
+        "Chemical Formula": "Polymer",
+        "Applications / Usage": "Cosmetics, Pharmaceuticals",
+        "Grade": "Commercial / Industrial Grade",
+        "Packaging": "Contact PTCGRAM for available pack sizes",
+        "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."
+      }
+    },
+    {
+      "id": 3065,
+      "name": "PVA (Polyvinyl Alcohol) All Grades",
+      "in_stock": true,
+      "short_description": "PVA (Polyvinyl Alcohol) All Grades is supplied as Polyvinyl Alcohol for commercial and industrial requirements. It is commonly selected for adhesives, coatings, textiles applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Adhesives\n- Coatings\n- Textiles",
+      "image": [
+        "PRODUCT_IMAGE_URL"
+      ],
+      "attributes": {
+        "Chemical Name": "PVA (Polyvinyl Alcohol) All Grades",
+        "Scientific Name": "Polyvinyl Alcohol",
+        "Chemical Formula": "(C2H4O)n",
+        "Applications / Usage": "Adhesives, Coatings, Textiles",
+        "Grade": "Commercial / Industrial Grade",
+        "Packaging": "Contact PTCGRAM for available pack sizes",
+        "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."
+      }
+    }
+  ],
+  "Dietary Supplements": [
     {
       "id": 3037,
       "name": "Vitamin C",
@@ -2143,42 +2335,6 @@
       }
     },
     {
-      "id": 3051,
-      "name": "Colistin Sulphate",
-      "in_stock": true,
-      "short_description": "Colistin Sulphate is supplied as Colistin Sulfate for commercial and industrial requirements. It is commonly selected for pharmaceuticals applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Pharmaceuticals",
-      "image": [
-        "PRODUCT_IMAGE_URL"
-      ],
-      "attributes": {
-        "Chemical Name": "Colistin Sulphate",
-        "Scientific Name": "Colistin Sulfate",
-        "Chemical Formula": "Varies by sulfate salt composition",
-        "Applications / Usage": "Pharmaceuticals",
-        "Grade": "Commercial / Industrial Grade",
-        "Packaging": "Contact PTCGRAM for available pack sizes",
-        "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."
-      }
-    },
-    {
-      "id": 3052,
-      "name": "Enrofloxacin",
-      "in_stock": true,
-      "short_description": "Enrofloxacin is supplied as Enrofloxacin for commercial and industrial requirements. It is commonly selected for veterinary medicine applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Veterinary Medicine",
-      "image": [
-        "PRODUCT_IMAGE_URL"
-      ],
-      "attributes": {
-        "Chemical Name": "Enrofloxacin",
-        "Scientific Name": "Enrofloxacin",
-        "Chemical Formula": "C19H22FN3O3",
-        "Applications / Usage": "Veterinary Medicine",
-        "Grade": "Commercial / Industrial Grade",
-        "Packaging": "Contact PTCGRAM for available pack sizes",
-        "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."
-      }
-    },
-    {
       "id": 3053,
       "name": "D-Calcium Pantothenate",
       "in_stock": true,
@@ -2191,96 +2347,6 @@
         "Scientific Name": "Calcium Pantothenate",
         "Chemical Formula": "C18H32CaN2O10",
         "Applications / Usage": "Dietary Supplement, Animal Feed",
-        "Grade": "Commercial / Industrial Grade",
-        "Packaging": "Contact PTCGRAM for available pack sizes",
-        "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."
-      }
-    },
-    {
-      "id": 3055,
-      "name": "Soya Fatty Acid",
-      "in_stock": true,
-      "short_description": "Soya Fatty Acid is supplied as Soybean Oil Fatty Acids for commercial and industrial requirements. It is commonly selected for industrial applications applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Industrial Applications",
-      "image": [
-        "PRODUCT_IMAGE_URL"
-      ],
-      "attributes": {
-        "Chemical Name": "Soya Fatty Acid",
-        "Scientific Name": "Soybean Oil Fatty Acids",
-        "Chemical Formula": "Mixture",
-        "Applications / Usage": "Industrial Applications",
-        "Grade": "Commercial / Industrial Grade",
-        "Packaging": "Contact PTCGRAM for available pack sizes",
-        "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."
-      }
-    },
-    {
-      "id": 3058,
-      "name": "Phenol 90 and 100",
-      "in_stock": true,
-      "short_description": "Phenol 90 and 100 is supplied as Phenol for commercial and industrial requirements. It is commonly selected for chemical manufacturing, disinfectants applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Chemical Manufacturing\n- Disinfectants",
-      "image": [
-        "PRODUCT_IMAGE_URL"
-      ],
-      "attributes": {
-        "Chemical Name": "Phenol 90 and 100",
-        "Scientific Name": "Phenol",
-        "Chemical Formula": "C6H6O",
-        "Applications / Usage": "Chemical Manufacturing, Disinfectants",
-        "Grade": "Commercial / Industrial Grade",
-        "Packaging": "Contact PTCGRAM for available pack sizes",
-        "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."
-      }
-    },
-    {
-      "id": 3059,
-      "name": "Fatty Acid",
-      "in_stock": true,
-      "short_description": "Fatty Acid is supplied as Fatty Acid Blend for commercial and industrial requirements. It is commonly selected for industrial applications applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Industrial Applications",
-      "image": [
-        "PRODUCT_IMAGE_URL"
-      ],
-      "attributes": {
-        "Chemical Name": "Fatty Acid",
-        "Scientific Name": "Fatty Acid Blend",
-        "Chemical Formula": "Mixture",
-        "Applications / Usage": "Industrial Applications",
-        "Grade": "Commercial / Industrial Grade",
-        "Packaging": "Contact PTCGRAM for available pack sizes",
-        "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."
-      }
-    },
-    {
-      "id": 3063,
-      "name": "P.E.G.",
-      "in_stock": true,
-      "short_description": "P.E.G. is supplied as Polyethylene Glycol for commercial and industrial requirements. It is commonly selected for cosmetics, pharmaceuticals applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Cosmetics\n- Pharmaceuticals",
-      "image": [
-        "PRODUCT_IMAGE_URL"
-      ],
-      "attributes": {
-        "Chemical Name": "P.E.G.",
-        "Scientific Name": "Polyethylene Glycol",
-        "Chemical Formula": "Polymer",
-        "Applications / Usage": "Cosmetics, Pharmaceuticals",
-        "Grade": "Commercial / Industrial Grade",
-        "Packaging": "Contact PTCGRAM for available pack sizes",
-        "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."
-      }
-    },
-    {
-      "id": 3065,
-      "name": "PVA (Polyvinyl Alcohol) All Grades",
-      "in_stock": true,
-      "short_description": "PVA (Polyvinyl Alcohol) All Grades is supplied as Polyvinyl Alcohol for commercial and industrial requirements. It is commonly selected for adhesives, coatings, textiles applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Adhesives\n- Coatings\n- Textiles",
-      "image": [
-        "PRODUCT_IMAGE_URL"
-      ],
-      "attributes": {
-        "Chemical Name": "PVA (Polyvinyl Alcohol) All Grades",
-        "Scientific Name": "Polyvinyl Alcohol",
-        "Chemical Formula": "(C2H4O)n",
-        "Applications / Usage": "Adhesives, Coatings, Textiles",
         "Grade": "Commercial / Industrial Grade",
         "Packaging": "Contact PTCGRAM for available pack sizes",
         "Storage": "Store according to the product safety data sheet in a cool, dry, well-ventilated area."

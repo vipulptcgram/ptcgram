@@ -52,6 +52,7 @@ export default function Footer() {
             <FooterLink to="/solvents">Solvents</FooterLink>
             <FooterLink to="/acids">Acids</FooterLink>
             <FooterLink to="/industrial">Industrial Chemicals</FooterLink>
+            <FooterLink to="/dietary-supplements">Dietary Supplements</FooterLink>
             <FooterLink to="/household">Household Cleaning</FooterLink>
           </ul>
         </div>

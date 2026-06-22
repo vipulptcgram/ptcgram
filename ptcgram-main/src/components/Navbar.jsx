@@ -1,12 +1,29 @@
 import { useState, useEffect, useMemo } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { collection, getDocs } from 'firebase/firestore'
 import { FaBars, FaXmark, FaPhone, FaEnvelope, FaLocationDot, FaGlobe, FaChevronDown, FaMagnifyingGlass } from 'react-icons/fa6'
+import { db } from '../firebase'
 import { useCategories } from '../hooks/useCategories'
+import { CATEGORY_MAP } from '../hooks/useCatalogProducts'
 import { toProductSlug } from '../utils/productSeo'
+import { normalizeSearchText, productSearchText, searchMatches } from '../utils/productSearch'
 
 export default function Navbar() {
   const categories = useCategories()
   const productLinks = categories.map((category) => ({ label: category.name, path: category.slug || `/${category.id}` }))
+  const categoryLookup = useMemo(() => {
+    const lookup = new Map()
+    for (const [id, name] of Object.entries(CATEGORY_MAP)) {
+      lookup.set(name, id)
+      lookup.set(normalizeSearchText(name), id)
+    }
+    for (const category of categories) {
+      lookup.set(category.id, category.id)
+      lookup.set(category.name, category.id)
+      lookup.set(normalizeSearchText(category.name), category.id)
+    }
+    return lookup
+  }, [categories])
   const [scrolled, setScrolled]     = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [dropOpen, setDropOpen]     = useState(false)
@@ -21,26 +38,76 @@ export default function Navbar() {
     if (searchLoaded) return
     setSearchLoaded(true)
     const { default: productData } = await import('../data/productdetail.json')
-    const categoryIds = {
-      Solvents: 'solvents',
-      Acids: 'acids',
-      'Industrial Chemicals': 'industrial',
-      'Household Cleaning Concentrates': 'household',
+    const entries = new Map()
+
+    for (const [categoryName, products] of Object.entries(productData)) {
+      const categoryId = categoryLookup.get(categoryName) || categoryLookup.get(normalizeSearchText(categoryName))
+      for (const product of products) {
+        const key = `product:${categoryId}:${product.id || normalizeSearchText(product.name)}`
+        entries.set(key, {
+          type: 'product',
+          ...product,
+          categoryId,
+          categoryName,
+          searchText: productSearchText(product, categoryName, categoryId),
+        })
+      }
     }
-    setSearchableProducts(Object.entries(productData).flatMap(([categoryName, products]) =>
-      products.map((product) => ({
-        ...product,
-        categoryId: categoryIds[categoryName],
-        categoryName,
-      }))
-    ))
+
+    for (const category of categories) {
+      const categoryPath = category.slug || `/${category.id}`
+      entries.set(`category:${category.id}`, {
+        type: 'category',
+        id: category.id,
+        name: category.name,
+        categoryName: 'Product Category',
+        path: categoryPath,
+        searchText: normalizeSearchText([
+          category.name,
+          category.id,
+          category.headline,
+          category.description,
+          'category products chemicals',
+        ].filter(Boolean).join(' ')),
+      })
+    }
+
+    setSearchableProducts([...entries.values()])
+
+    try {
+      const snapshot = await getDocs(collection(db, 'products'))
+      for (const item of snapshot.docs) {
+        const data = item.data()
+        if (!data.product || data.deleted) continue
+
+        const categoryId = data.categoryId || categoryLookup.get(data.categoryName) || 'products'
+        const categoryName = categories.find((category) => category.id === categoryId)?.name
+          || CATEGORY_MAP[categoryId]
+          || data.categoryName
+          || categoryId
+        const product = data.product
+        const key = `product:${categoryId}:${product.id || normalizeSearchText(product.name)}`
+
+        entries.set(key, {
+          type: 'product',
+          ...product,
+          categoryId,
+          categoryName,
+          searchText: productSearchText(product, categoryName, categoryId),
+        })
+      }
+    } catch {
+      // Keep local catalog search working if Firestore is temporarily unavailable.
+    }
+
+    setSearchableProducts([...entries.values()])
   }
 
   const searchResults = useMemo(() => {
     const query = searchQuery.trim().toLowerCase()
     if (query.length < 2) return []
     return searchableProducts
-      .filter((product) => product.name.toLowerCase().includes(query))
+      .filter((product) => searchMatches(product.searchText, query))
       .slice(0, 7)
   }, [searchQuery, searchableProducts])
 
@@ -60,11 +127,13 @@ export default function Navbar() {
   function submitSearch(event) {
     event.preventDefault()
     if (searchResults[0]) {
-      navigate(`/${searchResults[0].categoryId}/${toProductSlug(searchResults[0])}`)
+      const result = searchResults[0]
+      navigate(result.type === 'category' ? result.path : `/${result.categoryId}/${toProductSlug(result)}`)
     }
   }
 
-  const SearchBox = ({ mobile = false }) => (
+  function renderSearchBox(mobile = false) {
+    return (
     <div className={`relative ${mobile ? 'w-full' : ''}`}>
       <form onSubmit={submitSearch} className="relative">
         <FaMagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none" />
@@ -86,14 +155,14 @@ export default function Navbar() {
       </form>
       {searchOpen && searchQuery.trim().length >= 2 && (
         <div className={`absolute z-[70] mt-2 bg-white border border-gray-200 rounded-xl shadow-industry-xl overflow-hidden ${mobile ? 'left-0 right-0' : 'right-0 w-80'}`}>
-          {searchResults.length > 0 ? searchResults.map((product) => (
+          {searchResults.length > 0 ? searchResults.map((result) => (
             <Link
-              key={`${product.categoryId}-${product.id}`}
-              to={`/${product.categoryId}/${toProductSlug(product)}`}
+              key={`${result.type}-${result.categoryId || result.id}-${result.id || result.name}`}
+              to={result.type === 'category' ? result.path : `/${result.categoryId}/${toProductSlug(result)}`}
               className="block px-4 py-3 border-b border-gray-100 last:border-0 hover:bg-amber-50 transition-colors"
             >
-              <span className="block text-sm font-semibold text-navy-900 truncate">{product.name}</span>
-              <span className="block text-[0.62rem] text-gray-400 mt-0.5">{product.categoryName}</span>
+              <span className="block text-sm font-semibold text-navy-900 truncate">{result.name}</span>
+              <span className="block text-[0.62rem] text-gray-400 mt-0.5">{result.categoryName}</span>
             </Link>
           )) : (
             <p className="px-4 py-4 text-xs text-gray-400">No matching chemicals found.</p>
@@ -101,7 +170,8 @@ export default function Navbar() {
         </div>
       )}
     </div>
-  )
+    )
+  }
 
   const isActive = (path) =>
     path === '/' ? location.pathname === '/' : location.pathname.startsWith(path)
@@ -210,7 +280,7 @@ export default function Navbar() {
 
           {/* ── Actions ── */}
           <div className="flex items-center gap-3 flex-shrink-0">
-            <div className="hidden xl:block"><SearchBox /></div>
+            <div className="hidden xl:block">{renderSearchBox()}</div>
             <Link to="/contact"
               className="hidden xl:inline-flex items-center gap-2 px-5 py-2.5 bg-navy-900 text-white text-xs font-bold tracking-widest uppercase rounded hover:bg-navy-700 transition-colors shadow-sm whitespace-nowrap">
               GET A QUOTE
@@ -229,7 +299,7 @@ export default function Navbar() {
         {mobileOpen && (
           <div className="xl:hidden border-t-[3px] border-amber-500 bg-white shadow-industry-lg">
             <div className="flex flex-col px-6 py-4 gap-0.5 max-h-[80vh] overflow-y-auto">
-              <div className="pb-3 mb-1 border-b border-gray-100"><SearchBox mobile /></div>
+              <div className="pb-3 mb-1 border-b border-gray-100">{renderSearchBox(true)}</div>
 
               <Link to="/"
                 className={`py-3 px-2 text-sm font-semibold border-b border-gray-100 transition-all

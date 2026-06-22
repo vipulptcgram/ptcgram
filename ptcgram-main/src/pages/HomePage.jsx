@@ -9,6 +9,7 @@ const CATEGORY_MAP = {
   solvents: 'Solvents',
   acids: 'Acids',
   industrial: 'Industrial Chemicals',
+  'dietary-supplements': 'Dietary Supplements',
   household: 'Household Cleaning Concentrates',
 }
 
@@ -99,6 +100,7 @@ export default function HomePage() {
     { id: 'solvents', slug: '/solvents', name: 'Solvents', description: 'Industrial chemicals for dissolving, extracting and as chemical feedstocks across textiles, pharma and manufacturing.' },
     { id: 'acids', slug: '/acids', name: 'Acids', description: 'High-purity industrial acids for chemical synthesis, metal processing, food and pharmaceutical applications.' },
     { id: 'industrial', slug: '/industrial', name: 'Industrial Chemicals', description: 'Wide range of commercial chemicals for large-scale manufacturing, cleaning formulation and industrial processing.' },
+    { id: 'dietary-supplements', slug: '/dietary-supplements', name: 'Dietary Supplements', description: 'Vitamins and nutraceutical ingredients for dietary supplement, food fortification and animal feed applications.' },
     { id: 'household', slug: '/household', name: 'Household Cleaning Concentrates', description: 'Professional-grade concentrated cleaning solutions and disinfectants for home, commercial and institutional use.' },
   ]
 
@@ -212,7 +214,7 @@ export default function HomePage() {
               </div>
 
               <div className="flex items-center gap-5 w-full">
-                {[['2009', 'Founded'], ['4', 'Categories'], ['Mumbai', 'HQ']].map(([num, lbl], i, arr) => (
+                {[['2009', 'Founded'], ['5', 'Categories'], ['Mumbai', 'HQ']].map(([num, lbl], i, arr) => (
                   <div key={lbl} className="flex items-center gap-5 flex-1">
                     <div className="flex flex-col items-center flex-1">
                       <span className="font-serif text-xl text-navy-900 leading-none">{num}</span>
@@ -262,7 +264,7 @@ export default function HomePage() {
               <Divider />
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-navy-900">Our Product Categories</h2>
               <p className="text-sm text-gray-500 max-w-md leading-relaxed">
-                Reliable, up-to-the-mark solutions across four major chemical categories.
+                Reliable, up-to-the-mark solutions across five major chemical categories.
               </p>
             </div>
             <Link to="/solvents"
@@ -271,7 +273,7 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {categories.map(cat => {
               const count = (productData[CATEGORY_MAP[cat.id]] || []).length
               return (
