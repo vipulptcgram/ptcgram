@@ -190,6 +190,15 @@ function quoteReplyUrl(quote) {
   return `mailto:${quote.email || ''}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 }
 
+function escapeHtml(value = '') {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
 function normalizedProductName(name = '') {
   return String(name)
     .toLowerCase()
@@ -609,6 +618,7 @@ export default function AdminPage() {
   const [saleSearch, setSaleSearch] = useState('')
   const [challanSearch, setChallanSearch] = useState('')
   const [challanStatusFilter, setChallanStatusFilter] = useState('all')
+  const [activeSection, setActiveSection] = useState('products')
 
   useEffect(() => onAuthStateChanged(auth, async (nextUser) => {
     setChecking(true)
@@ -631,7 +641,7 @@ export default function AdminPage() {
     return onSnapshot(collection(db, 'products'), (snapshot) => {
       const managed = snapshot.docs
         .map((item) => item.data())
-        .filter((item) => item.product && !item.deleted)
+        .filter((item) => item.product)
       setProducts(managed)
     }, (error) => setMessage(error.message))
   }, [authorized])
@@ -688,6 +698,16 @@ export default function AdminPage() {
       }
     }
     for (const item of products) {
+      if (item.deleted) {
+        const nameKey = normalizedProductName(item.product.name)
+        merged.delete(`${item.categoryId}:${nameKey}`)
+        for (const [key, existing] of merged) {
+          if (key.startsWith(`${item.categoryId}:`) && Number(existing.product.id) === Number(item.product.id)) {
+            merged.delete(key)
+          }
+        }
+        continue
+      }
       merged.set(`${item.categoryId}:${normalizedProductName(item.product.name)}`, item)
     }
     return [...merged.values()]
@@ -757,6 +777,15 @@ export default function AdminPage() {
       || (imageFilter === 'without' && !hasUsableProductImage(product.image)))
     .sort((a, b) => Number(hasUsableProductImage(b.image)) - Number(hasUsableProductImage(a.image)) || Number(a.id) - Number(b.id)),
   [allProducts, categories, categoryId, search, imageFilter])
+  const adminSections = [
+    { id: 'products', label: 'Products', count: allProducts.length },
+    { id: 'inventory', label: 'Inventory', count: trackedInventoryRows.length },
+    { id: 'sales', label: 'Manual Sales', count: manualSales.length },
+    { id: 'challans', label: 'Delivery Challan', count: deliveryChallans.length },
+    { id: 'quotes', label: 'Quote Requests', count: quoteRequests.length },
+    { id: 'categories', label: 'Categories', count: categories.length },
+  ]
+  const sectionClass = (sectionId) => activeSection === sectionId ? '' : 'hidden'
 
   async function importCatalog() {
     setBusy(true)
@@ -1090,6 +1119,7 @@ export default function AdminPage() {
   }
 
   function prepareChallanFromSale(sale) {
+    setActiveSection('challans')
     setChallanForm({
       saleId: sale.id,
       customerName: sale.customerName || '',
@@ -1150,6 +1180,94 @@ export default function AdminPage() {
     }
   }
 
+  function printChallan(challan) {
+    const linkedSale = manualSales.find((sale) => sale.id === challan.linkedSaleId)
+    const receiptRows = [
+      ['Challan Number', challan.challanNumber || '-'],
+      ['Dispatch Date', challan.dispatchDate || '-'],
+      ['Status', challan.status || '-'],
+      ['Customer Name', challan.customerName || '-'],
+      ['Linked Order ID', challan.linkedOrderId || '-'],
+      ['Vehicle Number', challan.vehicleNumber || '-'],
+      ['Product', challan.productName || linkedSale?.productName || '-'],
+      ['Quantity', `${challan.quantity || linkedSale?.quantity || '-'} ${challan.unit || linkedSale?.unit || DEFAULT_UNIT}`],
+      ['Notes', challan.notes || '-'],
+    ]
+
+    const receiptWindow = window.open('', '_blank', 'width=900,height=700')
+    if (!receiptWindow) {
+      setMessage('Allow popups to print the delivery challan receipt.')
+      return
+    }
+
+    receiptWindow.document.write(`
+      <!doctype html>
+      <html>
+        <head>
+          <title>${escapeHtml(challan.challanNumber || 'Delivery Challan')}</title>
+          <style>
+            * { box-sizing: border-box; }
+            body { margin: 0; padding: 32px; font-family: Arial, sans-serif; color: #111827; }
+            .receipt { max-width: 820px; margin: 0 auto; border: 1px solid #d1d5db; padding: 28px; }
+            .header { display: flex; justify-content: space-between; gap: 24px; border-bottom: 3px solid #f59e0b; padding-bottom: 18px; margin-bottom: 24px; }
+            .brand { font-size: 28px; font-weight: 800; color: #0f172a; letter-spacing: 0.04em; }
+            .subtitle { margin-top: 4px; font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.12em; }
+            .contact { text-align: right; font-size: 12px; line-height: 1.7; color: #4b5563; }
+            h1 { margin: 0 0 18px; font-size: 22px; color: #0f172a; }
+            table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+            th, td { border: 1px solid #e5e7eb; padding: 12px; text-align: left; vertical-align: top; }
+            th { width: 32%; background: #f9fafb; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #6b7280; }
+            td { font-size: 14px; color: #111827; }
+            .footer { display: flex; justify-content: space-between; gap: 24px; margin-top: 56px; font-size: 12px; color: #6b7280; }
+            .sign { border-top: 1px solid #9ca3af; padding-top: 8px; min-width: 220px; text-align: center; color: #111827; }
+            @media print {
+              body { padding: 0; }
+              .receipt { border: 0; }
+              .no-print { display: none; }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="receipt">
+            <div class="header">
+              <div>
+                <div class="brand">PTCGRAM PVT LTD</div>
+                <div class="subtitle">Delivery Challan Receipt</div>
+              </div>
+              <div class="contact">
+                Contact: +91 97-10-879-879<br />
+                Email: support.ptcgram@gmail.com<br />
+                Virar(E), Palghar, Mumbai
+              </div>
+            </div>
+            <h1>${escapeHtml(challan.challanNumber || 'Delivery Challan')}</h1>
+            <table>
+              <tbody>
+                ${receiptRows.map(([label, value]) => `
+                  <tr>
+                    <th>${escapeHtml(label)}</th>
+                    <td>${escapeHtml(value)}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+            <div class="footer">
+              <div>Generated from PTCGRAM admin panel.</div>
+              <div class="sign">Authorized Signature</div>
+            </div>
+          </div>
+          <script>
+            window.onload = () => {
+              window.focus();
+              window.print();
+            };
+          </script>
+        </body>
+      </html>
+    `)
+    receiptWindow.document.close()
+  }
+
   async function markQuoteStatus(quote, status) {
     try {
       await setDoc(doc(db, 'quoteRequests', quote.id), {
@@ -1172,15 +1290,23 @@ export default function AdminPage() {
 
   async function removeProduct(product) {
     if (!window.confirm(`Delete ${product.name}?`)) return
-    await setDoc(doc(db, 'products', productDocumentId(categoryId, product.id)), {
-      categoryId,
-      deleted: true,
-      product: {
-        id: product.id,
-        name: product.name,
-      },
-      updatedAt: serverTimestamp(),
-    })
+    setBusy(true)
+    try {
+      await setDoc(doc(db, 'products', productDocumentId(categoryId, product.id)), {
+        categoryId,
+        deleted: true,
+        product: {
+          id: product.id,
+          name: product.name,
+        },
+        updatedAt: serverTimestamp(),
+      })
+      setMessage(`${product.name} deleted.`)
+    } catch (error) {
+      setMessage(`Delete failed: ${error.message}`)
+    } finally {
+      setBusy(false)
+    }
   }
 
   if (checking) {
@@ -1242,7 +1368,27 @@ export default function AdminPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
         {message && <div className="mb-5 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">{message}</div>}
 
-        <div className="bg-navy-900 text-white rounded-2xl p-4 sm:p-6 mb-6 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div className="bg-white border border-gray-200 rounded-2xl p-2 mb-6 flex gap-2 overflow-x-auto">
+          {adminSections.map((section) => (
+            <button
+              key={section.id}
+              type="button"
+              onClick={() => setActiveSection(section.id)}
+              className={`flex-shrink-0 inline-flex items-center gap-2 rounded-xl px-4 py-3 text-xs font-bold uppercase tracking-widest transition-colors ${
+                activeSection === section.id
+                  ? 'bg-navy-900 text-white shadow-sm'
+                  : 'bg-gray-50 text-gray-500 hover:bg-gray-100 hover:text-navy-900'
+              }`}
+            >
+              {section.label}
+              <span className={`rounded-full px-2 py-0.5 text-[0.62rem] ${activeSection === section.id ? 'bg-white/15 text-white' : 'bg-white text-gray-400'}`}>
+                {section.count}
+              </span>
+            </button>
+          ))}
+        </div>
+
+        <div className={`${sectionClass('products')} bg-navy-900 text-white rounded-2xl p-4 sm:p-6 mb-6 flex flex-col lg:flex-row lg:items-center justify-between gap-4`}>
           <div>
             <h2 className="font-serif text-xl sm:text-2xl">Import Products From CSV</h2>
             <p className="text-xs sm:text-sm text-white/55 mt-2 max-w-2xl">
@@ -1260,7 +1406,7 @@ export default function AdminPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 mb-6">
+        <div className={`${sectionClass('products')} grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 mb-6`}>
           {[
             ['Total Products', allProducts.length, 'all'],
             ['With Images', imageCount, 'with'],
@@ -1279,7 +1425,7 @@ export default function AdminPage() {
           ))}
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 mb-6">
+        <div className={`${sectionClass('quotes')} bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 mb-6`}>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-5">
             <div>
               <h2 className="font-serif text-2xl text-navy-900">Quote Requests</h2>
@@ -1359,7 +1505,7 @@ export default function AdminPage() {
           )}
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 mb-6">
+        <div className={`${sectionClass('inventory')} bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 mb-6`}>
           <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-5 mb-6">
             <div>
               <h2 className="font-serif text-2xl text-navy-900">Inventory</h2>
@@ -1497,7 +1643,7 @@ export default function AdminPage() {
           </div>
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 mb-6">
+        <div className={`${sectionClass('sales')} bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 mb-6`}>
           <div className="mb-6">
             <h2 className="font-serif text-2xl text-navy-900">Manual Sales</h2>
             <p className="text-sm text-gray-500 mt-1">Create manual sales, deduct stock once, and connect them to delivery challans.</p>
@@ -1674,7 +1820,7 @@ export default function AdminPage() {
           </div>
         </div>
 
-        <div id="delivery-challan-section" className="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 mb-6">
+        <div id="delivery-challan-section" className={`${sectionClass('challans')} bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 mb-6`}>
           <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-5 mb-6">
             <div>
               <h2 className="font-serif text-2xl text-navy-900">Delivery Challan</h2>
@@ -1816,7 +1962,7 @@ export default function AdminPage() {
                     <td className="px-4 py-3">{challan.vehicleNumber || '-'}</td>
                     <td className="px-4 py-3"><span className="rounded-full bg-gray-100 px-3 py-1 text-[0.62rem] font-bold uppercase tracking-widest text-gray-600">{challan.status}</span></td>
                     <td className="px-4 py-3">
-                      <button type="button" className="rounded-lg border border-gray-200 px-3 py-2 text-xs font-bold text-gray-600 hover:border-amber-400">View</button>
+                      <button type="button" onClick={() => printChallan(challan)} className="rounded-lg border border-gray-200 px-3 py-2 text-xs font-bold text-gray-600 hover:border-amber-400">Print Receipt</button>
                     </td>
                   </tr>
                 ))}
@@ -1825,7 +1971,7 @@ export default function AdminPage() {
           </div>
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 mb-6">
+        <div className={`${sectionClass('categories')} bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 mb-6`}>
           <div className="flex items-center justify-between gap-3 mb-4">
             <div><h2 className="font-serif text-xl text-navy-900">Categories</h2><p className="text-xs text-gray-400 mt-1">Every category has a visible cover image.</p></div>
             <button onClick={() => setCategoryEditorOpen(true)} className="px-4 py-2 bg-navy-900 text-white rounded-lg text-xs font-bold">Add Category</button>
@@ -1840,7 +1986,7 @@ export default function AdminPage() {
           </div>
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+        <div className={`${sectionClass('products')} bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm`}>
           <div className="p-4 sm:p-6 border-b border-gray-200 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
             <div className="flex flex-wrap gap-2">
               {categories.map(({ id, name: label }) => (
@@ -1942,3 +2088,5 @@ export default function AdminPage() {
     </main>
   )
 }
+
+

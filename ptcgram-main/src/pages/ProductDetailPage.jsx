@@ -1,11 +1,12 @@
 ﻿import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { getDisplayImageUrl, getDisplayImageUrls } from '../utils/productImage'
+import { getDisplayImageGroups, getDisplayImageUrl, getDisplayImageUrls } from '../utils/productImage'
 import { FaArrowLeft, FaArrowRight, FaCheckCircle, FaCircle, FaEnvelope, FaFlask, FaPhoneAlt, FaRegCircle, FaTimesCircle } from 'react-icons/fa'
 import SeoMeta from '../components/SeoMeta'
 import StructuredData from '../components/StructuredData'
 import { SITE_URL, absoluteUrl } from '../utils/seo'
 import { parseProductIdFromParam, toProductSlug } from '../utils/productSeo'
+import { getProductVariantOptions } from '../utils/productVariants'
 import { CATEGORY_MAP, useCatalogProducts } from '../hooks/useCatalogProducts'
 import { useCategories } from '../hooks/useCategories'
 
@@ -44,12 +45,6 @@ function getCAS(attrs = {}) {
   return attrs['CAS Number'] || attrs['CAS Number `'] || null
 }
 
-function normalizeImageSources(imageValue) {
-  if (Array.isArray(imageValue)) return imageValue.filter(Boolean)
-  if (!imageValue) return []
-  return [imageValue]
-}
-
 // categoryId now comes as a PROP (passed from App.jsx routes), not from useParams
 export default function ProductDetailPage({ categoryId }) {
   const { productSlug, categoryId: routeCategoryId } = useParams()
@@ -60,18 +55,16 @@ export default function ProductDetailPage({ categoryId }) {
   const products = useCatalogProducts(activeCategoryId)
   const productId = parseProductIdFromParam(productSlug)
   const product  = products.find(p => p.id === productId)
-  const sourceImages = normalizeImageSources(product?.image)
-  const galleryImageCandidates = sourceImages
-    .map(src => getDisplayImageUrls(src))
-    .filter(arr => Array.isArray(arr) && arr.length > 0)
+  const galleryImageCandidates = getDisplayImageGroups(product?.image)
   const galleryImages = galleryImageCandidates.map(arr => arr[0]).filter(Boolean)
-  const productImageCandidates = getDisplayImageUrls(product?.image)
-  const productImage = galleryImages[0] || productImageCandidates[0] || getDisplayImageUrl(product?.image)
+  const productImage = galleryImages[0] || getDisplayImageUrl(product?.image)
   const [activeImage, setActiveImage] = useState(productImage || '')
+  const [activeImageIndex, setActiveImageIndex] = useState(0)
   const [thumbImages, setThumbImages] = useState(galleryImages)
 
   useEffect(() => {
     setActiveImage(productImage || '')
+    setActiveImageIndex(0)
     setThumbImages(galleryImages)
   }, [productId, activeCategoryId, productImage, galleryImages.join('|')])
 
@@ -111,6 +104,14 @@ export default function ProductDetailPage({ categoryId }) {
   const cas         = getCAS(product.attributes)
   const { overview, sections } = parseDescription(product.short_description)
   const attrEntries = Object.entries(product.attributes).filter(([k]) => k !== 'CAS Number `')
+  const variantOptions = getProductVariantOptions(product)
+  const selectGalleryImage = (imageIndex) => {
+    if (imageIndex < 0) return
+    const image = thumbImages[imageIndex] || galleryImages[imageIndex]
+    if (!image) return
+    setActiveImage(image)
+    setActiveImageIndex(imageIndex)
+  }
   const detailTitle = `${product.name} (${jsonKey}) | PTCGRAM`
   const detailDescription = overview || product.short_description?.split('\n')[0]?.replace(/\r/g, '').trim() || `${product.name} technical details, applications and specifications.`
   const detailKeywords = `${product.name}, ${jsonKey}, CAS ${cas || ''}, industrial chemical supplier India, PTCGRAM`
@@ -179,9 +180,9 @@ export default function ProductDetailPage({ categoryId }) {
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-[0.58rem] sm:text-[0.65rem] font-semibold uppercase tracking-[0.12em] sm:tracking-widest text-white/35 mb-4 sm:mb-5 flex-wrap">
             <Link to="/" className="hover:text-amber-400 transition-colors">Home</Link>
-            <span>�</span>
+            <span>/</span>
             <Link to={`/${activeCategoryId}`} className="hover:text-amber-400 transition-colors">{jsonKey}</Link>
-            <span>�</span>
+            <span>/</span>
             <span className="text-amber-400">{product.name}</span>
           </nav>
 
@@ -244,11 +245,13 @@ export default function ProductDetailPage({ categoryId }) {
                         referrerPolicy="no-referrer"
                         loading="eager" decoding="async" fetchpriority="high" width="640" height="420" className="w-full h-56 sm:h-72 object-contain p-2 sm:p-3"
                         onError={e => {
+                          const candidates = galleryImageCandidates[activeImageIndex] || []
                           const current = e.currentTarget.getAttribute('src') || ''
-                          const currentIndex = productImageCandidates.indexOf(current)
-                          const next = productImageCandidates[currentIndex + 1]
+                          const currentIndex = candidates.indexOf(current)
+                          const next = candidates[currentIndex + 1]
                           if (next) {
                             setActiveImage(next)
+                            setThumbImages(prev => prev.map((v, idx) => (idx === activeImageIndex ? next : v)))
                             e.currentTarget.src = next
                             return
                           }
@@ -267,9 +270,12 @@ export default function ProductDetailPage({ categoryId }) {
                         <button
                           key={`${img}-${i}`}
                           type="button"
-                          onClick={() => setActiveImage(img)}
+                          onClick={() => {
+                            setActiveImage(img)
+                            setActiveImageIndex(i)
+                          }}
                           className={`w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 rounded-md border overflow-hidden transition-all ${
-                            activeImage === img ? 'border-amber-500 ring-1 ring-amber-400' : 'border-gray-200 hover:border-amber-300'
+                            activeImageIndex === i ? 'border-amber-500 ring-1 ring-amber-400' : 'border-gray-200 hover:border-amber-300'
                           }`}
                         >
                           <img
@@ -284,7 +290,7 @@ export default function ProductDetailPage({ categoryId }) {
                               const next = candidates[currentIndex + 1]
                               if (next) {
                                 setThumbImages(prev => prev.map((v, idx) => (idx === i ? next : v)))
-                                if (activeImage === current) setActiveImage(next)
+                                if (activeImageIndex === i) setActiveImage(next)
                                 e.currentTarget.src = next
                                 return
                               }
@@ -310,6 +316,32 @@ export default function ProductDetailPage({ categoryId }) {
                     <span className={`w-2 h-2 rounded-full ${product.in_stock ? 'bg-green-500' : 'bg-red-500'}`} />
                     {product.in_stock ? 'In Stock' : 'Out of Stock'}
                   </div>
+                  {variantOptions.length > 0 && (
+                    <div className="mt-6 pt-5 border-t border-gray-100">
+                      <h3 className="text-[0.68rem] font-bold tracking-widest uppercase text-navy-900 mb-3">Available Variants</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {variantOptions.map((option) => {
+                          const isLinked = option.imageIndex >= 0
+                          const isActive = isLinked && option.imageIndex === activeImageIndex
+                          const className = `rounded-full border px-3 py-1.5 text-[0.68rem] font-bold uppercase tracking-wide transition-colors ${
+                            isActive
+                              ? 'border-amber-500 bg-amber-500 text-white'
+                              : 'border-amber-200 bg-amber-50 text-amber-700'
+                          } ${isLinked ? 'hover:border-amber-500 hover:bg-amber-100 cursor-pointer' : ''}`
+
+                          return isLinked ? (
+                            <button key={option.label} type="button" onClick={() => selectGalleryImage(option.imageIndex)} className={className}>
+                              {option.label}
+                            </button>
+                          ) : (
+                            <span key={option.label} className={className}>
+                              {option.label}
+                            </span>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -394,7 +426,7 @@ export default function ProductDetailPage({ categoryId }) {
                     </div>
                   </div>
                 </div>
-                <div className="divide-y divide-gray-100">
+                  <div className="divide-y divide-gray-100">
                   {cas && (
                     <div className="flex justify-between items-center px-5 py-3 text-sm">
                       <span className="text-gray-400">CAS Number</span>
@@ -413,6 +445,35 @@ export default function ProductDetailPage({ categoryId }) {
                       {product.in_stock ? <><FaCircle className="inline mr-1 text-[10px]" />In Stock</> : <><FaRegCircle className="inline mr-1 text-[10px]" />Out of Stock</>}
                     </span>
                   </div>
+                  {variantOptions.length > 0 && (
+                    <div className="px-5 py-3 text-sm">
+                      <span className="block text-gray-400 mb-2">Variants</span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {variantOptions.slice(0, 4).map((option) => {
+                          const isLinked = option.imageIndex >= 0
+                          const isActive = isLinked && option.imageIndex === activeImageIndex
+                          const className = `rounded-full px-2 py-1 text-[0.62rem] font-semibold transition-colors ${
+                            isActive ? 'bg-amber-500 text-white' : 'bg-gray-100 text-gray-700'
+                          } ${isLinked ? 'hover:bg-amber-100 hover:text-amber-700 cursor-pointer' : ''}`
+
+                          return isLinked ? (
+                            <button key={option.label} type="button" onClick={() => selectGalleryImage(option.imageIndex)} className={className}>
+                              {option.label}
+                            </button>
+                          ) : (
+                            <span key={option.label} className={className}>
+                              {option.label}
+                            </span>
+                          )
+                        })}
+                        {variantOptions.length > 4 && (
+                          <span className="rounded-full bg-gray-100 px-2 py-1 text-[0.62rem] font-semibold text-gray-700">
+                            +{variantOptions.length - 4}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <div className="p-4">
                   <Link to="/contact" className="flex items-center justify-center gap-2 w-full py-3 bg-amber-500 text-white text-[0.7rem] font-bold tracking-widest uppercase rounded hover:bg-amber-400 transition-colors">

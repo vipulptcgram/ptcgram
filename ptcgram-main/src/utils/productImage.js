@@ -38,7 +38,9 @@ function toDisplayableGoogleDriveUrls(url = '') {
 
 function normalizeImageInput(imageValue = '') {
   if (Array.isArray(imageValue)) {
-    return imageValue.map(item => String(item).trim()).filter(Boolean)
+    return imageValue
+      .map(item => String(item).trim().replace(/^hhttps:/i, 'https:'))
+      .filter(Boolean)
   }
 
   const raw = String(imageValue || '').trim()
@@ -48,14 +50,19 @@ function normalizeImageInput(imageValue = '') {
     try {
       const parsed = JSON.parse(raw)
       if (Array.isArray(parsed)) {
-        return parsed.map(item => String(item).trim()).filter(Boolean)
+        return parsed
+          .map(item => String(item).trim().replace(/^hhttps:/i, 'https:'))
+          .filter(Boolean)
       }
     } catch {
       // Fall back below.
     }
   }
 
-  return raw.split(',').map(item => item.trim()).filter(Boolean)
+  return raw
+    .split(/\r?\n|\s*\|\s*|\s*;\s*|\s*,\s*/)
+    .map(item => item.trim().replace(/^hhttps:/i, 'https:'))
+    .filter(Boolean)
 }
 
 function isUsableImageLink(link = '') {
@@ -82,6 +89,17 @@ export function getDisplayImageUrls(imageValue = '') {
   }
 
   return [...new Set(expanded)]
+}
+
+export function getDisplayImageGroups(imageValue = '') {
+  const links = normalizeImageInput(imageValue).filter(isUsableImageLink)
+  return links
+    .map((link) => {
+      const converted = toDisplayableGoogleDriveUrls(link)
+      const candidates = Array.isArray(converted) ? converted : [converted]
+      return [...new Set(candidates.filter(Boolean))]
+    })
+    .filter((group) => group.length > 0)
 }
 
 export function getDisplayImageUrl(imageValue = '') {

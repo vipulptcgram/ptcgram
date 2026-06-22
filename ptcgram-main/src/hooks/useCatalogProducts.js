@@ -24,6 +24,71 @@ function normalizeProductName(name = '') {
     .replace(/\s+/g, ' ')
 }
 
+function normalizeImages(imageValue = '') {
+  if (Array.isArray(imageValue)) return imageValue.map((item) => String(item).trim()).filter(Boolean)
+  if (!imageValue) return []
+  return String(imageValue)
+    .split(/\r?\n|\s*\|\s*|\s*;\s*|\s*,\s*/)
+    .map((item) => item.trim())
+    .filter(Boolean)
+}
+
+function imageIdentity(url = '') {
+  return driveImageId(url) || String(url).trim()
+}
+
+function driveImageId(url = '') {
+  return String(url).match(/\/d\/([a-zA-Z0-9_-]+)/)?.[1]
+    || String(url).match(/[?&]id=([a-zA-Z0-9_-]+)/)?.[1]
+}
+
+function isCarboyDrumImage(url = '') {
+  return String(url).toLowerCase().includes('/carboy-drum/')
+}
+
+function isPackagingVariant(product = {}) {
+  return /\b(carboy|drum|kg|ltr|litre|liter|pack|bag|bottle)\b/i.test(product.name || '')
+}
+
+function mergeProductImages(fallbackProduct = {}, managedProduct = {}) {
+  const primaryImages = normalizeImages(fallbackProduct.image)
+  const primaryDriveIds = new Set(primaryImages.map(driveImageId).filter(Boolean))
+  const managedImages = normalizeImages(managedProduct.image).filter((image) => {
+    const driveId = driveImageId(image)
+    return !primaryDriveIds.size || !driveId || primaryDriveIds.has(driveId)
+  })
+  const ordered = isPackagingVariant(managedProduct)
+    ? [...managedImages, ...primaryImages]
+    : [
+      ...primaryImages.filter((image) => !isCarboyDrumImage(image)),
+      ...managedImages.filter((image) => !isCarboyDrumImage(image)),
+      ...primaryImages.filter(isCarboyDrumImage),
+      ...managedImages.filter(isCarboyDrumImage),
+    ]
+  const seen = new Set()
+  return ordered.filter((image) => {
+    const key = imageIdentity(image)
+    if (!key || seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
+
+function mergeManagedProduct(fallbackProduct, managedProduct) {
+  if (!fallbackProduct) return managedProduct
+
+  return {
+    ...fallbackProduct,
+    in_stock: managedProduct.in_stock ?? fallbackProduct.in_stock,
+    stock: managedProduct.stock ?? fallbackProduct.stock,
+    unit: managedProduct.unit ?? fallbackProduct.unit,
+    sku: managedProduct.sku ?? fallbackProduct.sku,
+    price: managedProduct.price ?? fallbackProduct.price,
+    mrp: managedProduct.mrp ?? fallbackProduct.mrp,
+    image: mergeProductImages(fallbackProduct, managedProduct),
+  }
+}
+
 function mergeCatalogProducts(fallback, snapshot) {
   const deletedIds = new Set()
   const deletedNames = new Set()
@@ -53,10 +118,16 @@ function mergeCatalogProducts(fallback, snapshot) {
 
   for (const product of managedProducts) {
     const id = Number(product.id)
+    let fallbackProduct = null
     for (const [nameKey, existing] of merged) {
-      if (Number(existing.id) === id) merged.delete(nameKey)
+      if (Number(existing.id) === id) {
+        fallbackProduct = existing
+        merged.delete(nameKey)
+      }
     }
-    merged.set(normalizeProductName(product.name), product)
+    const managedNameKey = normalizeProductName(product.name)
+    fallbackProduct = fallbackProduct || merged.get(managedNameKey)
+    merged.set(managedNameKey, mergeManagedProduct(fallbackProduct, product))
   }
 
   return [...merged.values()].sort((a, b) => Number(a.id) - Number(b.id))

@@ -1,10 +1,11 @@
 ﻿import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import PageBanner from '../components/PageBanner'
-import { getDisplayImageUrl, getDisplayImageUrls, hasUsableProductImage } from '../utils/productImage'
+import { getDisplayImageGroups, getDisplayImageUrl, hasUsableProductImage } from '../utils/productImage'
 import { FaArrowRight, FaFlask } from 'react-icons/fa'
 import SeoMeta from '../components/SeoMeta'
 import { toProductSlug } from '../utils/productSeo'
+import { getProductVariantSummary } from '../utils/productVariants'
 import { useCatalogProducts } from '../hooks/useCatalogProducts'
 import { useCategories } from '../hooks/useCategories'
 
@@ -66,13 +67,14 @@ export default function ProductCategoryPage({ categoryId }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {displayedProducts.map((product, i) => {
               const cas = getCAS(product.attributes)
-              const imageCandidates = getDisplayImageUrls(product.image)
+              const imageCandidates = getDisplayImageGroups(product.image)[0] || []
               const productImage = imageCandidates[0] || getDisplayImageUrl(product.image)
               const firstLine = product.short_description
                 ?.replace(/\r\n/g, '\n')
                 .split('\n')
                 .map(l => l.trim())
                 .find(l => l.length > 20 && !l.includes('ENQUIRE'))
+              const variantSummary = getProductVariantSummary(product)
               return (
                 <Link
                   key={product.id}
@@ -80,8 +82,8 @@ export default function ProductCategoryPage({ categoryId }) {
                   className="group bg-white border border-gray-200 rounded-xl overflow-hidden flex flex-col hover:-translate-y-1 hover:border-amber-400 hover:shadow-industry-xl transition-all duration-300"
                   style={{ animationDelay: `${i * 60}ms` }}
                 >
-                  {/* Full product image — tall, object-cover for proper fill */}
-                  <div className="relative overflow-hidden bg-white" style={{ height: 250 }}>
+                  {/* Product image */}
+                  <div className="relative overflow-hidden bg-white border-b border-gray-100" style={{ height: 250 }}>
                     {productImage ? (
                       <img
                         src={productImage}
@@ -91,7 +93,7 @@ export default function ProductCategoryPage({ categoryId }) {
                         decoding="async"
                         width="400"
                         height="250"
-                        className="w-full h-full object-fill group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-500"
                         onError={e => {
                           const current = e.currentTarget.getAttribute('src') || ''
                           const currentIndex = imageCandidates.indexOf(current)
@@ -107,10 +109,12 @@ export default function ProductCategoryPage({ categoryId }) {
                     ) : null}
                     {/* Fallback shown when no image or image fails */}
                     <div
-                      className="absolute inset-0 bg-navy-900/5 items-center justify-center text-6xl"
+                      className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-amber-50/70 items-center justify-center text-6xl"
                       style={{ display: productImage ? 'none' : 'flex' }}
                     >
-                      <FaFlask className="text-navy-900/30" />
+                      <div className="flex h-24 w-24 items-center justify-center rounded-full border border-navy-900/10 bg-white shadow-sm">
+                        <FaFlask className="text-navy-900/25" />
+                      </div>
                     </div>
 
                     {/* Stock badge top-right */}
@@ -134,6 +138,11 @@ export default function ProductCategoryPage({ categoryId }) {
                     </h3>
                     {cas && (
                       <p className="text-[0.65rem] font-mono text-gray-400 tracking-wide">CAS: {cas}</p>
+                    )}
+                    {variantSummary && (
+                      <p className="text-[0.62rem] font-bold tracking-wide uppercase text-amber-600 line-clamp-1">
+                        {variantSummary}
+                      </p>
                     )}
                     <p className="text-xs text-gray-400 leading-relaxed line-clamp-2 flex-1">
                       {firstLine || ''}
@@ -166,7 +175,8 @@ export default function ProductCategoryPage({ categoryId }) {
             </p>
           </div>
           <Link to="/contact" className="flex-shrink-0 inline-flex items-center gap-2 px-7 py-3.5 bg-amber-500 text-white text-[0.72rem] font-bold tracking-widest uppercase rounded hover:bg-amber-400 transition-colors whitespace-nowrap">
-            <span>Talk to Our Team</span>`r`n            <FaArrowRight />
+            <span>Talk to Our Team</span>
+            <FaArrowRight />
           </Link>
         </div>
       </section>
