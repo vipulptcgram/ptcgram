@@ -83,6 +83,13 @@ const EMPTY_BLOG_FORM = {
   status: 'draft',
 }
 
+const EMPTY_TEAM_FORM = {
+  uid: '',
+  email: '',
+  displayName: '',
+  role: 'team',
+}
+
 function slugifyCategory(value = '') {
   return String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
 }
@@ -619,6 +626,7 @@ export default function AdminPage() {
   const [user, setUser] = useState(null)
   const [checking, setChecking] = useState(true)
   const [authorized, setAuthorized] = useState(false)
+  const [currentRole, setCurrentRole] = useState('')
   const [message, setMessage] = useState('')
   const [categoryId, setCategoryId] = useState('solvents')
   const [products, setProducts] = useState([])
@@ -633,14 +641,17 @@ export default function AdminPage() {
   const [deliveryChallans, setDeliveryChallans] = useState([])
   const [quoteRequests, setQuoteRequests] = useState([])
   const [blogs, setBlogs] = useState([])
+  const [teamMembers, setTeamMembers] = useState([])
   const [stockInForm, setStockInForm] = useState(EMPTY_STOCK_IN)
   const [manualSaleForm, setManualSaleForm] = useState(EMPTY_MANUAL_SALE)
   const [challanForm, setChallanForm] = useState(EMPTY_CHALLAN)
   const [blogForm, setBlogForm] = useState(EMPTY_BLOG_FORM)
+  const [teamForm, setTeamForm] = useState(EMPTY_TEAM_FORM)
   const [inventorySearch, setInventorySearch] = useState('')
   const [saleSearch, setSaleSearch] = useState('')
   const [challanSearch, setChallanSearch] = useState('')
   const [blogSearch, setBlogSearch] = useState('')
+  const [teamSearch, setTeamSearch] = useState('')
   const [challanStatusFilter, setChallanStatusFilter] = useState('all')
   const [activeSection, setActiveSection] = useState('products')
 
@@ -648,11 +659,14 @@ export default function AdminPage() {
     setChecking(true)
     setUser(nextUser)
     setAuthorized(false)
+    setCurrentRole('')
 
     if (nextUser) {
       try {
         const adminRecord = await getDoc(doc(db, 'users', nextUser.uid))
-        setAuthorized(adminRecord.exists() && adminRecord.data().role === 'admin')
+        const role = adminRecord.exists() ? adminRecord.data().role : ''
+        setCurrentRole(role || '')
+        setAuthorized(['admin', 'team'].includes(role))
       } catch {
         setMessage('Unable to verify admin access. Check Firestore rules.')
       }
@@ -669,6 +683,19 @@ export default function AdminPage() {
       setProducts(managed)
     }, (error) => setMessage(error.message))
   }, [authorized])
+
+  useEffect(() => {
+    if (!authorized || currentRole !== 'admin') {
+      setTeamMembers([])
+      return undefined
+    }
+
+    return onSnapshot(collection(db, 'users'), (snapshot) => {
+      setTeamMembers(snapshot.docs
+        .map((item) => ({ id: item.id, ...item.data() }))
+        .sort((a, b) => String(a.email || '').localeCompare(String(b.email || ''))))
+    }, (error) => setMessage(error.message))
+  }, [authorized, currentRole])
 
   useEffect(() => {
     if (!authorized) return undefined
@@ -805,6 +832,15 @@ export default function AdminPage() {
       blog.status,
     ].some((value) => String(value || '').toLowerCase().includes(query))
   })
+  const filteredTeamMembers = teamMembers.filter((member) => {
+    const query = teamSearch.trim().toLowerCase()
+    return !query || [
+      member.email,
+      member.displayName,
+      member.role,
+      member.id,
+    ].some((value) => String(value || '').toLowerCase().includes(query))
+  })
 
   const visibleProducts = useMemo(() => allProducts
     .filter((item) => item.categoryId === categoryId)
@@ -827,7 +863,8 @@ export default function AdminPage() {
     { id: 'quotes', label: 'Quote Requests', count: quoteRequests.length },
     { id: 'blogs', label: 'Blogs', count: blogs.length },
     { id: 'categories', label: 'Categories', count: categories.length },
-  ]
+    currentRole === 'admin' ? { id: 'team', label: 'Team Members', count: teamMembers.filter((member) => ['admin', 'team'].includes(member.role)).length } : null,
+  ].filter(Boolean)
   const sectionClass = (sectionId) => activeSection === sectionId ? '' : 'hidden'
 
   async function importCatalog() {
@@ -1393,6 +1430,57 @@ export default function AdminPage() {
       setMessage(`Blog "${blog.title}" deleted.`)
     } catch (error) {
       setMessage(`Blog delete failed: ${error.message}`)
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  async function saveTeamMember(event) {
+    event.preventDefault()
+    if (currentRole !== 'admin') {
+      setMessage('Only admins can manage team members.')
+      return
+    }
+
+    const uid = teamForm.uid.trim()
+    if (!uid || !teamForm.email.trim()) {
+      setMessage('Team member UID and email are required.')
+      return
+    }
+
+    setBusy(true)
+    try {
+      await setDoc(doc(db, 'users', uid), {
+        email: teamForm.email.trim(),
+        displayName: teamForm.displayName.trim(),
+        role: teamForm.role,
+        updatedAt: serverTimestamp(),
+      }, { merge: true })
+      setTeamForm(EMPTY_TEAM_FORM)
+      setMessage(`${teamForm.email.trim()} can now work as ${teamForm.role}.`)
+    } catch (error) {
+      setMessage(`Team member save failed: ${error.message}`)
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  async function revokeTeamMember(member) {
+    if (member.id === user?.uid) {
+      setMessage('You cannot revoke your own access while signed in.')
+      return
+    }
+    if (!window.confirm(`Revoke access for ${member.email || member.id}?`)) return
+
+    setBusy(true)
+    try {
+      await setDoc(doc(db, 'users', member.id), {
+        role: 'revoked',
+        updatedAt: serverTimestamp(),
+      }, { merge: true })
+      setMessage(`Access revoked for ${member.email || member.id}.`)
+    } catch (error) {
+      setMessage(`Team member update failed: ${error.message}`)
     } finally {
       setBusy(false)
     }
@@ -2263,6 +2351,142 @@ export default function AdminPage() {
                       <button type="button" onClick={() => deleteBlog(blog)} className="inline-flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-4 py-2.5 text-xs font-bold text-red-600 hover:bg-red-100">
                         <FaTrash /> Delete
                       </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={`${sectionClass('team')} bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 mb-6`}>
+          <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-5 mb-6">
+            <div>
+              <h2 className="font-serif text-2xl text-navy-900">Team Members</h2>
+              <p className="text-sm text-gray-500 mt-1">Approve existing Firebase users so they can work inside the admin panel.</p>
+            </div>
+            <div className="grid grid-cols-3 gap-3 w-full lg:w-auto">
+              {[
+                ['Admins', teamMembers.filter((member) => member.role === 'admin').length],
+                ['Team', teamMembers.filter((member) => member.role === 'team').length],
+                ['Revoked', teamMembers.filter((member) => member.role === 'revoked').length],
+              ].map(([label, value]) => (
+                <div key={label} className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-3">
+                  <p className="font-serif text-2xl text-navy-900">{value}</p>
+                  <p className="text-[0.62rem] font-bold uppercase tracking-widest text-gray-400 mt-1">{label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 xl:grid-cols-[420px_1fr] gap-6">
+            <form onSubmit={saveTeamMember} className="rounded-2xl border border-gray-200 bg-gray-50 p-5 flex flex-col gap-4">
+              <div>
+                <h3 className="font-serif text-xl text-navy-900">Allow Team Member</h3>
+                <p className="text-xs text-gray-400 mt-1">Ask the person to sign in once, then add their Firebase UID here.</p>
+              </div>
+              <label className="text-xs font-bold uppercase tracking-widest text-gray-500">
+                Firebase UID
+                <input
+                  required
+                  value={teamForm.uid}
+                  onChange={(event) => setTeamForm({ ...teamForm, uid: event.target.value })}
+                  placeholder="Paste the user's UID"
+                  className="mt-2 w-full rounded-lg border border-gray-200 px-4 py-3 text-sm font-normal normal-case tracking-normal outline-none focus:border-amber-500"
+                />
+              </label>
+              <label className="text-xs font-bold uppercase tracking-widest text-gray-500">
+                Email
+                <input
+                  type="email"
+                  required
+                  value={teamForm.email}
+                  onChange={(event) => setTeamForm({ ...teamForm, email: event.target.value })}
+                  placeholder="team@example.com"
+                  className="mt-2 w-full rounded-lg border border-gray-200 px-4 py-3 text-sm font-normal normal-case tracking-normal outline-none focus:border-amber-500"
+                />
+              </label>
+              <label className="text-xs font-bold uppercase tracking-widest text-gray-500">
+                Name
+                <input
+                  value={teamForm.displayName}
+                  onChange={(event) => setTeamForm({ ...teamForm, displayName: event.target.value })}
+                  placeholder="Team member name"
+                  className="mt-2 w-full rounded-lg border border-gray-200 px-4 py-3 text-sm font-normal normal-case tracking-normal outline-none focus:border-amber-500"
+                />
+              </label>
+              <label className="text-xs font-bold uppercase tracking-widest text-gray-500">
+                Role
+                <select
+                  value={teamForm.role}
+                  onChange={(event) => setTeamForm({ ...teamForm, role: event.target.value })}
+                  className="mt-2 w-full rounded-lg border border-gray-200 px-4 py-3 text-sm font-normal normal-case tracking-normal outline-none focus:border-amber-500"
+                >
+                  <option value="team">Team Member</option>
+                  <option value="admin">Admin</option>
+                </select>
+              </label>
+              <button disabled={busy} className="inline-flex justify-center items-center gap-2 rounded-lg bg-amber-500 px-5 py-3 text-sm font-bold text-white hover:bg-amber-400 disabled:opacity-60">
+                <FaPlus /> Allow Access
+              </button>
+              <p className="text-xs text-gray-400">Team members can work on products, inventory, sales, challans, quotes, blogs, and categories. Only admins can manage this team list.</p>
+            </form>
+
+            <div className="rounded-2xl border border-gray-200 overflow-hidden">
+              <div className="px-5 py-4 border-b border-gray-200">
+                <h3 className="font-serif text-xl text-navy-900">Current Access</h3>
+                <p className="text-xs text-gray-400 mt-1">Search approved, admin, or revoked users.</p>
+                <input
+                  type="search"
+                  value={teamSearch}
+                  onChange={(event) => setTeamSearch(event.target.value)}
+                  placeholder="Search team..."
+                  className="mt-3 w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-amber-500"
+                />
+              </div>
+              <div className="divide-y divide-gray-100 max-h-[680px] overflow-y-auto">
+                {filteredTeamMembers.length === 0 ? (
+                  <p className="p-5 text-sm text-gray-400">No team members found.</p>
+                ) : filteredTeamMembers.map((member) => (
+                  <div key={member.id} className="p-5">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="min-w-0">
+                        <h4 className="font-serif text-lg text-navy-900 truncate">{member.displayName || member.email || 'Unnamed User'}</h4>
+                        <p className="text-sm text-gray-500 break-all">{member.email || '-'}</p>
+                        <p className="text-xs font-mono text-gray-400 mt-1 break-all">UID: {member.id}</p>
+                      </div>
+                      <span className={`h-fit rounded-full px-3 py-1 text-[0.62rem] font-bold uppercase tracking-widest ${
+                        member.role === 'admin'
+                          ? 'bg-navy-900 text-white'
+                          : member.role === 'team'
+                            ? 'bg-green-50 text-green-700 border border-green-200'
+                            : 'bg-red-50 text-red-600 border border-red-200'
+                      }`}>
+                        {member.role || 'none'}
+                      </span>
+                    </div>
+                    <div className="mt-4 flex gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setTeamForm({
+                          uid: member.id,
+                          email: member.email || '',
+                          displayName: member.displayName || '',
+                          role: ['admin', 'team'].includes(member.role) ? member.role : 'team',
+                        })}
+                        className="rounded-lg bg-navy-900 px-4 py-2.5 text-xs font-bold text-white hover:bg-navy-700"
+                      >
+                        Edit
+                      </button>
+                      {['admin', 'team'].includes(member.role) && (
+                        <button
+                          type="button"
+                          onClick={() => revokeTeamMember(member)}
+                          className="rounded-lg border border-red-200 bg-red-50 px-4 py-2.5 text-xs font-bold text-red-600 hover:bg-red-100"
+                        >
+                          Revoke Access
+                        </button>
+                      )}
                     </div>
                   </div>
                 ))}
