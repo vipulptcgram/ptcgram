@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FaGlobe, FaLocationDot, FaEnvelope, FaPhone } from 'react-icons/fa6'
+import { FaGlobe, FaLocationDot, FaEnvelope, FaPhone, FaWhatsapp } from 'react-icons/fa6'
 import data from '../data/siteData.json'
 
 const FooterLink = ({ to, children }) => (
@@ -13,8 +13,22 @@ const FooterLink = ({ to, children }) => (
 
 export default function Footer() {
   const { contact } = data.company
+  const phoneDigits = contact.phone.replace(/\D/g, '')
+  const phoneHref = `tel:+${phoneDigits}`
+  const whatsappHref = `https://wa.me/${phoneDigits}`
+
   return (
     <footer className="bg-navy-950 text-white/70">
+      <a
+        href={whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with PTCGRAM on WhatsApp"
+        className="fixed bottom-5 right-5 z-50 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg ring-4 ring-white/80 hover:-translate-y-1 hover:bg-[#1ebe5d] transition-all"
+      >
+        <FaWhatsapp className="text-2xl sm:text-3xl" />
+      </a>
+
       {/* Amber top line */}
       <div className="h-0.5 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600 opacity-70" />
 
@@ -77,12 +91,22 @@ export default function Footer() {
               { icon: <FaLocationDot />, label: 'Office', content: contact.address },
               { icon: <FaLocationDot />, label: 'Factory', content: contact.factoryAddress },
               { icon: <FaEnvelope />, content: contact.email, href: `mailto:${contact.email}` },
-              { icon: <FaPhone />, content: contact.phone, href: 'tel:+919710879879' },
+              { icon: <FaPhone />, content: contact.phone, href: phoneHref },
+              { icon: <FaWhatsapp />, content: `WhatsApp ${contact.phone}`, href: whatsappHref },
             ].map(({ icon, label, content, href }) => (
               <div key={content} className="flex items-start gap-2.5 text-sm text-white/50">
                 <span className="flex-shrink-0 mt-0.5">{icon}</span>
                 {href
-                  ? <a href={href} className="hover:text-amber-400 transition-colors leading-snug">{content}</a>
+                  ? (
+                    <a
+                      href={href}
+                      target={href.startsWith('https://wa.me') ? '_blank' : undefined}
+                      rel={href.startsWith('https://wa.me') ? 'noopener noreferrer' : undefined}
+                      className="hover:text-amber-400 transition-colors leading-snug"
+                    >
+                      {content}
+                    </a>
+                  )
                   : <p className="leading-snug"><strong className="block text-white/70 text-[0.65rem] uppercase tracking-wider mb-1">{label}</strong>{content}</p>}
               </div>
             ))}

@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getDisplayImageGroups, getDisplayImageUrl, getDisplayImageUrls } from '../utils/productImage'
 import { FaArrowLeft, FaArrowRight, FaCheckCircle, FaCircle, FaEnvelope, FaFlask, FaPhoneAlt, FaRegCircle, FaTimesCircle } from 'react-icons/fa'
@@ -9,6 +9,7 @@ import { parseProductIdFromParam, toProductSlug } from '../utils/productSeo'
 import { getProductVariantOptions } from '../utils/productVariants'
 import { CATEGORY_MAP, useCatalogProducts } from '../hooks/useCatalogProducts'
 import { useCategories } from '../hooks/useCategories'
+import { cleanSchemaValue, getProductSchema } from '../utils/productSchema'
 
 // Clean short_description from WP noise into overview + sections
 function parseDescription(raw = '') {
@@ -43,6 +44,68 @@ function parseDescription(raw = '') {
 
 function getCAS(attrs = {}) {
   return attrs['CAS Number'] || attrs['CAS Number `'] || null
+}
+
+function cleanSpecValue(value) {
+  return String(value || '').replace(/\\/g, '').trim()
+}
+
+function getAttributeValue(attrs = {}, names = []) {
+  for (const name of names) {
+    const value = attrs[name]
+    if (value !== undefined && value !== null && cleanSpecValue(value)) return cleanSpecValue(value)
+  }
+  return ''
+}
+
+function summarizeApplications(sections = [], categoryName = '') {
+  const applicationSections = sections.filter((section) => (
+    /application|use|industry|industrial|commercial|household|pharma|food|agriculture|laboratory|cleaning|cosmetic/i.test(section.title)
+  ))
+  const sourceSections = applicationSections.length ? applicationSections : sections
+  const points = sourceSections.flatMap((section) => section.points).filter(Boolean).slice(0, 4)
+  if (points.length) return points.join(', ')
+  return `Used in ${categoryName || 'industrial'} applications; confirm suitability with PTCGRAM.`
+}
+
+function summarizeIndustryUse(sections = [], categoryName = '') {
+  const titles = sections
+    .map((section) => section.title)
+    .filter((title) => /industry|industrial|commercial|household|pharma|food|agriculture|laboratory|cleaning|cosmetic/i.test(title))
+    .slice(0, 4)
+  if (titles.length) return titles.join(', ')
+  return categoryName || 'Industrial and commercial use'
+}
+
+function buildRequiredSpecs(product, sections, categoryName) {
+  const attrs = product.attributes || {}
+  return [
+    {
+      label: 'CAS Number',
+      value: getAttributeValue(attrs, ['CAS Number', 'CAS Number `', 'CAS No.', 'CAS No']) || 'Available on request',
+      aliases: ['CAS Number', 'CAS Number `', 'CAS No.', 'CAS No'],
+    },
+    {
+      label: 'Purity',
+      value: getAttributeValue(attrs, ['Purity', 'Assay', 'Concentration']) || 'Commercial / industrial grade; purity available on request',
+      aliases: ['Purity', 'Assay', 'Concentration'],
+    },
+    {
+      label: 'Applications',
+      value: getAttributeValue(attrs, ['Applications', 'Applications / Usage', 'Application', 'Usage']) || summarizeApplications(sections, categoryName),
+      aliases: ['Applications', 'Applications / Usage', 'Application', 'Usage'],
+    },
+    {
+      label: 'Packaging',
+      value: getAttributeValue(attrs, ['Packaging', 'Pack Size', 'Packing']) || 'Contact PTCGRAM for available pack sizes',
+      aliases: ['Packaging', 'Pack Size', 'Packing'],
+    },
+    {
+      label: 'Industry Use',
+      value: getAttributeValue(attrs, ['Industry Use', 'Industrial Use', 'Industry', 'End Use']) || summarizeIndustryUse(sections, categoryName),
+      aliases: ['Industry Use', 'Industrial Use', 'Industry', 'End Use'],
+    },
+  ]
 }
 
 // categoryId now comes as a PROP (passed from App.jsx routes), not from useParams
@@ -103,7 +166,12 @@ export default function ProductDetailPage({ categoryId }) {
   const related     = products.filter(p => p.id !== product.id).slice(0, 4)
   const cas         = getCAS(product.attributes)
   const { overview, sections } = parseDescription(product.short_description)
-  const attrEntries = Object.entries(product.attributes).filter(([k]) => k !== 'CAS Number `')
+  const requiredSpecs = buildRequiredSpecs(product, sections, jsonKey)
+  const requiredAliases = new Set(requiredSpecs.flatMap((spec) => spec.aliases))
+  const attrEntries = [
+    ...requiredSpecs.map((spec) => [spec.label, spec.value]),
+    ...Object.entries(product.attributes || {}).filter(([k]) => !requiredAliases.has(k)),
+  ]
   const variantOptions = getProductVariantOptions(product)
   const selectGalleryImage = (imageIndex) => {
     if (imageIndex < 0) return
@@ -118,37 +186,18 @@ export default function ProductDetailPage({ categoryId }) {
   const canonicalSlug = toProductSlug(product)
   const canonicalPath = `/${activeCategoryId}/${canonicalSlug}`
   const productUrl = absoluteUrl(canonicalPath)
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: product.name,
+  const productSchema = getProductSchema({
+    product,
+    categoryId: activeCategoryId,
+    categoryName: jsonKey,
     description: detailDescription,
-    category: jsonKey,
-    image: (thumbImages?.length ? thumbImages : [productImage]).filter(Boolean),
-    sku: String(product.id),
-    mpn: cas || String(product.id),
-    brand: {
-      '@type': 'Brand',
-      name: 'PTCGRAM',
-    },
-    additionalProperty: Object.entries(product.attributes || {}).map(([name, value]) => ({
+    image: productImage,
+    additionalProperty: attrEntries.map(([name, value]) => ({
       '@type': 'PropertyValue',
       name,
-      value: String(value).replace(/\\/g, ''),
+      value: cleanSchemaValue(value),
     })),
-    offers: {
-      '@type': 'Offer',
-      url: productUrl,
-      priceCurrency: 'INR',
-      price: '0',
-      availability: product.in_stock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
-      seller: {
-        '@type': 'Organization',
-        name: 'PTCGRAM PVT LTD',
-      },
-      itemCondition: 'https://schema.org/NewCondition',
-    },
-  }
+  })
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',

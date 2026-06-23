@@ -12,51 +12,45 @@ service cloud.firestore {
         && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin";
     }
 
-    function isStaff() {
-      return signedIn()
-        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
-        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ["admin", "team"];
-    }
-
     match /products/{productId} {
       allow read: if true;
-      allow create, update, delete: if isStaff();
+      allow create, update, delete: if isAdmin();
     }
 
     match /categories/{categoryId} {
       allow read: if true;
-      allow create, update, delete: if isStaff();
+      allow create, update, delete: if isAdmin();
     }
 
     match /inventory/{inventoryId} {
-      allow read, create, update, delete: if isStaff();
+      allow read, create, update, delete: if isAdmin();
     }
 
     match /inventoryTransactions/{transactionId} {
-      allow read, create, update, delete: if isStaff();
+      allow read, create, update, delete: if isAdmin();
     }
 
     match /manualSales/{saleId} {
-      allow read, create, update, delete: if isStaff();
+      allow read, create, update, delete: if isAdmin();
     }
 
     match /deliveryChallans/{challanId} {
-      allow read, create, update, delete: if isStaff();
+      allow read, create, update, delete: if isAdmin();
     }
 
     match /quoteRequests/{requestId} {
       allow create: if true;
-      allow read, update, delete: if isStaff();
+      allow read, update, delete: if isAdmin();
     }
 
     match /blogs/{blogId} {
       allow read: if true;
-      allow create, update, delete: if isStaff();
+      allow create, update, delete: if isAdmin();
     }
 
     match /users/{userId} {
-      allow read: if isAdmin() || (signedIn() && request.auth.uid == userId);
-      allow create, update, delete: if isAdmin();
+      allow read: if signedIn() && request.auth.uid == userId;
+      allow write: if false;
     }
 
     match /{document=**} {

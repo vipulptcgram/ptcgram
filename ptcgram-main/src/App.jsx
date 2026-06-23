@@ -12,6 +12,7 @@ const ContactPage = lazy(() => import('./pages/ContactPage'))
 const ProductCategoryPage = lazy(() => import('./pages/ProductCategoryPage'))
 const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'))
 const ImportExportPage = lazy(() => import('./pages/ImportExportPage'))
+const HighlightedProductsPage = lazy(() => import('./pages/HighlightedProductsPage'))
 const AdminPage = lazy(() => import('./pages/AdminPage'))
 
 function ScrollToTop() {
@@ -95,6 +96,7 @@ export default function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/import-export" element={<ImportExportPage />} />
+              <Route path="/highlighted-products" element={<HighlightedProductsPage />} />
               <Route path="/solvents" element={<ProductCategoryPage categoryId="solvents" />} />
               <Route path="/acids" element={<ProductCategoryPage categoryId="acids" />} />
               <Route path="/industrial" element={<ProductCategoryPage categoryId="industrial" />} />

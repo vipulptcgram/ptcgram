@@ -3,14 +3,23 @@ import { FaArrowDown, FaCheck, FaFlask, FaArrowRightLong, FaAward, FaTruckFast, 
 import siteData from '../data/siteData.json'
 import productData from '../data/productdetail.json'
 import SeoMeta from '../components/SeoMeta'
+import StructuredData from '../components/StructuredData'
+import HighlightedProductCard from '../components/HighlightedProductCard'
+import { CATEGORY_MAP, highlightedProducts } from '../utils/highlightedProducts'
 // import "../components/LoadingScreen.css"
 
-const CATEGORY_MAP = {
-  solvents: 'Solvents',
-  acids: 'Acids',
-  industrial: 'Industrial Chemicals',
-  'dietary-supplements': 'Dietary Supplements',
-  household: 'Household Cleaning Concentrates',
+const productCategorySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Industrial Chemical Product Categories',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Industrial Chemicals' },
+    { '@type': 'ListItem', position: 2, name: 'Speciality Chemicals' },
+    { '@type': 'ListItem', position: 3, name: 'Chemical Solvents' },
+    { '@type': 'ListItem', position: 4, name: 'Acids' },
+    { '@type': 'ListItem', position: 5, name: 'Phenyl Concentrates' },
+    { '@type': 'ListItem', position: 6, name: 'Ethanol' },
+  ],
 }
 
 // const AtomSVG = ({ className = '' }) => (
@@ -112,6 +121,7 @@ export default function HomePage() {
         canonical="/"
         keywords="chemical distributor India, specialty chemicals, industrial solvents, industrial acids, bulk chemical supplier, PTCGRAM"
       />
+      <StructuredData data={productCategorySchema} />
       {/* ── HERO ── */}
       <section
         className="home-hero-section relative min-h-[78vh] md:min-h-screen flex flex-col justify-start md:justify-center overflow-hidden"
@@ -258,8 +268,31 @@ export default function HomePage() {
       {/* ── PRODUCTS OVERVIEW ── */}
       <section className="home-products-section py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-16">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+              <div className="flex flex-col gap-4">
+                <Eyebrow>High-Demand Chemicals</Eyebrow>
+                <Divider />
+                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-navy-900">Highlighted Products</h2>
+                <p className="text-sm text-gray-500 max-w-xl leading-relaxed">
+                  Fast-moving industrial chemicals, acids, solvents, gums and waxes kept easy to find for quick enquiries.
+                </p>
+              </div>
+              <Link
+                to="/highlighted-products"
+                className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 bg-navy-900 text-white text-[0.72rem] font-bold tracking-widest uppercase rounded hover:bg-amber-500 transition-all duration-200">
+                View All Products <FaArrowRightLong />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              {highlightedProducts.map((product) => (
+                <HighlightedProductCard key={`${product.categoryId}-${product.id}`} product={product} />
+              ))}
+            </div>
+          </div>
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
-            <div className="flex flex-col gap-4">
+            <div id="product-categories" className="flex flex-col gap-4 scroll-mt-24">
               <Eyebrow>What We Offer</Eyebrow>
               <Divider />
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-navy-900">Our Product Categories</h2>
@@ -340,3 +373,4 @@ export default function HomePage() {
     </div>
   )
 }
+
