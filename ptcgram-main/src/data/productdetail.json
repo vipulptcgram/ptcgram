@@ -382,6 +382,26 @@
       }
     },
     {
+      "id": 3071,
+      "name": "NC Thinner",
+      "in_stock": true,
+      "short_description": "NC Thinner is a fast-evaporating solvent blend formulated for nitrocellulose-based paints, lacquers, primers, sealers, and wood coating systems. It helps adjust viscosity, improve spray application, support smooth film formation, and clean paint tools or equipment after use. Product grade, blend specification, packaging, and handling requirements should be confirmed for the intended coating process.\n\nApplications\n- Nitrocellulose Paints\n- Lacquers and Primers\n- Wood Coatings\n- Spray Painting\n- Cleaning Paint Tools",
+      "image": [
+        "/Images/products/carboy-drum/nc-thinner-872.jpg"
+      ],
+      "attributes": {
+        "Chemical Name": "NC Thinner",
+        "Scientific Name": "Nitrocellulose Thinner Blend",
+        "Chemical Formula": "Mixture",
+        "Appearance": "Clear Colorless Liquid",
+        "Odor": "Characteristic Solvent Odor",
+        "Applications / Usage": "Nitrocellulose Paints, Lacquers, Primers, Wood Coatings, Spray Painting, Cleaning Paint Tools",
+        "Grade": "Commercial / Industrial Grade",
+        "Packaging": "Contact PTCGRAM for available pack sizes",
+        "Storage": "Store tightly closed in a cool, dry, well-ventilated area away from heat, sparks, open flames, and direct sunlight."
+      }
+    },
+    {
       "id": 3064,
       "name": "D.P.G.",
       "in_stock": true,
@@ -906,7 +926,9 @@
       "name": "Propylene Glycol",
       "in_stock": true,
       "short_description": "Propylene Glycol (PG) is a clear, colorless, hygroscopic liquid widely used in pharmaceutical, cosmetic, food, personal care, and industrial applications. It functions as a humectant, solvent, carrier, moisturizer, and stabilizer in various formulations. Due to its excellent water solubility and low toxicity, Propylene Glycol is commonly used in skincare products, medicines, food additives, fragrances, and chemical manufacturing processes.\r\n\r\nENQUIRE NOW\r\n\r\nKey Features\r\n\r\n \tExcellent Humectant and Moisture Retention Agent.\r\n \tHighly Effective Solvent for Active Ingredients and Fragrances.\r\n \tCompletely Miscible with Water and Many Organic Solvents.\r\n \tWidely Used in Pharmaceutical, Cosmetic, and Food Industries.\r\n \tProvides Stability and Improved Product Performance.\r\n \tLow Toxicity and High Purity Grade Available.",
-      "image": [],
+      "image": [
+        "/Images/products/carboy-drum/propylene-glycol-500x500.webp"
+      ],
       "attributes": {
         "Chemical Name": "Propylene Glycol",
         "IUPAC Name": "Propane-1,2-diol",
