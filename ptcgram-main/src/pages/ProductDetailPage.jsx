@@ -115,6 +115,7 @@ export default function ProductDetailPage({
   canonicalOverride,
   robots,
   exportCountryLabel,
+  productNameOverride,
   disableCanonicalRedirect = false,
 }) {
   const { productSlug, categoryId: routeCategoryId } = useParams()
@@ -180,6 +181,7 @@ export default function ProductDetailPage({
     ...requiredSpecs.map((spec) => [spec.label, spec.value]),
     ...Object.entries(product.attributes || {}).filter(([k]) => !requiredAliases.has(k)),
   ]
+  const displayProductName = productNameOverride || product.name
   const variantOptions = getProductVariantOptions(product)
   const selectGalleryImage = (imageIndex) => {
     if (imageIndex < 0) return
@@ -188,13 +190,13 @@ export default function ProductDetailPage({
     setActiveImage(image)
     setActiveImageIndex(imageIndex)
   }
-  const exportMarketTitle = exportCountryLabel ? `${product.name} Exporter in ${exportCountryLabel}` : ''
+  const exportMarketTitle = exportCountryLabel ? `${displayProductName} Exporter in ${exportCountryLabel}` : ''
   const detailTitle = exportMarketTitle ? `${exportMarketTitle} | PTCGRAM` : `${product.name} (${jsonKey}) | PTCGRAM`
   const detailDescription = exportMarketTitle
     ? `${exportMarketTitle}. Reliable specialty chemical manufacturer, exporter and distributor with documentation support, bulk orders and container load shipping.`
     : overview || product.short_description?.split('\n')[0]?.replace(/\r/g, '').trim() || `${product.name} technical details, applications and specifications.`
   const detailKeywords = exportMarketTitle
-    ? `${product.name}, ${exportCountryLabel} chemical exporter, ${jsonKey}, bulk chemical supplier, PTCGRAM`
+    ? `${displayProductName}, ${exportCountryLabel} chemical exporter, ${jsonKey}, bulk chemical supplier, PTCGRAM`
     : `${product.name}, ${jsonKey}, CAS ${cas || ''}, industrial chemical supplier India, PTCGRAM`
   const canonicalSlug = toProductSlug(product)
   const canonicalPath = canonicalOverride || `/${activeCategoryId}/${canonicalSlug}`
@@ -217,7 +219,7 @@ export default function ProductDetailPage({
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
       { '@type': 'ListItem', position: 2, name: jsonKey, item: absoluteUrl(`/${activeCategoryId}`) },
-      { '@type': 'ListItem', position: 3, name: product.name, item: productUrl },
+      { '@type': 'ListItem', position: 3, name: displayProductName, item: productUrl },
     ],
   }
 
@@ -246,7 +248,7 @@ export default function ProductDetailPage({
             <span>/</span>
             <Link to={`/${activeCategoryId}`} className="hover:text-amber-400 transition-colors">{jsonKey}</Link>
             <span>/</span>
-            <span className="text-amber-400">{product.name}</span>
+            <span className="text-amber-400">{displayProductName}</span>
           </nav>
 
           <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
@@ -254,7 +256,7 @@ export default function ProductDetailPage({
               <span className="inline-flex text-[0.62rem] font-bold tracking-[0.15em] uppercase text-amber-400 bg-amber-500/15 border border-amber-400/25 px-3 py-1 rounded-sm mb-3">
                 {jsonKey}
               </span>
-              <h1 className="font-serif text-2xl sm:text-3xl md:text-5xl text-white mb-4 leading-tight">{product.name}</h1>
+              <h1 className="font-serif text-2xl sm:text-3xl md:text-5xl text-white mb-4 leading-tight">{displayProductName}</h1>
               {exportMarketTitle && (
                 <div className="mb-5 max-w-3xl rounded-xl border border-amber-400/25 bg-white/[0.06] px-4 py-3 backdrop-blur-sm">
                   <h2 className="text-sm sm:text-base font-semibold text-amber-300 leading-relaxed">
@@ -314,7 +316,7 @@ export default function ProductDetailPage({
                     {activeImage ? (
                       <img
                         src={activeImage}
-                        alt={`${product.name} main product image`}
+                        alt={`${displayProductName} main product image`}
                         referrerPolicy="no-referrer"
                         loading="eager" decoding="async" fetchpriority="high" width="640" height="420" className="w-full h-56 sm:h-72 object-contain p-2 sm:p-3"
                         onError={e => {
@@ -353,7 +355,7 @@ export default function ProductDetailPage({
                         >
                           <img
                             src={img}
-                            alt={`${product.name} gallery image ${i + 1}`}
+                            alt={`${displayProductName} gallery image ${i + 1}`}
                             referrerPolicy="no-referrer"
                             loading="lazy" decoding="async" width="80" height="80" className="w-full h-full object-cover"
                             onError={e => {
@@ -490,11 +492,11 @@ export default function ProductDetailPage({
                 <div className="bg-navy-900 px-5 sm:px-6 py-5 border-b-[3px] border-amber-500">
                   <div className="flex items-start gap-3">
                     {productImage
-                      ? <img src={productImage} alt={`${product.name} product image`} referrerPolicy="no-referrer" loading="lazy" decoding="async" width="48" height="48" className="w-12 h-12 rounded-lg object-cover flex-shrink-0"
+                      ? <img src={productImage} alt={`${displayProductName} product image`} referrerPolicy="no-referrer" loading="lazy" decoding="async" width="48" height="48" className="w-12 h-12 rounded-lg object-cover flex-shrink-0"
                         onError={e => { e.currentTarget.style.display = 'none' }} />
                                             : <span className="text-3xl flex-shrink-0"><FaFlask className="inline text-navy-900/30" /></span>}
                     <div className="min-w-0">
-                      <div className="font-serif text-base text-white leading-snug line-clamp-2">{product.name}</div>
+                      <div className="font-serif text-base text-white leading-snug line-clamp-2">{displayProductName}</div>
                       <div className="text-[0.6rem] font-semibold tracking-widest uppercase text-white/40 mt-1">{jsonKey}</div>
                     </div>
                   </div>
@@ -654,7 +656,7 @@ export default function ProductDetailPage({
           style={{ backgroundImage: 'repeating-linear-gradient(-45deg,white 0,white 1px,transparent 1px,transparent 16px)' }} />
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start sm:items-center justify-between gap-8">
           <div>
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-white mb-3">Interested in {product.name}?</h2>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-white mb-3">Interested in {displayProductName}?</h2>
             <p className="text-sm text-white/60 leading-relaxed max-w-lg">Contact our team for pricing, availability, minimum order quantities and delivery timelines.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto flex-shrink-0">

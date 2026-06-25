@@ -8,10 +8,18 @@
   ],
   "products": [
     {
-      "name": "Acid Slurry 90% (Grade A)",
-      "slug": "acid-slurry-90-labsa",
+      "name": "LABSA 90%",
+      "displayName": "LABSA 90%",
+      "slug": "labsa-90",
       "categoryId": "acids",
       "productSlug": "acid-slurry-90-grade-a-3069"
+    },
+    {
+      "name": "LABSA 96%",
+      "displayName": "LABSA 96%",
+      "slug": "labsa-96",
+      "categoryId": "acids",
+      "productSlug": "acid-slurry-96-grade-a-3070"
     },
     {
       "name": "Caustic Soda Flakes",
@@ -86,8 +94,16 @@
       "productSlug": "fully-refined-paraffin-wax-1115"
     },
     {
-      "name": "Ethyl Alcohol | Ethanol 99%",
-      "slug": "ethyl-alcohol-ethanol-99",
+      "name": "Ethyl Alcohol",
+      "displayName": "Ethyl Alcohol",
+      "slug": "ethyl-alcohol",
+      "categoryId": "solvents",
+      "productSlug": "ethyl-alcohol-ethanol-99-1920"
+    },
+    {
+      "name": "Ethanol 99%",
+      "displayName": "Ethanol 99%",
+      "slug": "ethanol-99",
       "categoryId": "solvents",
       "productSlug": "ethyl-alcohol-ethanol-99-1920"
     },
@@ -96,6 +112,30 @@
       "slug": "extra-neutral-alcohol",
       "categoryId": "solvents",
       "productSlug": "extra-neutral-alcohol-3068"
+    },
+    {
+      "name": "White Spirit",
+      "slug": "white-spirit",
+      "categoryId": "solvents",
+      "productSlug": "white-spirit-3067"
+    },
+    {
+      "name": "Neutral Alcohol",
+      "slug": "neutral-alcohol",
+      "categoryId": "solvents",
+      "productSlug": "neutral-alcohol-3066"
+    },
+    {
+      "name": "NC Thinner",
+      "slug": "nc-thinner",
+      "categoryId": "solvents",
+      "productSlug": "nc-thinner-3071"
+    },
+    {
+      "name": "Semi Refined Paraffin Wax",
+      "slug": "semi-refined-paraffin-wax",
+      "categoryId": "industrial",
+      "productSlug": "paraffin-wax-semi-refined-1116"
     }
   ]
 }

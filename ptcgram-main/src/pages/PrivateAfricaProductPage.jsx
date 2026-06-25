@@ -36,6 +36,7 @@ export default function PrivateAfricaProductPage() {
       canonicalOverride={location.pathname}
       robots="noindex,nofollow,noarchive,nosnippet"
       exportCountryLabel={countryLabels[country]}
+      productNameOverride={product.displayName}
       disableCanonicalRedirect
     />
   )

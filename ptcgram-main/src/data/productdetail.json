@@ -387,6 +387,7 @@
       "in_stock": true,
       "short_description": "NC Thinner is a fast-evaporating solvent blend formulated for nitrocellulose-based paints, lacquers, primers, sealers, and wood coating systems. It helps adjust viscosity, improve spray application, support smooth film formation, and clean paint tools or equipment after use. Product grade, blend specification, packaging, and handling requirements should be confirmed for the intended coating process.\n\nApplications\n- Nitrocellulose Paints\n- Lacquers and Primers\n- Wood Coatings\n- Spray Painting\n- Cleaning Paint Tools",
       "image": [
+        "/Images/products/nc-thinner-beaker.svg",
         "/Images/products/carboy-drum/nc-thinner-872.jpg"
       ],
       "attributes": {
@@ -438,7 +439,9 @@
       "name": "White Spirit",
       "in_stock": true,
       "short_description": "White Spirit is supplied as Mineral Spirits for commercial and industrial requirements. It is commonly selected for paints, coatings, cleaning applications. Product grade, concentration, packaging, and handling requirements should be confirmed for the intended process.\n\nApplications\n- Paints\n- Coatings\n- Cleaning",
-      "image": [],
+      "image": [
+        "/Images/products/white-spirit-500x500.webp"
+      ],
       "attributes": {
         "Chemical Name": "White Spirit",
         "Scientific Name": "Mineral Spirits",
@@ -495,15 +498,15 @@
     },
     {
       "id": 3069,
-      "name": "Acid Slurry 90% (Grade A)",
+      "name": "LABSA 90%",
       "in_stock": true,
-      "short_description": "Acid Slurry 90% (Grade A) is a LABSA-based surfactant grade used in detergent, dishwash, cleaning, and textile processing formulations. It is supplied in carboy and drum packing options for commercial and industrial requirements.\n\nApplications\n- Detergent Manufacturing\n- Dishwashing Liquids\n- Cleaning Agents\n- Textile Processing",
+      "short_description": "LABSA 90% is a Linear Alkyl Benzene Sulfonic Acid surfactant grade used in detergent, dishwash, cleaning, and textile processing formulations. It is supplied in carboy and drum packing options for commercial and industrial requirements.\n\nApplications\n- Detergent Manufacturing\n- Dishwashing Liquids\n- Cleaning Agents\n- Textile Processing",
       "image": [
         "/Images/products/carboy-drum/acid-slurry-90-grade-a-carboy.jpg",
         "/Images/products/carboy-drum/acid-slurry-90-grade-a-drum.jpg"
       ],
       "attributes": {
-        "Chemical Name": "Acid Slurry 90% (Grade A)",
+        "Chemical Name": "LABSA 90%",
         "Scientific Name": "Linear Alkyl Benzene Sulfonic Acid (LABSA)",
         "CAS Number": "68584-22-5",
         "Appearance": "Brown viscous liquid",
@@ -878,7 +881,9 @@
       "name": "Paraffin Wax Semi Refined",
       "in_stock": true,
       "short_description": "Semi Refined Paraffin Wax is a petroleum-derived wax containing a moderate oil content, making it an economical and versatile material for a wide range of industrial applications. It is extensively used in candle manufacturing, match production, rubber processing, packaging, waterproofing, textiles, and various chemical industries. The wax offers good flexibility, adhesion, and molding characteristics while maintaining reliable performance across multiple applications.\r\n\r\nENQUIRE NOW\r\n\r\nKey Features\r\n\r\n \tEconomical Alternative to Fully Refined Paraffin Wax.\r\n \tGood Molding and Processing Characteristics.\r\n \tSuitable for Candle, Match, Rubber, and Packaging Industries.\r\n \tProvides Excellent Moisture Resistance and Waterproofing Properties.\r\n \tGood Thermal Stability and Consistent Quality.\r\n \tAvailable in Various Melting Point Grades.",
-      "image": [],
+      "image": [
+        "/Images/products/solid-paraffin-wax-500x500.webp"
+      ],
       "attributes": {
         "Chemical Name": "Semi Refined Paraffin Wax",
         "Appearance": "White to Slightly Yellow Solid Wax Slabs",

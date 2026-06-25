@@ -1,0 +1,57 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">NC Thinner clear liquid in laboratory beaker</title>
+  <desc id="desc">A grey studio product image showing a glass beaker with clear NC Thinner liquid.</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="70%">
+      <stop offset="0%" stop-color="#bfc0c0"/>
+      <stop offset="58%" stop-color="#9d9e9e"/>
+      <stop offset="100%" stop-color="#6f7070"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.82"/>
+      <stop offset="45%" stop-color="#dfe5e7" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.62"/>
+    </linearGradient>
+    <linearGradient id="liquid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fbfb" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#d6dde0" stop-opacity="0.65"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1200" fill="url(#bg)"/>
+  <text x="800" y="192" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="800" fill="#050505">NC Thinner</text>
+
+  <ellipse cx="780" cy="1040" rx="330" ry="52" fill="#1c1c1c" opacity="0.22" filter="url(#shadow)"/>
+
+  <g transform="translate(0 10)">
+    <path d="M460 372 C460 337 500 322 558 324 L1015 324 C1087 324 1126 344 1128 374 C1130 402 1096 424 1038 432 L1015 1010 C1013 1064 976 1098 918 1100 L602 1100 C544 1098 507 1064 505 1010 L482 432 C425 424 459 374 460 372Z" fill="url(#glass)" stroke="#f7fbfc" stroke-width="7" opacity="0.78"/>
+    <path d="M484 390 C520 413 575 421 645 421 L970 421 C1040 421 1095 413 1128 389" fill="none" stroke="#ffffff" stroke-width="10" opacity="0.72"/>
+    <path d="M500 399 C552 385 620 380 705 380 L958 380 C1031 380 1083 386 1116 398" fill="none" stroke="#707477" stroke-width="8" opacity="0.42"/>
+    <path d="M504 680 L1017 680 L1003 1004 C1001 1044 973 1068 925 1070 L598 1070 C551 1068 523 1044 521 1004 Z" fill="url(#liquid)" opacity="0.75"/>
+    <path d="M508 680 C592 708 740 714 862 698 C939 688 988 681 1017 680" fill="none" stroke="#ffffff" stroke-width="9" opacity="0.68"/>
+    <path d="M542 435 L568 1004" stroke="#ffffff" stroke-width="7" opacity="0.34"/>
+    <path d="M998 435 L973 1004" stroke="#ffffff" stroke-width="7" opacity="0.34"/>
+    <path d="M513 1003 C583 1036 705 1043 820 1031 C918 1020 976 1009 1005 1004" fill="none" stroke="#ffffff" stroke-width="10" opacity="0.6"/>
+
+    <g stroke="#5b321b" stroke-linecap="square" opacity="0.9" filter="url(#soft)">
+      <line x1="744" y1="610" x2="862" y2="610" stroke-width="5"/>
+      <line x1="784" y1="610" x2="784" y2="940" stroke-width="5"/>
+      <line x1="748" y1="690" x2="820" y2="690" stroke-width="5"/>
+      <line x1="732" y1="760" x2="858" y2="760" stroke-width="5"/>
+      <line x1="748" y1="830" x2="820" y2="830" stroke-width="5"/>
+      <line x1="730" y1="900" x2="862" y2="900" stroke-width="5"/>
+    </g>
+    <g fill="#5b321b" font-family="Arial, Helvetica, sans-serif" font-weight="700" opacity="0.95">
+      <text x="680" y="628" font-size="42">40</text>
+      <text x="884" y="770" font-size="42">10</text>
+      <text x="884" y="842" font-size="42">20</text>
+      <text x="884" y="912" font-size="42">30</text>
+    </g>
+  </g>
+</svg>
