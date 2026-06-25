@@ -4,9 +4,11 @@ import path from 'node:path'
 const ROOT = process.cwd()
 const PUBLIC_DIR = path.join(ROOT, 'public')
 const OUTPUT_FILE = path.join(PUBLIC_DIR, 'sitemap.xml')
+const AFRICA_LINKS_OUTPUT_FILE = path.join(PUBLIC_DIR, 'africa-export-links.txt')
 const SITE_DATA_FILE = path.join(ROOT, 'src', 'data', 'siteData.json')
 const PRODUCT_DATA_FILE = path.join(ROOT, 'src', 'data', 'productdetail.json')
 const BLOG_DATA_FILE = path.join(ROOT, 'src', 'data', 'blog.json')
+const AFRICA_EXPORT_LINKS_FILE = path.join(ROOT, 'src', 'data', 'africaExportLinks.json')
 
 const SITE_URL = process.env.SITE_URL || 'https://ptcgram.com'
 
@@ -152,6 +154,50 @@ function collectBlogRoutes() {
   return routes
 }
 
+function collectAfricaExportRoutes(africaExportData) {
+  const basePath = normalizePath(africaExportData?.basePath || '/private/africa-specialty-chemicals')
+  const countries = Array.isArray(africaExportData?.countries) ? africaExportData.countries : []
+  const products = Array.isArray(africaExportData?.products) ? africaExportData.products : []
+  const routes = [
+    { path: basePath, changefreq: 'weekly', priority: '0.8' },
+  ]
+
+  for (const product of products) {
+    if (!product?.slug) continue
+    for (const country of countries) {
+      if (!country?.slug) continue
+      routes.push({
+        path: `${basePath}/${product.slug}-exporter-${country.slug}`,
+        changefreq: 'monthly',
+        priority: '0.7',
+      })
+    }
+  }
+
+  return routes
+}
+
+function writeAfricaExportLinksFile(africaExportData) {
+  const basePath = normalizePath(africaExportData?.basePath || '/private/africa-specialty-chemicals')
+  const countries = Array.isArray(africaExportData?.countries) ? africaExportData.countries : []
+  const products = Array.isArray(africaExportData?.products) ? africaExportData.products : []
+  const lines = ['PTCGRAM PVT LTD - Africa Export Product Links', '']
+
+  for (const product of products) {
+    if (!product?.name || !product?.slug) continue
+    lines.push(product.name)
+
+    for (const country of countries) {
+      if (!country?.slug) continue
+      lines.push(toAbsoluteUrl(`${basePath}/${product.slug}-exporter-${country.slug}`))
+    }
+
+    lines.push('')
+  }
+
+  fs.writeFileSync(AFRICA_LINKS_OUTPUT_FILE, `${lines.join('\n').trim()}\n`, 'utf8')
+}
+
 function dedupeByPath(routeRows) {
   const map = new Map()
   for (const row of routeRows) {
@@ -165,20 +211,24 @@ function main() {
 
   const siteData = readJson(SITE_DATA_FILE, {})
   const productData = readJson(PRODUCT_DATA_FILE, {})
+  const africaExportData = readJson(AFRICA_EXPORT_LINKS_FILE, {})
   const lastmodStatic = fileLastMod(SITE_DATA_FILE)
   const lastmodProducts = fileLastMod(PRODUCT_DATA_FILE)
   const lastmodBlog = fileLastMod(BLOG_DATA_FILE)
+  const lastmodAfricaExport = fileLastMod(AFRICA_EXPORT_LINKS_FILE)
 
   const staticRoutes = collectStaticRoutes().map((r) => ({ ...r, lastmod: lastmodStatic }))
   const categoryRoutes = collectCategoryRoutes(siteData).map((r) => ({ ...r, lastmod: lastmodStatic }))
   const productRoutes = collectProductRoutes(productData).map((r) => ({ ...r, lastmod: lastmodProducts }))
   const blogRoutes = collectBlogRoutes().map((r) => ({ ...r, lastmod: lastmodBlog }))
+  const africaExportRoutes = collectAfricaExportRoutes(africaExportData).map((r) => ({ ...r, lastmod: lastmodAfricaExport }))
 
   const allRoutes = dedupeByPath([
     ...staticRoutes,
     ...categoryRoutes,
     ...productRoutes,
     ...blogRoutes,
+    ...africaExportRoutes,
   ])
 
   const body = allRoutes
@@ -201,6 +251,7 @@ function main() {
   ].join('\n')
 
   fs.writeFileSync(OUTPUT_FILE, xml, 'utf8')
+  writeAfricaExportLinksFile(africaExportData)
   console.log(`Generated sitemap: ${OUTPUT_FILE} (${allRoutes.length} URLs)`)
 }
 

@@ -5,9 +5,9 @@ import { absoluteUrl } from '../utils/seo'
 
 /**
  * PageBanner - used at top of every inner page
- * Props: breadcrumbs [{label, to}], title, description
+ * Props: breadcrumbs [{label, to}], title, description, titleClassName
  */
-export default function PageBanner({ breadcrumbs = [], title, description }) {
+export default function PageBanner({ breadcrumbs = [], title, description, titleClassName = '' }) {
   const { pathname } = useLocation()
   const breadcrumbItems = [
     { label: 'Home', to: '/' },
@@ -49,7 +49,7 @@ export default function PageBanner({ breadcrumbs = [], title, description }) {
             ))}
           </nav>
         )}
-        <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-4 leading-tight">{title}</h1>
+        <h1 className={`font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-4 leading-tight ${titleClassName}`}>{title}</h1>
         {description && (
           <p className="text-base text-white/60 max-w-2xl leading-relaxed">{description}</p>
         )}

@@ -14,6 +14,8 @@ const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'))
 const ImportExportPage = lazy(() => import('./pages/ImportExportPage'))
 const HighlightedProductsPage = lazy(() => import('./pages/HighlightedProductsPage'))
 const AdminPage = lazy(() => import('./pages/AdminPage'))
+const AfricaExportPage = lazy(() => import('./pages/AfricaExportPage'))
+const PrivateAfricaProductPage = lazy(() => import('./pages/PrivateAfricaProductPage'))
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -97,6 +99,8 @@ export default function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/import-export" element={<ImportExportPage />} />
               <Route path="/highlighted-products" element={<HighlightedProductsPage />} />
+              <Route path="/private/africa-specialty-chemicals" element={<AfricaExportPage />} />
+              <Route path="/private/africa-specialty-chemicals/:productMarketSlug" element={<PrivateAfricaProductPage />} />
               <Route path="/solvents" element={<ProductCategoryPage categoryId="solvents" />} />
               <Route path="/acids" element={<ProductCategoryPage categoryId="acids" />} />
               <Route path="/industrial" element={<ProductCategoryPage categoryId="industrial" />} />

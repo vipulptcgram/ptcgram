@@ -109,14 +109,22 @@ function buildRequiredSpecs(product, sections, categoryName) {
 }
 
 // categoryId now comes as a PROP (passed from App.jsx routes), not from useParams
-export default function ProductDetailPage({ categoryId }) {
+export default function ProductDetailPage({
+  categoryId,
+  productSlugOverride,
+  canonicalOverride,
+  robots,
+  exportCountryLabel,
+  disableCanonicalRedirect = false,
+}) {
   const { productSlug, categoryId: routeCategoryId } = useParams()
+  const effectiveProductSlug = productSlugOverride || productSlug
   const activeCategoryId = categoryId || routeCategoryId
   const categories = useCategories()
   const navigate = useNavigate()
   const jsonKey = categories.find((category) => category.id === activeCategoryId)?.name || CATEGORY_MAP[activeCategoryId] || activeCategoryId
   const products = useCatalogProducts(activeCategoryId)
-  const productId = parseProductIdFromParam(productSlug)
+  const productId = parseProductIdFromParam(effectiveProductSlug)
   const product  = products.find(p => p.id === productId)
   const galleryImageCandidates = getDisplayImageGroups(product?.image)
   const galleryImages = galleryImageCandidates.map(arr => arr[0]).filter(Boolean)
@@ -134,10 +142,10 @@ export default function ProductDetailPage({ categoryId }) {
   useEffect(() => {
     if (!product) return
     const canonicalSlug = toProductSlug(product)
-    if (productSlug !== canonicalSlug) {
+    if (!disableCanonicalRedirect && productSlug !== canonicalSlug) {
       navigate(`/${activeCategoryId}/${canonicalSlug}`, { replace: true })
     }
-  }, [product, productSlug, activeCategoryId, navigate])
+  }, [disableCanonicalRedirect, product, productSlug, activeCategoryId, navigate])
 
   if (!product) {
     return (
@@ -145,7 +153,7 @@ export default function ProductDetailPage({ categoryId }) {
         <SeoMeta
           title="Product Not Found | PTCGRAM"
           description="The requested product could not be found."
-          canonical={`/${activeCategoryId}/${productSlug || ''}`}
+          canonical={canonicalOverride || `/${activeCategoryId}/${effectiveProductSlug || ''}`}
           robots="noindex,nofollow"
         />
         <div className="min-h-[60vh] flex flex-col items-center justify-center gap-6 py-24">
@@ -180,11 +188,16 @@ export default function ProductDetailPage({ categoryId }) {
     setActiveImage(image)
     setActiveImageIndex(imageIndex)
   }
-  const detailTitle = `${product.name} (${jsonKey}) | PTCGRAM`
-  const detailDescription = overview || product.short_description?.split('\n')[0]?.replace(/\r/g, '').trim() || `${product.name} technical details, applications and specifications.`
-  const detailKeywords = `${product.name}, ${jsonKey}, CAS ${cas || ''}, industrial chemical supplier India, PTCGRAM`
+  const exportMarketTitle = exportCountryLabel ? `${product.name} Exporter in ${exportCountryLabel}` : ''
+  const detailTitle = exportMarketTitle ? `${exportMarketTitle} | PTCGRAM` : `${product.name} (${jsonKey}) | PTCGRAM`
+  const detailDescription = exportMarketTitle
+    ? `${exportMarketTitle}. Reliable specialty chemical manufacturer, exporter and distributor with documentation support, bulk orders and container load shipping.`
+    : overview || product.short_description?.split('\n')[0]?.replace(/\r/g, '').trim() || `${product.name} technical details, applications and specifications.`
+  const detailKeywords = exportMarketTitle
+    ? `${product.name}, ${exportCountryLabel} chemical exporter, ${jsonKey}, bulk chemical supplier, PTCGRAM`
+    : `${product.name}, ${jsonKey}, CAS ${cas || ''}, industrial chemical supplier India, PTCGRAM`
   const canonicalSlug = toProductSlug(product)
-  const canonicalPath = `/${activeCategoryId}/${canonicalSlug}`
+  const canonicalPath = canonicalOverride || `/${activeCategoryId}/${canonicalSlug}`
   const productUrl = absoluteUrl(canonicalPath)
   const productSchema = getProductSchema({
     product,
@@ -216,6 +229,7 @@ export default function ProductDetailPage({ categoryId }) {
         description={detailDescription}
         canonical={canonicalPath}
         keywords={detailKeywords}
+        robots={robots}
         image={productImage || '/Images/logo.png'}
         ogType="product"
       />
@@ -241,6 +255,16 @@ export default function ProductDetailPage({ categoryId }) {
                 {jsonKey}
               </span>
               <h1 className="font-serif text-2xl sm:text-3xl md:text-5xl text-white mb-4 leading-tight">{product.name}</h1>
+              {exportMarketTitle && (
+                <div className="mb-5 max-w-3xl rounded-xl border border-amber-400/25 bg-white/[0.06] px-4 py-3 backdrop-blur-sm">
+                  <h2 className="text-sm sm:text-base font-semibold text-amber-300 leading-relaxed">
+                    {exportMarketTitle}
+                  </h2>
+                  <p className="mt-1 text-xs sm:text-sm text-white/60 leading-relaxed">
+                    Bulk orders, 20'/40' container loads, FOB, CIF and CFR support with export documentation and worldwide shipping.
+                  </p>
+                </div>
+              )}
               <div className="flex flex-wrap gap-4 sm:gap-6 items-center">
                 {cas && (
                   <div className="flex flex-col gap-0.5">

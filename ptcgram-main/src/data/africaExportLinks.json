@@ -1,0 +1,101 @@
+{
+  "basePath": "/private/africa-specialty-chemicals",
+  "countries": [
+    { "label": "Tanzania", "slug": "tanzania" },
+    { "label": "Ethiopia", "slug": "ethiopia" },
+    { "label": "Ghana", "slug": "ghana" },
+    { "label": "Nigeria", "slug": "nigeria" }
+  ],
+  "products": [
+    {
+      "name": "Acid Slurry 90% (Grade A)",
+      "slug": "acid-slurry-90-labsa",
+      "categoryId": "acids",
+      "productSlug": "acid-slurry-90-grade-a-3069"
+    },
+    {
+      "name": "Caustic Soda Flakes",
+      "slug": "caustic-soda-flakes",
+      "categoryId": "industrial",
+      "productSlug": "caustic-soda-flakes-1112"
+    },
+    {
+      "name": "D.E.P. (Diethyl Phthalate)",
+      "slug": "dep-diethyl-phthalate",
+      "categoryId": "solvents",
+      "productSlug": "d-e-p-diethyl-phthalate-1113"
+    },
+    {
+      "name": "Isopropyl Alcohol (IPA)",
+      "slug": "isopropyl-alcohol-ipa",
+      "categoryId": "solvents",
+      "productSlug": "isopropyl-alcohol-ipa-1923"
+    },
+    {
+      "name": "Guar Gum Powder",
+      "slug": "guar-gum-powder",
+      "categoryId": "industrial",
+      "productSlug": "guar-gum-powder-1888"
+    },
+    {
+      "name": "Propylene Glycol",
+      "slug": "propylene-glycol",
+      "categoryId": "industrial",
+      "productSlug": "propylene-glycol-1118"
+    },
+    {
+      "name": "Xanthum Gum | Polysaccharide gum",
+      "slug": "xanthum-gum-polysaccharide-gum",
+      "categoryId": "industrial",
+      "productSlug": "xanthum-gum-polysaccharide-gum-1909"
+    },
+    {
+      "name": "Phosphoric Acid (H3PO4)",
+      "slug": "phosphoric-acid-h3po4",
+      "categoryId": "acids",
+      "productSlug": "phosphoric-acid-h3po4-1944"
+    },
+    {
+      "name": "Hydrochloric Acid (HCl)",
+      "slug": "hydrochloric-acid-hcl",
+      "categoryId": "acids",
+      "productSlug": "hydrochloric-acid-hcl-1940"
+    },
+    {
+      "name": "Bleaching Powder | Calcium Hypochlorite",
+      "slug": "bleaching-powder-calcium-hypochlorite",
+      "categoryId": "industrial",
+      "productSlug": "bleaching-powder-calcium-hypochlorite-1873"
+    },
+    {
+      "name": "Light Liquid Paraffin (LLP)",
+      "slug": "light-liquid-paraffin-llp",
+      "categoryId": "industrial",
+      "productSlug": "light-liquid-paraffin-llp-1889"
+    },
+    {
+      "name": "Heavy Liquid Paraffin (HLP)",
+      "slug": "heavy-liquid-paraffin-hlp",
+      "categoryId": "industrial",
+      "productSlug": "heavy-liquid-paraffin-hlp-1114"
+    },
+    {
+      "name": "Fully Refined Paraffin Wax",
+      "slug": "fully-refined-paraffin-wax",
+      "categoryId": "industrial",
+      "productSlug": "fully-refined-paraffin-wax-1115"
+    },
+    {
+      "name": "Ethyl Alcohol | Ethanol 99%",
+      "slug": "ethyl-alcohol-ethanol-99",
+      "categoryId": "solvents",
+      "productSlug": "ethyl-alcohol-ethanol-99-1920"
+    },
+    {
+      "name": "Extra Neutral Alcohol",
+      "slug": "extra-neutral-alcohol",
+      "categoryId": "solvents",
+      "productSlug": "extra-neutral-alcohol-3068"
+    }
+  ]
+}
