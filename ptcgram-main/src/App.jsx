@@ -3,8 +3,6 @@ import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import StructuredData from './components/StructuredData'
-import siteData from './data/siteData.json'
-import { SITE_URL } from './utils/seo'
 
 const HomePage = lazy(() => import('./pages/HomePage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
@@ -44,34 +42,84 @@ export default function App() {
   const { pathname } = useLocation()
   const isAdminRoute = pathname.startsWith('/admin')
 
-  const orgSchema = {
+  const globalSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: siteData?.company?.name || 'PTCGRAM PVT LTD',
-    url: SITE_URL,
-    logo: `${SITE_URL}/Images/logo.png`,
-    email: siteData?.company?.contact?.email,
-    telephone: siteData?.company?.contact?.phone,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: siteData?.company?.contact?.address,
-      addressLocality: 'Mumbai',
-      addressRegion: 'Maharashtra',
-      postalCode: '401303',
-      addressCountry: 'IN',
-    },
-  }
-
-  const websiteSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: siteData?.company?.name || 'PTCGRAM PVT LTD',
-    url: SITE_URL,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${SITE_URL}/?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': 'https://ptcgram.com/#organization',
+        name: 'PTCGRAM PVT LTD',
+        alternateName: ['PTCGRAM', 'PTC Gram', 'PTCGRAM Private Limited'],
+        url: 'https://ptcgram.com/',
+        logo: 'https://ptcgram.com/logo.png',
+        description:
+          'PTCGRAM PVT LTD is a distributor, manufacturer, importer, exporter, wholesaler and supplier of specialty chemicals, solvents, acids, industrial chemicals and cleaning concentrates in India.',
+        foundingDate: '2009',
+        legalName: 'PTCGRAM PRIVATE LIMITED',
+        identifier: [
+          {
+            '@type': 'PropertyValue',
+            name: 'GST Number',
+            value: '27AALCP9913F1Z2',
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'CIN',
+            value: 'U24290MH2021PTC360281',
+          },
+        ],
+        areaServed: ['India', 'Tanzania', 'Ethiopia', 'Ghana', 'Nigeria', 'Africa'],
+        knowsAbout: [
+          'Specialty Chemicals',
+          'Industrial Chemicals',
+          'Chemical Solvents',
+          'Acids',
+          'Ethanol',
+          'Caustic Soda',
+          'Acid Slurry',
+          'Paraffin Wax',
+          'Guar Gum',
+          'Xanthan Gum',
+        ],
+        sameAs: ['https://www.ptcgram.in/'],
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://ptcgram.com/#website',
+        url: 'https://ptcgram.com/',
+        name: 'PTCGRAM PVT LTD',
+        publisher: {
+          '@id': 'https://ptcgram.com/#organization',
+        },
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: 'https://ptcgram.com/search?q={search_term_string}',
+          'query-input': 'required name=search_term_string',
+        },
+      },
+      {
+        '@type': 'LocalBusiness',
+        '@id': 'https://ptcgram.com/#localbusiness',
+        name: 'PTCGRAM PVT LTD',
+        image: 'https://ptcgram.com/logo.png',
+        url: 'https://ptcgram.com/',
+        description:
+          'Manufacturer, importer, exporter, distributor and wholesaler of specialty chemicals, solvents, acids and industrial chemicals.',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '203/204, Vajreshwari, Padmi Nagar, Phoolpada Road, Virar East',
+          addressLocality: 'Vasai Virar',
+          addressRegion: 'Maharashtra',
+          postalCode: '401305',
+          addressCountry: 'IN',
+        },
+        areaServed: ['Mumbai', 'Maharashtra', 'India', 'Tanzania', 'Ethiopia', 'Ghana', 'Nigeria'],
+        priceRange: '$$',
+        parentOrganization: {
+          '@id': 'https://ptcgram.com/#organization',
+        },
+      },
+    ],
   }
 
   if (isAdminRoute) {
@@ -87,7 +135,7 @@ export default function App() {
 
   return (
     <>
-      <StructuredData data={[orgSchema, websiteSchema]} />
+      <StructuredData data={globalSchema} />
       <UrlNormalizer />
       <ScrollToTop />
       <div className="pt-[68px] sm:pt-[100px] min-h-screen flex flex-col">

@@ -1,6 +1,7 @@
 ﻿import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import PageBanner from '../components/PageBanner'
+import StructuredData from '../components/StructuredData'
 import { getDisplayImageGroups, getDisplayImageUrl, hasUsableProductImage } from '../utils/productImage'
 import { FaArrowRight, FaFlask } from 'react-icons/fa'
 import SeoMeta from '../components/SeoMeta'
@@ -11,6 +12,47 @@ import { useCategories } from '../hooks/useCategories'
 
 function getCAS(attrs = {}) {
   return attrs['CAS Number'] || attrs['CAS Number `'] || null
+}
+
+const productCollectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': 'https://ptcgram.com/product/#collection',
+  name: 'PTCGRAM Chemical Products',
+  url: 'https://ptcgram.com/product',
+  description:
+    "Explore PTCGRAM's range of specialty chemicals, solvents, acids, industrial chemicals and cleaning concentrates.",
+  isPartOf: {
+    '@id': 'https://ptcgram.com/#website',
+  },
+  about: {
+    '@id': 'https://ptcgram.com/#organization',
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    name: 'Chemical Product Range',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Acid Slurry 90% LABSA',
+        url: 'https://ptcgram.com/acids/acid-slurry-90-grade-a-3069',
+      },
+      { '@type': 'ListItem', position: 2, name: 'Caustic Soda Flakes' },
+      { '@type': 'ListItem', position: 3, name: 'Isopropyl Alcohol IPA' },
+      { '@type': 'ListItem', position: 4, name: 'Ethanol 99%' },
+      { '@type': 'ListItem', position: 5, name: 'Propylene Glycol' },
+      { '@type': 'ListItem', position: 6, name: 'Diethyl Phthalate DEP' },
+      { '@type': 'ListItem', position: 7, name: 'Guar Gum Powder' },
+      { '@type': 'ListItem', position: 8, name: 'Xanthan Gum' },
+      { '@type': 'ListItem', position: 9, name: 'Hydrochloric Acid HCl' },
+      { '@type': 'ListItem', position: 10, name: 'Phosphoric Acid' },
+      { '@type': 'ListItem', position: 11, name: 'Bleaching Powder' },
+      { '@type': 'ListItem', position: 12, name: 'Light Liquid Paraffin' },
+      { '@type': 'ListItem', position: 13, name: 'Heavy Liquid Paraffin' },
+      { '@type': 'ListItem', position: 14, name: 'Fully Refined Paraffin Wax' },
+    ],
+  },
 }
 
 export default function ProductCategoryPage({ categoryId }) {
@@ -37,6 +79,7 @@ export default function ProductCategoryPage({ categoryId }) {
         keywords={`${catName}, ${catName} supplier India, industrial chemicals, bulk chemicals, PTCGRAM`}
         image={categoryImage}
       />
+      <StructuredData data={productCollectionSchema} />
       <PageBanner
         breadcrumbs={[{ label: 'Home', to: '/' }, { label: 'Products' }, { label: catName }]}
         title={meta.headline || catName}
